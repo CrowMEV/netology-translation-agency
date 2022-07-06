@@ -16,14 +16,17 @@ def show_page():
 
 
 def send_mail():
-    mail = request.form['mail']
+    user_mail = request.form['mail']
     text = request.form['text']
 
     s = smtplib.SMTP(host='smtp.mail.ru', port=25)
     s.starttls()
     s.ehlo()
     s.login(LOGIN, PASSWORD)
+    # send mail to firm
     s.sendmail(LOGIN, LOGIN, text)
+    # send mail to client
+    s.sendmail(LOGIN, user_mail, "Ваша заявка принята")
     s.quit()
     return render_template("index.html")
 
