@@ -1,7 +1,7 @@
-@import './typography.scss';
+@import "typography";
 @import './media.scss';
 
-.languages {
+.discount {
   text-align: center;
 
   h2 {
@@ -14,33 +14,40 @@
     color: $color-text;
   }
 
-  button {
-    @include button-blue;
-  }
-
-  &__item {
-    @include font-roboto-reg-20;
-    color: $color-text;
-    text-align: left;
-    display: block;
-  }
-
   @media (min-width: $breakpoint-big-high) {
     &__wrap {
-      column-count: 5;
+      display: flex;
+    }
+
+    &__item {
+      width: 25%;
     }
   }
 
   @media (min-width: $breakpoint-small-high) and (max-width: $breakpoint-big-low) {
     &__wrap {
-      column-count: 3;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    &__item {
+      width: 50%;
+      display: block;
     }
   }
 
   @media (max-width: $breakpoint-small-low) {
     &__wrap {
-      column-count: 2;
+      display: block;
     }
+    &__item {
+      display: flex;
+    }
+  }
+
+  // Это временно - просто, чтобы были видны их области
+  img {
+    width: 64px;
+    height: 64px;
   }
 
 }
