@@ -1,0 +1,60 @@
+@import "./typography.scss";
+@import './media.scss';
+
+.header{
+padding: 17px 0;
+border-bottom: 2px solid #0B527D;
+    &__menu{
+        display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+
+    &__contacts{
+        display: flex;
+        align-items: center;
+    }
+
+    &__adress{
+        display: flex;
+        flex-direction: column;
+        margin-right: 110px;
+        @include  font-roboto-reg-20;
+        color:$color-text;
+        font-size: 14px;
+        
+        p,address,a{
+color:inherit;
+        }
+      p{
+        margin-bottom: 5px;
+      }  
+
+       
+    }
+
+    &__tel{
+        display: flex;
+        flex-direction: column;
+
+        p{
+            @include  font-roboto-reg-20;
+            margin-bottom: 5px;
+            color:$color-text;
+            font-size: 14px;
+         }
+    }
+}
+
+.navbar{
+    @include  font-roboto-reg-20;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    color:$color-text;
+     font-size: 14px;
+
+    li{
+        margin-right: 40px;
+    }
+}
