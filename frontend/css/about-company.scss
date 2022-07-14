@@ -1,0 +1,17 @@
+@import "typography";
+@import './media.scss';
+
+.aboutCompany {
+
+  h2 {
+    @include font-roboto-bold-48;
+    color: $color-text;
+    text-align: center;
+  }
+
+  p {
+    @include font-roboto-reg-20;
+    color: $color-text;
+  }
+
+}
