@@ -1,0 +1,38 @@
+@import "./typography.scss";
+@import './media.scss';
+
+
+.orderTranslate{
+    background-image: url('../img/backTranslate.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50%;
+    height: 646px;
+    margin-bottom: 50px;
+
+    &__wrap{
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 200px 100px 50px;
+    }
+    
+    h1{
+@include font-roboto-bold-48;
+color: $color-white;
+margin-bottom: 20px;
+    }
+
+    p{
+        @include font-roboto-reg-22;
+        font-size: 3.2rem;
+        color: $color-white;
+        margin-bottom: 70px;
+    }
+
+    button{
+@include button-white;
+    }
+}

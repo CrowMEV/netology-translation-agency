@@ -3,10 +3,13 @@
 
 .languages {
   text-align: center;
+  margin-bottom: 80px;
+
 
   h2 {
     @include font-roboto-bold-48;
     color: $color-text;
+    margin-bottom: 60px;
   }
 
   p {
@@ -14,15 +17,19 @@
     color: $color-text;
   }
 
-  button {
+ /*  button {
     @include button-blue;
-  }
+  } */
 
   &__item {
     @include font-roboto-reg-20;
     color: $color-text;
     text-align: left;
     display: block;
+  }
+
+  &__wrap{
+    margin-bottom: 20px;
   }
 
   @media (min-width: $breakpoint-big-high) {
