@@ -1,0 +1,62 @@
+@import './typography.scss';
+@import './media.scss';
+
+.contacts {
+  text-align: center;
+
+  h2 {
+    @include font-roboto-bold-48;
+    color: $color-text;
+    margin-bottom: 60px;
+  }
+
+  p {
+    @include font-roboto-reg-14;
+    color: $color-text;
+  }
+
+  &__wrap {
+    display: flex;
+  }
+
+  &__map {
+    display: block;
+    width: 700px;
+    height: 321px;
+  }
+
+  &__links {
+    margin-left: 138px;
+    text-align: left;
+    @include font-roboto-reg-20;
+    color: $color-text;
+
+    &_item {
+      display: flex;
+
+      &_icon {
+        display: block;
+        width: 25px;
+        height: 25px;
+      }
+      &_link {
+        margin-left: 14px;
+      }
+    }
+
+    &_item:nth-child(n+2) {
+      margin-top: 16px;
+    }
+  }
+
+  &__flags {
+    margin-top: 60px;
+    margin-bottom: 70px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+
+}
+
+

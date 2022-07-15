@@ -6,6 +6,8 @@
     <meta name="theme-color" content="#212121" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="Description" />
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU&load=Geolink"
+            type="text/javascript"></script>
     <title>Document</title>
   </head>
   <body>
@@ -26,7 +28,7 @@
 </div>
         </div>
 
-       
+
       </div>
     </header>
 
@@ -34,7 +36,7 @@
 
     <!--  main -->
     <main>
-      
+
       <nav>
         <div class="container">
 
@@ -53,7 +55,7 @@
             </li>
           </ul>
         </div>
-          
+
         </nav>
         <section class="orderTranslate">
           <div class="container">
@@ -65,10 +67,10 @@
             </div>
           </div>
         </section>
-        
-        <div class="container">
+
+      <div class="container">
         <!-- Добавил текст, чуть поправил структуру -->
-        <section class="aboutCompany">
+        <section id="aboutCompany" class="aboutCompany">
           <h2>О компании</h2>
           <p>
             Переводим с 2002 года. Работаем с российскими и зарубежными клиентами, юридическими и физическими лицами. В штате опытные дипломированные переводчики, мы работаем с текстами любой сложности и тематики.
@@ -246,9 +248,65 @@
           </div>
         </section>
 
+
         <section class="form"></section>
 
-        <section class="contacts"></section>
+
+        <section id="contacts" class="contacts">
+          <h2>Контакты</h2>
+          <div class="contacts__wrap">
+
+            <div class="contacts__map">
+            <div style="position:relative;overflow:hidden;">
+              <a href="https://yandex.ru/maps/197/barnaul/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Барнаул</a>
+              <a href="https://yandex.ru/maps/197/barnaul/house/depovskaya_ulitsa_7/bEoYcQBhTEQGQFtpfX91eXVhYA==/?ll=83.771511%2C53.348925&utm_medium=mapframe&utm_source=maps&z=17.28" style="color:#eee;font-size:12px;position:absolute;top:14px;">Деповская улица, 7 — Яндекс Карты</a>
+              <iframe src="https://yandex.ru/map-widget/v1/-/CCUNbNbz2C" width="700" height="320" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe>
+            </div>
+            </div>
+
+            <address class="contacts__links">
+              <div class="contacts__links_item">
+                <img class="contacts__links_item_icon" src="../socialIcons/bx_home-alt-2.svg" alt="адрес" >
+                <a class="contacts__links_item_link" href="https://yandex.ru/maps/197/barnaul/house/depovskaya_ulitsa_7/bEoYcQBhTEQGQFtpfX91eXVhYA==/?ll=83.771511%2C53.348925&utm_medium=mapframe&utm_source=maps&z=17.28">
+                    г. Барнаул<br>ул. Деповская, 7, офис Б-310
+                </a>
+              </div>
+              <div class="contacts__links_item">
+                <img class="contacts__links_item_icon" src="../socialIcons/ri_phone-line.svg" alt="мобильный телефон">
+                <a href="tel:+79132765509" class="contacts__links_item_link">+7 913 276 5509</a>
+              </div>
+              <div class="contacts__links_item">
+                <img class="contacts__links_item_icon" src="../socialIcons/ri_phone-line.svg" alt="городской телефон">
+                <a href="tel:+73852243947" class="contacts__links_item_link">+7 3852 243947</a>
+              </div>
+              <div class="contacts__links_item">
+                <img class="contacts__links_item_icon" src="../socialIcons/whatsapp.svg" alt="вотсап">
+                <a href="https://wa.me/79132765509" target="_blank" class="contacts__links_item_link">+7 913 276 5509</a>
+              </div>
+              <div class="contacts__links_item">
+                <img class="contacts__links_item_icon" src="../socialIcons/telegram.svg" alt="телеграмм">
+                <a href="https://telegram.me/ilin_me" target="_blank" class="contacts__links_item_link">@ilin_em</a>
+              </div>
+              <div class="contacts__links_item">
+                <img class="contacts__links_item_icon" src="../socialIcons/ri_at-line.svg" alt="электронная почта">
+                <a href="mailto:perevod_arap@mail.ru" class="contacts__links_item_link">perevod_arap@mail.ru</a>
+              </div>
+            </address>
+        </div>
+
+          <div class="contacts__flags">
+              <img class="contacts__flags_item" src="../img/flags/emojione-v1_flag-for-united-states.svg">
+              <img class="contacts__flags_item" src="../img/flags/emojione-v1_flag-for-united-kingdom.svg">
+              <img class="contacts__flags_item" src="../img/flags/emojione-v1_flag-for-germany.svg">
+              <img class="contacts__flags_item" src="../img/flags/emojione-v1_flag-for-china.svg">
+              <img class="contacts__flags_item" src="../img/flags/emojione-v1_flag-for-kazakhstan.svg">
+              <img class="contacts__flags_item" src="../img/flags/emojione-v1_flag-for-czechia.svg">
+              <img class="contacts__flags_item" src="../img/flags/emojione-v1_flag-for-spain.svg">
+              <img class="contacts__flags_item" src="../img/flags/emojione-v1_flag-for-canada.svg">
+              <img class="contacts__flags_item" src="../img/flags/emojione-v1_flag-for-france.svg">
+              <img class="contacts__flags_item" src="../img/flags/emojione-v1_flag-for-georgia.svg">
+          </div>
+        </section>
       </div>
     </main>
 
@@ -256,21 +314,27 @@
 
     <footer class="footer">
       <div class="container">
-        <footer__nav>
-          <ul>
-            <li>
-              <a_href></a_href>
-            </li>
-            <li>
-              <a_href></a_href>
-            </li>
-            <li>
-              <a_href></a_href>
-            </li>
-          </ul>
-
-          <p>LOrem</p>
-        </footer__nav>
+        <div class="footer__wrap">
+          <nav class="footer__nav">
+            <ul class="footer__nav_list">
+              <li class="footer__nav_item">
+                <a href="#aboutCompany">О компании</a>
+              </li>
+              <li class="footer__nav_item">
+                <a>Реквизиты</a>
+              </li>
+              <li class="footer__nav_item">
+                <a href="#contacts">Контакты</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="footer__text">
+            <p>
+              Для оформления заявки по e-mail напишите на perevod_arap@mail.ru. В поле «Тема» укажите: «Заказ на перевод».<br>Укажите контактные данные: телефон, адрес электронной почты и контактное лицо. Пожалуйста, напишите на какой язык требуется выполнить перевод,  тематику и примерный объем текста, сроки, нужно ли Вам заверять перевод (нотариально или нашими печатями). <br>Это поможет нам учесть все особенности Вашего заказа и ответить на все вопросы.
+            </p>
+          </div>
+        </div>
+        <div class="footer__copyright">&#169; Netology 2022</div>
       </div>
     </footer>
 
