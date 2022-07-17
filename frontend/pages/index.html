@@ -22,8 +22,8 @@
     <p><a href="mailto:perevod_arap@mail.ru">perevod_arap@mail.ru</a></span>
   </div>
   <div class="header__tel">
-    <p><a href="tel:+73852243947"> +7 3852 243947</a></p>
-    <p><a href="tel: +79132765509"> +7 913 2765509</a></p>
+    <p><a href="tel:+73852243947">+7 3852 243947</a></p>
+    <p><a href="tel:+79132765509">+7 913 2765509</a></p>
   </div>
 </div>
         </div>
@@ -249,7 +249,132 @@
         </section>
 
 
-        <section class="form"></section>
+        <section class="form">
+        <h2>Заказать перевод</h2>
+
+        <form action="POST" class="form__translate">
+<!--          чекбокса -->
+<div class="form__radio">
+  <div class="form__radio_ur">
+    <span>Юридическое лицо</span>
+    <input type="radio" name="face">
+  </div>
+  <div class="form__radio_fiz">
+    <span>Физическое лицо</span>
+    <input type="radio" name="face">
+  </div>
+</div>
+
+<!-- инпута 4 штуки -->
+
+<div class="form__input">
+  <label for="city">Город</label>
+  <input type="text" name="city" class="form__input_style" >
+</div>
+<div class="form__input">
+  <label for="initials">Фамилия,имя</label>
+  <input type="text" name="initials" class="form__input_style" >
+</div>
+<div class="form__input">
+  <label for="telephone">Телефон</label>
+  <input type="text" name="telephone" class="form__input_style" >
+</div>
+<div class="form__input">
+  <label for="email">Email</label>
+  <input type="text" name="email" class="form__input_style" >
+</div>
+
+<!-- снова 2 селекта -->
+
+<div class="form__select_changeLanguage">
+  <label for="">Язык перевода</label>
+
+  <select name="originalLang" id="" size="1" >
+    <option>азербайджанский</option>
+    <option value="1" selected>английский</option>
+    <option>арабский</option>
+    <option>армянский</option>
+    <option>белорусский</option>
+    <option>иврит</option>
+    <option>испанский</option>
+    <option>итальянский</option>
+    <option>китайский</option>
+    <option>корейский</option>
+    <option>молдавский</option>
+    <option>немецкий</option>
+    <option>польский</option>
+    <option>румынский</option>
+    <option>сербский</option>
+    <option>таджикский</option>
+    <option>турецкий</option>
+    <option>узбекский</option>
+    <option>украинский</option>
+    <option>французский</option>
+    <option>чешский</option>
+    <option>японский</option>
+  </select>
+  <select name="targetLang" id="" size="1">
+    <option>азербайджанский</option>
+    <option value="1" selected>английский</option>
+    <option>арабский</option>
+    <option>армянский</option>
+    <option>белорусский</option>
+    <option>иврит</option>
+    <option>испанский</option>
+    <option>итальянский</option>
+    <option>китайский</option>
+    <option>корейский</option>
+    <option>молдавский</option>
+    <option>немецкий</option>
+    <option>польский</option>
+    <option>румынский</option>
+    <option>сербский</option>
+    <option>таджикский</option>
+    <option>турецкий</option>
+    <option>узбекский</option>
+    <option>украинский</option>
+    <option>французский</option>
+    <option>чешский</option>
+    <option>японский</option>
+  </select>
+  </div>
+
+  <!-- снова 2 чекбокса -->
+
+  <div class="form__checkbox">
+<label for="image">Материалы</label>
+
+    <div class="form__checkbox_electronic">
+      <span>в электронном виде</span>
+      <input type="radio" name="image">
+    </div>
+    <div class="form__checkbox_paper">
+      <span>на бумажном носителе</span>
+      <input type="radio" name="image">
+    </div>
+  </div>
+
+    <!-- загрузить файл -->
+
+    <div class="form__file">
+      <label for="file">Прикрепить файл</label>
+      <input type="file" name="file">
+    </div>
+    <!-- загрузить файл -->
+
+    <div class="form__date">
+      <label for="date">Дата готовности перевода</label>
+      <input type="date" name="date">
+    </div>
+
+      <!-- комментарии -->
+    <div class="form__date">
+      <label for="date">Дополнительная информация (тематика перевода, предпочитаемый вид оплаты и т.д.)</label>
+    <textarea rows="7"></textarea>
+    </div>
+
+        </form>
+        </section>
 
 
         <section id="contacts" class="contacts">
