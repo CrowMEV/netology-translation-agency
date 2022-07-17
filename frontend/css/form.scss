@@ -1,0 +1,105 @@
+@import './typography.scss';
+@import './media.scss';
+
+
+.form{
+ 
+    color:$color-text;
+
+h2{
+    @include font-roboto-bold-48;
+    color:inherit;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+span{
+    @include font-roboto-reg-14;
+    color:inherit;
+}
+  &__translate{
+        max-width: 940px;
+        width: 100%;
+    }
+
+    &__radio{
+        border-bottom: 1px solid #000;
+        padding: 0 0 5px 0;
+        display: flex;
+        justify-content:space-around;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    &__radio_ur{
+             display: flex;
+             flex-basis: 50%;
+             span{
+                flex-basis: 70%;
+             }
+             
+            
+    }
+    &__radio_fiz{
+               display: flex;
+               flex-basis: 50%;
+               span{
+                flex-basis: 70%;
+             }
+    }
+    &__input{
+        border-bottom: 1px solid #000;
+        padding: 0 0 5px 0;
+        display: flex;
+        margin-bottom: 10px;
+    }
+
+    &__select_changeLanguage {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+    &__checkbox{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    &__file{
+        display: flex;
+        label{
+            flex-basis: 30%;
+        }
+       /*  input[type='file'] {
+            opacity:0    
+          } */
+    }
+    &__date{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        textarea{
+            border: 1px solid #000;
+        }
+       
+    }
+
+    label{
+        @include font-roboto-reg-14;
+font-size: 1.6em;
+color: inherit;
+flex-basis: 15%;
+    }
+
+    input{
+        @include font-roboto-reg-14;
+border: 1px solid #000;
+
+    }
+
+   select{
+       height: 20px;
+    }
+
+ 
+}

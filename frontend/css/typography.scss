@@ -32,6 +32,13 @@ $color-border: #3d9ae2;
   font-size: 2.2em;
   line-height: 150%;
 }
+@mixin font-roboto-bold-24 {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2.4em;
+  line-height: 150%;
+}
 @mixin font-roboto-bold-48 {
   font-family: 'Roboto', sans-serif;
   font-style: normal;
