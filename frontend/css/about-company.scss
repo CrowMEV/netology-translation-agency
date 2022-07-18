@@ -2,7 +2,8 @@
 @import './media.scss';
 
 .aboutCompany {
-margin-bottom: 90px;
+  margin-bottom: 90px;
+
   h2 {
     @include font-roboto-bold-48;
     color: $color-text;
