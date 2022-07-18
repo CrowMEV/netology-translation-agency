@@ -2,51 +2,57 @@
 @import './media.scss';
 
 
-.form{
- 
-    color:$color-text;
+.form {
 
-h2{
-    @include font-roboto-bold-48;
-    color:inherit;
-    text-align: center;
-    margin-bottom: 60px;
-}
+    color: $color-text;
 
-span{
-    @include font-roboto-reg-14;
-    color:inherit;
-}
-  &__translate{
+    h2 {
+        @include font-roboto-bold-48;
+        color: inherit;
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    span {
+        @include font-roboto-reg-14;
+        color: inherit;
+    }
+
+    &__translate {
         max-width: 940px;
         width: 100%;
     }
 
-    &__radio{
+    &__radio {
         border-bottom: 1px solid #000;
         padding: 0 0 5px 0;
         display: flex;
-        justify-content:space-around;
+        justify-content: space-around;
         align-items: center;
         margin-bottom: 10px;
     }
-    &__radio_ur{
-             display: flex;
-             flex-basis: 50%;
-             span{
-                flex-basis: 70%;
-             }
-             
-            
+
+    &__radio_ur {
+        display: flex;
+        flex-basis: 50%;
+
+        span {
+            flex-basis: 70%;
+        }
+
+
     }
-    &__radio_fiz{
-               display: flex;
-               flex-basis: 50%;
-               span{
-                flex-basis: 70%;
-             }
+
+    &__radio_fiz {
+        display: flex;
+        flex-basis: 50%;
+
+        span {
+            flex-basis: 70%;
+        }
     }
-    &__input{
+
+    &__input {
         border-bottom: 1px solid #000;
         padding: 0 0 5px 0;
         display: flex;
@@ -58,48 +64,53 @@ span{
         justify-content: space-between;
         margin-bottom: 10px;
     }
-    &__checkbox{
+
+    &__checkbox {
         display: flex;
         justify-content: space-between;
         margin-bottom: 10px;
     }
 
-    &__file{
+    &__file {
         display: flex;
-        label{
+
+        label {
             flex-basis: 30%;
         }
-       /*  input[type='file'] {
+
+        /*  input[type='file'] {
             opacity:0    
           } */
     }
-    &__date{
+
+    &__date {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         margin-bottom: 10px;
-        textarea{
+
+        textarea {
             border: 1px solid #000;
         }
-       
+
     }
 
-    label{
+    label {
         @include font-roboto-reg-14;
-font-size: 1.6em;
-color: inherit;
-flex-basis: 15%;
+        font-size: 1.6em;
+        color: inherit;
+        flex-basis: 15%;
     }
 
-    input{
+    input {
         @include font-roboto-reg-14;
-border: 1px solid #000;
+        border: 1px solid #000;
 
     }
 
-   select{
-       height: 20px;
+    select {
+        height: 20px;
     }
 
- 
+
 }

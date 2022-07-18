@@ -36,6 +36,7 @@
       display: flex;
       flex-wrap: wrap;
     }
+
     &__item {
       width: 50%;
       display: block;
@@ -46,6 +47,7 @@
     &__wrap {
       display: block;
     }
+
     &__item {
       display: flex;
     }

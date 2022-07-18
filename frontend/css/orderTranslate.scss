@@ -2,11 +2,11 @@
 @import './media.scss';
 
 
-.orderTranslate{
+.orderTranslate {
     background-image: url('../img/backTranslate.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    max-width: 1920px; 
+    max-width: 1920px;
     height: 100vh;
     margin-bottom: 50px;
     margin-left: auto;
@@ -17,7 +17,7 @@
         background-image: url('../img/backTranslate-small.jpg');
     }
 
-    &__wrap{
+    &__wrap {
 
         display: flex;
         flex-direction: column;
@@ -29,18 +29,18 @@
         margin-right: -50%;
         transform: translate(-50%, -50%);
     }
-    
-    h1{
-@include font-roboto-bold-48;
-color: $color-white;
-margin-bottom: 20px;
 
-@include sm {
-   font-size: 2.7em
-}
+    h1 {
+        @include font-roboto-bold-48;
+        color: $color-white;
+        margin-bottom: 20px;
+
+        @include sm {
+            font-size: 2.7em
+        }
     }
 
-    p{
+    p {
         @include font-roboto-reg-22;
         font-size: 3.2rem;
         color: $color-white;
@@ -48,10 +48,10 @@ margin-bottom: 20px;
 
         @include sm {
             font-size: 1.4em
-         }
+        }
     }
 
-    button{
-@include button-white;
+    button {
+        @include button-white;
     }
 }
