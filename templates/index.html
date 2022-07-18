@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Heartlys - Place Your Company Name Here</title>
@@ -57,15 +57,17 @@ Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie co
 
 </div> 
 </div>
-<form action="" method="post">
+<form action="" method="post" enctype="multipart/form-data">
     Введите почту: <input type="mail" name="mail"><br />
     {% if data %}
         <span><font color="red">{{data}}</font></span><br/>
     {% endif %}
     Введите текст: <input type="text" name="text"><br />
+    Добавьте файл: <input type="file" name="file" multiple><br />
     <button type="submit">Отправить</button>
+
 </form>
- <div id="copywriteblock"> Designed by <a href="http://www.pixelateddesign.co.uk/">www.pixelateddesign.co.uk </a></div>
+<div id="copywriteblock"> Designed by <a href="http://www.pixelateddesign.co.uk/">www.pixelateddesign.co.uk </a></div>
 
 </body>
 </html>
