@@ -8,6 +8,7 @@ services:
     restart: always
     ports:
       - "6379:6379"
+    hostname: redis
 
   backend:
     build: .
@@ -18,3 +19,16 @@ services:
       - redis
     ports:
       - "80:80"
+    links:
+      - redis
+
+  worker:
+    build: .
+    image: worker
+    container_name: worker
+    entrypoint: celery
+    command: -A app.celery worker --loglevel=info
+    links:
+      - redis
+    depends_on:
+      - redis

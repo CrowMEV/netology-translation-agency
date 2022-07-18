@@ -22,7 +22,7 @@ def send_mail():
     for file in files:
         if file.filename:
             byte_string = file.stream.read()
-            files_dict[file.filename] = byte_string.decode()
+            files_dict[file.filename] = byte_string.decode('utf-8')
     data = sending.delay(login, password, user_mail, text, files_dict)
     return render_template("index.html", data=data)
 

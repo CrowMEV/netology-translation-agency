@@ -17,7 +17,7 @@ def send_to_current_user(from_, password, to, subject, content, files_dict):
         # attach files
         for name, t_con in files_dict.items():
             attachment = MIMEBase('application', "octet-stream")
-            attachment.set_payload(t_con.encode())
+            attachment.set_payload(t_con.encode('utf-8'))
             encoders.encode_base64(attachment)
             attachment.add_header('Content-Disposition', 'attachment; filename="%s"' % name)
             msg.attach(attachment)
