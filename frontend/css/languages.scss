@@ -5,7 +5,6 @@
   text-align: center;
   margin-bottom: 80px;
 
-
   h2 {
     @include font-roboto-bold-48;
     color: $color-text;
@@ -17,9 +16,21 @@
     color: $color-text;
   }
 
-  /*  button {
-    @include button-blue;
-  } */
+  &__wrap {
+    margin-bottom: 20px;
+    @media (max-width: 575.98px) {
+      column-count: 2;
+    }
+    @media (min-width: 576px) and (max-width: 991.98px){
+      column-count: 3;
+    }
+    @media (min-width: 992px) and (max-width: 1199.98px){
+      column-count: 4;
+    }
+    @media (min-width: 1200px) {
+      column-count: 5;
+    }
+  }
 
   &__item {
     @include font-roboto-reg-20;
@@ -27,27 +38,4 @@
     text-align: left;
     display: block;
   }
-
-  &__wrap {
-    margin-bottom: 20px;
-  }
-
-  @media (min-width: $breakpoint-big-high) {
-    &__wrap {
-      column-count: 5;
-    }
-  }
-
-  @media (min-width: $breakpoint-small-high) and (max-width: $breakpoint-big-low) {
-    &__wrap {
-      column-count: 3;
-    }
-  }
-
-  @media (max-width: $breakpoint-small-low) {
-    &__wrap {
-      column-count: 2;
-    }
-  }
-
 }
