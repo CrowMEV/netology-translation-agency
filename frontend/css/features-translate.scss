@@ -1,6 +1,8 @@
 @import "typography";
 @import './media.scss';
 
+// PRE-FINAL - позиционирование и медиа добавлены!
+
 .featuresTranslate {
   text-align: center;
   margin-bottom: 90px;
@@ -20,40 +22,49 @@
     @include button-blue;
   }
 
-  @media (min-width: $breakpoint-big-high) {
-    &__wrap {
-      display: flex;
-      flex-wrap: wrap;
+  &__wrap {
+    @media (max-width: 767.98px) {
+      display: block;
     }
 
-    &__item {
-      width: 25%;
+    @media (min-width: 768px) {
+      display: flex;
+      flex-wrap: wrap;
     }
   }
 
-  @media (min-width: $breakpoint-small-high) and (max-width: $breakpoint-big-low) {
-    &__wrap {
+  &__item {
+    @media (max-width: 767.98px)  {
       display: flex;
-      flex-wrap: wrap;
+      margin-top: 22px;
+      &_text {
+        text-align: left;
+        margin-left: 22px;
+      }
+      align-items: center;
     }
 
-    &__item {
+    @media (min-width: 768px) and (max-width: 991.98px) {
       width: 50%;
-      display: block;
+      &:nth-child(n+3) {
+        margin-top: 68px;
+      }
+      &_text {
+        margin-top: 28px;
+      }
+    }
+
+    @media (min-width: 992px) {
+      width: 25%;
+      &:nth-child(n+5) {
+        margin-top: 68px;
+      }
+      &_text {
+        margin-top: 28px;
+      }
     }
   }
 
-  @media (max-width: $breakpoint-small-low) {
-    &__wrap {
-      display: block;
-    }
-
-    &__item {
-      display: flex;
-    }
-  }
-
-  // Это временно - просто, чтобы были видны их области
   img {
     width: 64px;
     height: 64px;

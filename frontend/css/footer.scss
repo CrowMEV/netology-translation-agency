@@ -5,13 +5,24 @@
   margin-bottom: 80px;
   background-color: $color-footer;
   height: 276px;
+  @media (max-width: 991.98px) {
+    height: auto;
+  }
+
   padding-top: 32px;
 
   &__wrap {
     display: flex;
+    @media (max-width: 575.98px) {
+      flex-direction: column;
+    }
   }
 
   &__nav {
+    @media (max-width: 575.98px) {
+      margin-bottom: 40px;
+    }
+
     color: $color-text;
     width: 240px;
     flex-shrink: 0;

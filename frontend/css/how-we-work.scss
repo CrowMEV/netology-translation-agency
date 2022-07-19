@@ -16,7 +16,26 @@
     color: $color-text;
   }
 
+  &__wrap {
+    display: flex;
+
+    @media (max-width: 991.98px) {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @media (min-width: 992px) {
+      justify-content: space-around;
+    }
+  }
+
   &__item {
+    @media (max-width: 992px) {
+      &:nth-child(n+2) {
+        margin-top: 40px; // Проверить
+      }
+    }
+
     &_container-outer {
       width: 340px;
       height: 116px;
@@ -30,7 +49,7 @@
 
     &_container-inner {
       position: relative;
-      width: 315px;
+      width: 320px;
       height: 102px;
       border-radius: 50px;
       border: 2px solid $color-border;
@@ -47,56 +66,53 @@
 
       border-radius: 50px;
       border: 2px solid $color-border;
+      background-color: $color-checkbox;
 
       display: block;
       font-size: 61px; // временно
       text-align: center;
+
+      @include font-roboto-reg-20;
+      font-size: 61px;
+      color: $color-border;
     }
 
     &_content {
       text-align: left;
+      margin-left: 9px;
+      margin-top: 7px;
+
+      p {
+        line-height: 119%;
+      }
 
       &_list {
+        margin-top: 9px;
         font-size: 20px;
         column-count: 2;
       }
 
-      &_list-item {
-        font-size: 14px; // временно
+      &_list > li {
+        @include font-roboto-reg-14;
+        font-size: 14px;
+        margin-left: 3px;
       }
-    }
 
-  }
+      &_list_flat {
+        margin-top: 9px;
+        font-size: 20px;
+        display: flex;
+      }
 
-  &__wrap {
-    display: flex;
-  }
+      &_list_flat > li {
+        @include font-roboto-reg-14;
+        font-size: 14px;
+        margin-left: 3px;
+      }
 
-  @media (min-width: $breakpoint-big-high) {
-    &__wrap {
-      justify-content: space-around;
-    }
-  }
-
-  @media (min-width: $breakpoint-small-high) and (max-width: $breakpoint-big-low) {
-    &__wrap {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    &__item:nth-child(n+2) {
-      margin-top: 20px; // Проверить
-    }
-  }
-
-  @media (max-width: $breakpoint-small-low) {
-    &__wrap {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    &__item:nth-child(n+2) {
-      margin-top: 20px; // Проверить
+      &_list_flat > li:nth-child(n+2) {
+        margin-left: 14px;
+      }
     }
   }
 
