@@ -1,12 +1,27 @@
 import smtplib
+import os
 from email import encoders
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
-from app import celery
+from aiohttp.web_request import FileField
 
 
-def send_to_current_user(from_, password, to, subject, content, files_dict):
+async def prepare_data(data: dict) -> dict:
+    files = []
+    form_dict = {}
+    for field_name, field_value in data.items():
+        if isinstance(field_value, FileField):
+            files.append(field_value)
+        else:
+            form_dict[field_name] = field_value
+    form_dict["files"] = files
+    form_dict.update(login=os.getenv("LOGIN"))
+    form_dict.update(password=os.getenv("PASSWORD"))
+    return form_dict
+
+
+async def send_to_current_user(from_, password, to, subject, content, files):
     msg = MIMEMultipart()
     msg.attach(MIMEText(content))
     msg['Subject'] = subject
@@ -15,11 +30,12 @@ def send_to_current_user(from_, password, to, subject, content, files_dict):
     if from_ == to:
 
         # attach files
-        for name, t_con in files_dict.items():
-            attachment = MIMEBase('application', "octet-stream")
-            attachment.set_payload(t_con.encode('utf-8'))
+        for file in files:
+            main_type, sub_type = file.content_type.split("/")
+            attachment = MIMEBase(main_type, sub_type)
+            attachment.set_payload(file.file.read())
             encoders.encode_base64(attachment)
-            attachment.add_header('Content-Disposition', 'attachment; filename="%s"' % name)
+            attachment.add_header('Content-Disposition', 'attachment; filename="%s"' % file.filename)
             msg.attach(attachment)
 
     # send mail
@@ -31,17 +47,16 @@ def send_to_current_user(from_, password, to, subject, content, files_dict):
     s.quit()
 
 
-@celery.task()
-def sending(login, password, user_mail, text, files_dict):
+async def sending(data):
     address_list = [
-        [user_mail, "Заявка на перевод", "Ваша заявка принята"],
-        [login, "Новая заявка", text]
+        [data["mail"], "Заявка на перевод", "Ваша заявка принята"],
+        [data["login"], "Новая заявка", data["text"]]
     ]
-    data = None
+    message = None
     for item in address_list:
         try:
-            send_to_current_user(login, password, item[0], item[1], item[2], files_dict)
+            await send_to_current_user(data["login"], data["password"], item[0], item[1], item[2], data["files"])
         except Exception as err:
-            data = "Неверный адрес электронной почты"
+            message = "Неверный адрес электронной почты"
             break
-    return data
+    return message

@@ -1,31 +1,32 @@
+from aiohttp import web
 from dotenv import load_dotenv
-from flask import render_template, request
-from app import application, celery
-from mail import sending
-import os
+from app import application
+from mail import sending, prepare_data
+import aiohttp_jinja2
 
 load_dotenv()
 
 
-def show_page():
-    return render_template("index.html")
+async def show_page(request):
+    return aiohttp_jinja2.render_template("index.html", request, {})
 
 
-# @celery.task
-def send_mail():
-    user_mail = request.form['mail'].lower()
-    text = request.form['text']
-    files = request.files.getlist("files")
-    login = os.getenv("LOGIN")
-    password = os.getenv("PASSWORD")
-    files_dict = {}
-    for file in files:
-        if file.filename:
-            byte_string = file.stream.read()
-            files_dict[file.filename] = byte_string.decode('utf-8')
-    data = sending.delay(login, password, user_mail, text, files_dict)
-    return render_template("index.html", data=data)
+async def send_mail(request):
+    # Парсим данные из реквеста
+    data = await request.post()
+
+    # Подготавливаем данные к отправке
+    form_dict = await prepare_data(data)
+
+    # Вызываем отправку почты
+    message = await sending(form_dict)
+
+    return aiohttp_jinja2.render_template("index.html", request, {'data': message})
 
 
-application.add_url_rule('/', view_func=show_page)
-application.add_url_rule('/', view_func=send_mail, methods=['POST'])
+application.add_routes([
+    web.get('/', show_page),
+    web.post('/', send_mail),
+    #Регистрируем маршрут, чтобы отдавать статику
+    web.static('/static', "./static")
+])
