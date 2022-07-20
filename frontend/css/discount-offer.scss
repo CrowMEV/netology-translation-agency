@@ -7,13 +7,21 @@
 
   border: 1px solid $color-border;
   border-radius: 20px;
-  padding-top: 30px;
-  padding-bottom: 38px;
+  /*  padding-top: 30px;
+  padding-bottom: 38px; */
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   h2 {
     @include font-roboto-bold-48;
     color: $color-text;
     margin-bottom: 40px;
+
+    @media(min-width:320px) and (max-width:767.98px) {
+      font-size: 3em;
+    }
   }
 
   p {
