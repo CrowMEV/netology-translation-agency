@@ -1,7 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 @import './reset.scss';
 @import './typography.scss';
+@import './header.scss';
+@import './orderTranslate.scss';
+@import './about-company.scss';
 @import './languages.scss';
+@import './features-translate.scss';
+@import './media.scss';
+@import './how-we-work.scss';
+@import './discount.scss';
+@import './discount-offer.scss';
+@import './footer.scss';
+@import './contacts.scss';
+@import './form.scss';
 
 html,
 body {
@@ -9,14 +20,28 @@ body {
   font-size: 10px;
 }
 
-body {
-  font-size: 16px;
-  font-family: sans-serif;
-  color: #212121;
-}
-
 .container {
   max-width: 1178px;
   margin: 0 auto;
   padding: 0 15px;
+
+  @media (min-width: 320px) and (max-width: 575.98px) {
+    padding: 0;
+  }
+
+  @media (min-width: 576px) and (max-width: 767.98px) {
+  }
+
+  @media (min-width: 768px) and (max-width: 991.98px) {
+  }
+
+  @media (min-width: 992px) and (max-width: 1199.98px) {
+  }
+
+  @media(min-width: 1200px) and (max-width: 1399.98px) {
+  }
+
+  @media (min-width: 1400px) {
+  }
 }
+
