@@ -9,6 +9,10 @@
     @include font-roboto-bold-48;
     color: $color-text;
     margin-bottom: 50px;
+
+    @media(min-width:320px) and (max-width:767.98px) {
+      font-size: 3.8em;
+    }
   }
 
   p {
@@ -44,7 +48,11 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-bottom: 70px;
+      margin: 0 0 60px;
+
+      @media(min-width:320px) and (max-width:767.98px) {
+        margin-bottom: 0 0 40px;
+      }
     }
 
     &_container-inner {
@@ -92,7 +100,7 @@
         column-count: 2;
       }
 
-      &_list > li {
+      &_list>li {
         @include font-roboto-reg-14;
         font-size: 14px;
         margin-left: 3px;
@@ -104,19 +112,25 @@
         display: flex;
       }
 
-      &_list_flat > li {
+      &_list_flat>li {
         @include font-roboto-reg-14;
         font-size: 14px;
         margin-left: 3px;
       }
 
-      &_list_flat > li:nth-child(n+2) {
+      &_list_flat>li:nth-child(n+2) {
         margin-left: 14px;
       }
     }
   }
 
   button {
-    @include button-blue();
+    @include button-blue;
+
+    @media(min-width:320px) and (max-width:767.98px) {
+      max-width: 300px;
+      padding: 20px 60px;
+    }
+
   }
 }

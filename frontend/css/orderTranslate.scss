@@ -3,7 +3,7 @@
 
 
 .orderTranslate {
-    background-image: url('../img/backTranslate.jpg');
+
     background-repeat: no-repeat;
     background-size: cover;
     max-width: 1920px;
@@ -14,10 +14,16 @@
     position: relative;
 
 
+    @media (min-width:576px) {
+
+        background-image: url('../img/backTranslate.jpg');
+    }
+
     @media (min-width: 320px) and (max-width: 575.98px) {
 
         background-image: url('../img/backTranslate-small.jpg');
     }
+
 
 
     &__wrap {
@@ -31,6 +37,12 @@
         left: 50%;
         margin-right: -50%;
         transform: translate(-50%, -50%);
+
+        @media(min-width:320px) and (max-width:767.98px) {
+            padding: 0 10px;
+            align-items: flex-start;
+        }
+
     }
 
     h1 {
@@ -39,12 +51,17 @@
         color: $color-white;
         margin-bottom: 20px;
 
-        @media(min-width:768px) and (max-width:991.98x) {
-            font-size: 3.7em
+        @media(min-width:768px) and (max-width:991.98px) {
+            font-size: 3.7em;
+        }
+
+        @media(min-width:768px) and (max-width:991.98px) {
+            font-size: 3.4em;
         }
 
         @media(min-width:320px) and (max-width:767.98px) {
-            font-size: 2.7em
+            font-size: 3em;
+            text-align: left;
         }
     }
 
@@ -60,15 +77,21 @@
         }
 
         @media(min-width:768px) and (max-width:991.98x) {
-            font-size: 2.7em
+            font-size: 2.7em;
         }
 
         @media(min-width:320px) and (max-width:767.98px) {
-            font-size: 2em
+            font-size: 2.2em;
+            text-align: left;
         }
     }
 
     button {
         @include button-white;
+
+        @media(min-width:320px) and (max-width:767.98px) {
+            max-width: 300px;
+            padding: 20px 60px;
+        }
     }
 }

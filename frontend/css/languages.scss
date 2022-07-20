@@ -9,6 +9,10 @@
     @include font-roboto-bold-48;
     color: $color-text;
     margin-bottom: 60px;
+
+    @media(min-width:320px) and (max-width:767.98px) {
+      font-size: 3.8em;
+    }
   }
 
   p {
@@ -18,15 +22,19 @@
 
   &__wrap {
     margin-bottom: 20px;
+
     @media (max-width: 575.98px) {
       column-count: 2;
     }
-    @media (min-width: 576px) and (max-width: 991.98px){
+
+    @media (min-width: 576px) and (max-width: 991.98px) {
       column-count: 3;
     }
-    @media (min-width: 992px) and (max-width: 1199.98px){
+
+    @media (min-width: 992px) and (max-width: 1199.98px) {
       column-count: 4;
     }
+
     @media (min-width: 1200px) {
       column-count: 5;
     }

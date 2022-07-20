@@ -16,9 +16,26 @@
         align-items: center;
     }
 
+    &__icons {
+        display: flex;
+        flex-direction: column;
+        margin-right: 60px;
+
+        @media(min-width: 320px) and (max-width: 767.98px) {
+            display: none;
+        }
+
+        a {
+            margin-bottom: 8px;
+        }
+
+        a:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+
     &__adress {
-
-
         display: flex;
         flex-direction: column;
         margin-right: 110px;
@@ -33,7 +50,7 @@
         }
 
         p {
-            margin-bottom: 5px;
+            margin-bottom: 10px;
         }
 
         @media(min-width: 320px) and (max-width: 767.98px) {
@@ -45,11 +62,15 @@
         display: flex;
         flex-direction: column;
 
-        p {
+        a {
             @include font-roboto-reg-20;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
             color: $color-text;
             font-size: 14px;
+        }
+
+        a:last-child {
+            margin-bottom: 0;
         }
 
         @media(min-width: 320px) and (max-width: 767.98px) {
@@ -58,9 +79,14 @@
     }
 
     &__burger {
+        @media(min-width:768px) {
+            display: none;
+        }
+
         @media(min-width: 320px) and (max-width: 767.98px) {
             border: 1px solid #022033;
             border-radius: 7px;
+
             filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
             width: 35px;
             height: 35px;
@@ -71,7 +97,7 @@
             span {
 
 
-                width: 30px;
+                width: 26px;
                 height: 2px;
                 position: absolute;
                 top: 50%;
@@ -80,8 +106,6 @@
                 background-color: #222222;
                 transition: all 0.5s;
             }
-
-
 
             span:nth-of-type(2) {
                 top: calc(50% - 5px);
@@ -99,7 +123,7 @@
         @include font-roboto-reg-20;
         display: flex;
         align-items: center;
-        padding: 15px;
+        padding: 15px 0;
         color: $color-text;
         font-size: 14px;
 

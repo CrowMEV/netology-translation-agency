@@ -19,20 +19,28 @@
       <div class="header__menu">
         <div class="header__logo"><img src="../socialIcons/logo.svg" alt="алтайская ассоциация"></div>
         <div class="header__contacts">
+
+          <div class="header__icons">
+            <a href="https://telegram.me/ilin_me" target="_blank"><img src="../socialIcons/telegram.svg"
+                alt="telegram"></a>
+            <a href="https://wa.me/79132765509" target="_blank"><img src="../socialIcons/whatsapp.svg"
+                alt="whatsapp"></a>
+            <img src="" alt="">
+          </div>
           <div class="header__adress">
             <p>Барнаул, ул. Деповская, 7, офис Б-310</p>
-            <p><a href="mailto:perevod_arap@mail.ru">perevod_arap@mail.ru</a></span>
+            <a href="mailto:perevod_arap@mail.ru" target="_blank">perevod_arap@mail.ru</a>
           </div>
           <div class="header__tel">
-            <p><a href="tel:+73852243947">+7 3852 243947</a></p>
-            <p><a href="tel:+79132765509">+7 913 2765509</a></p>
+            <a href="tel:+73852243947">+7 3852 243947</a>
+            <a href="tel:+79132765509">+7 913 2765509</a>
           </div>
         </div>
 
         <div class="header__burger">
           <span></span>
-		<span></span>
-		<span></span>
+          <span></span>
+          <span></span>
         </div>
       </div>
 
@@ -50,16 +58,16 @@
 
         <ul class="navbar">
           <li>
-            <a_href>О компании</a>
+            <a href="#aboutCompany">О компании</a>
           </li>
           <li>
-            <a_href>Контакты</a>
+            <a href="#contacts">Контакты</a>
           </li>
           <li>
-            <a_href>Языки для перевода</a>
+            <a href="#languages">Языки для перевода</a>
           </li>
           <li>
-            <a_href>Заказать перевод</a>
+            <a href="#form">Заказать перевод</a>
           </li>
         </ul>
       </div>
@@ -83,7 +91,9 @@
         <p>
           Переводим с 2002 года. Работаем с российскими и зарубежными клиентами, юридическими и физическими лицами.
         </p>
-        <p> В штате опытные дипломированные переводчики, мы работаем с текстами любой сложности и тематики.Сотрудничаем с носителями языка и экспертами, обладающими специализированными знаниями и лексикой. Постоянно привлекаем новых специалистов и расширяем перечень языков.
+        <p> В штате опытные дипломированные переводчики, мы работаем с текстами любой сложности и тематики.Сотрудничаем
+          с носителями языка и экспертами, обладающими специализированными знаниями и лексикой. Постоянно привлекаем
+          новых специалистов и расширяем перечень языков.
         </p>
         <p>
           Находимся в самом сердце города — к нам легко добраться с любого направления на личном и общественном
@@ -92,7 +102,7 @@
       </section>
 
       <!-- Добавил правильный текст, поправил структуру -->
-      <section class="languages">
+      <section id="languages" class="languages">
         <h2>Языки для перевода</h2>
         <ul class="languages__wrap">
           <li class="languages__item">азербайджанский</li>
@@ -265,7 +275,8 @@
       </section>
 
 
-      <section class="form">
+      <section id="form" class="form">
+        <div class="container">
         <h2>Заказать перевод</h2>
 
         <form action="POST" class="form__translate">
@@ -285,19 +296,19 @@
 
           <div class="form__input">
             <label for="city">Город</label>
-            <input type="text" name="city" class="form__input_style">
+            <input type="text" name="city" class="form__input_style" placeholder="Барнаул">
           </div>
           <div class="form__input">
-            <label for="initials">Фамилия,имя</label>
-            <input type="text" name="initials" class="form__input_style">
+            <label for="initials">Фамилия, имя</label>
+            <input type="text" name="initials" class="form__input_style" placeholder="Иванов Иван">
           </div>
           <div class="form__input">
             <label for="telephone">Телефон</label>
-            <input type="text" name="telephone" class="form__input_style">
+            <input type="text" name="telephone" class="form__input_style" placeholder="+79999999999">
           </div>
           <div class="form__input">
             <label for="email">Email</label>
-            <input type="text" name="email" class="form__input_style">
+            <input type="text" name="email" class="form__input_style" placeholder="example@mail.ru">
           </div>
 
           <!-- снова 2 селекта -->
@@ -305,54 +316,57 @@
           <div class="form__select_changeLanguage">
             <label for="">Язык перевода</label>
 
-            <select name="originalLang" id="" size="1">
-              <option>азербайджанский</option>
-              <option value="1" selected>английский</option>
-              <option>арабский</option>
-              <option>армянский</option>
-              <option>белорусский</option>
-              <option>иврит</option>
-              <option>испанский</option>
-              <option>итальянский</option>
-              <option>китайский</option>
-              <option>корейский</option>
-              <option>молдавский</option>
-              <option>немецкий</option>
-              <option>польский</option>
-              <option>румынский</option>
-              <option>сербский</option>
-              <option>таджикский</option>
-              <option>турецкий</option>
-              <option>узбекский</option>
-              <option>украинский</option>
-              <option>французский</option>
-              <option>чешский</option>
-              <option>японский</option>
-            </select>
-            <select name="targetLang" id="" size="1">
-              <option>азербайджанский</option>
-              <option value="1" selected>английский</option>
-              <option>арабский</option>
-              <option>армянский</option>
-              <option>белорусский</option>
-              <option>иврит</option>
-              <option>испанский</option>
-              <option>итальянский</option>
-              <option>китайский</option>
-              <option>корейский</option>
-              <option>молдавский</option>
-              <option>немецкий</option>
-              <option>польский</option>
-              <option>румынский</option>
-              <option>сербский</option>
-              <option>таджикский</option>
-              <option>турецкий</option>
-              <option>узбекский</option>
-              <option>украинский</option>
-              <option>французский</option>
-              <option>чешский</option>
-              <option>японский</option>
-            </select>
+            <div class="form__select_changeLanguage_wrap">
+              <select name="originalLang" id="" size="1">
+                <option>азербайджанский</option>
+                <option value="1" selected>английский</option>
+                <option>арабский</option>
+                <option>армянский</option>
+                <option>белорусский</option>
+                <option>иврит</option>
+                <option>испанский</option>
+                <option>итальянский</option>
+                <option>китайский</option>
+                <option>корейский</option>
+                <option>молдавский</option>
+                <option>немецкий</option>
+                <option>польский</option>
+                <option>румынский</option>
+                <option>сербский</option>
+                <option>таджикский</option>
+                <option>турецкий</option>
+                <option>узбекский</option>
+                <option>украинский</option>
+                <option>французский</option>
+                <option>чешский</option>
+                <option>японский</option>
+              </select>
+              <select name="targetLang" id="" size="1">
+                <option>азербайджанский</option>
+                <option value="1" selected>английский</option>
+                <option>арабский</option>
+                <option>армянский</option>
+                <option>белорусский</option>
+                <option>иврит</option>
+                <option>испанский</option>
+                <option>итальянский</option>
+                <option>китайский</option>
+                <option>корейский</option>
+                <option>молдавский</option>
+                <option>немецкий</option>
+                <option>польский</option>
+                <option>румынский</option>
+                <option>сербский</option>
+                <option>таджикский</option>
+                <option>турецкий</option>
+                <option>узбекский</option>
+                <option>украинский</option>
+                <option>французский</option>
+                <option>чешский</option>
+                <option>японский</option>
+              </select>
+
+            </div>
           </div>
 
           <!-- снова 2 чекбокса -->
@@ -360,14 +374,18 @@
           <div class="form__checkbox">
             <label for="image">Материалы</label>
 
-            <div class="form__checkbox_electronic">
-              <span>в электронном виде</span>
-              <input type="radio" name="image">
+            <div class="form__checkbox_wrap">
+              <div class="form__checkbox_electronic">
+                <span>в электронном виде</span>
+                <input type="radio" name="image">
+              </div>
+              <div class="form__checkbox_paper">
+                <span>на бумажном носителе</span>
+                <input type="radio" name="image">
+              </div>
+
             </div>
-            <div class="form__checkbox_paper">
-              <span>на бумажном носителе</span>
-              <input type="radio" name="image">
-            </div>
+
           </div>
 
           <!-- загрузить файл -->
@@ -380,16 +398,17 @@
 
           <div class="form__date">
             <label for="date">Дата готовности перевода</label>
-            <input type="date" name="date">
+            <input type="date" name="date" class="form__input_style" placeholder="xx.xx.xxxx">
           </div>
 
           <!-- комментарии -->
           <div class="form__date">
             <label for="date">Дополнительная информация (тематика перевода, предпочитаемый вид оплаты и т.д.)</label>
-            <textarea rows="7"></textarea>
+            <textarea rows="7" class="form__textarea_style"></textarea>
           </div>
 
         </form>
+      </div>
       </section>
 
 

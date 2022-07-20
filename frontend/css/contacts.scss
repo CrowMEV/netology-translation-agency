@@ -8,6 +8,11 @@
     @include font-roboto-bold-48;
     color: $color-text;
     margin-bottom: 60px;
+
+    @media(min-width:320px) and (max-width:767.98px) {
+      font-size: 3em;
+      margin-bottom: 30px;
+    }
   }
 
   p {
@@ -61,17 +66,24 @@
   }
 
   &__flags {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+
     &_item {
+      margin-right: 20px;
+
       @media (max-width: 767.98px) {
         &:nth-child(n+6) {
           display: none;
         }
       }
     }
-    margin-top: 60px;
-    margin-bottom: 70px;
-    display: flex;
-    justify-content: space-between;
+
   }
 
 
