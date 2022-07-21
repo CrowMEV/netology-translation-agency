@@ -21,6 +21,10 @@ body {
   font-size: 10px;
 }
 
+.lock {
+  overflow: hidden;
+}
+
 .container {
   max-width: 1178px;
   margin: 0 auto;
@@ -41,5 +45,6 @@ body {
 
   @media (min-width: 320px) and (max-width: 575.99px) {
     max-width: 320px;
+
   }
 }

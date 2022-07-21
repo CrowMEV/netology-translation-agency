@@ -20,7 +20,7 @@ $breakpoint-xl-high: 1200px;
 $breakpoint-xxl-low: 1399.98px;
 $breakpoint-xxl-high: 1400px;
 
-@mixin xs {
+/* @mixin xs {
     @media (min-width: 320px) and (max-width: 575.98px) {
         @content
     }
@@ -55,3 +55,4 @@ $breakpoint-xxl-high: 1400px;
         @content
     }
 }
+ */
