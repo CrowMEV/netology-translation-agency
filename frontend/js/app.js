@@ -3,11 +3,12 @@ import '../css/app.scss'
 import './order-form/order-form'
 
 
-const menuBurger=document.querySelector('.header__burger')
+const menuBurger=document.querySelector('.header__burger_icon')
 
+const menuBurgerClose=document.querySelector('.header__burger_close')
 const menuBurgerLinks=document.querySelector('.header__burger_menu')
 
-const menuBurgerActive=document.querySelector('.header__burger_active')
+const menuBurgerActive=document.querySelector('.header__burger')
 
 
 /* menuBurger.addEventListener('click', function(e){
@@ -19,6 +20,7 @@ menuBurgerLinks.addEventListener('click', function(e){
     menuBurgerActive.classList.toggle('active')
 }) */
 
+menuBurgerClose.onclick=()=>toggleBurger()
 menuBurger.onclick=()=>toggleBurger()
 menuBurgerLinks.onclick=()=>toggleBurger()
 
