@@ -1,5 +1,6 @@
 // import 'babel-polyfill'
 import '../css/app.scss'
+import './order-form/order-form'
 
 
 const menuBurger=document.querySelector('.header__burger')
