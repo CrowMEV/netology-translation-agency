@@ -30,6 +30,8 @@
         padding: 40px 120px;
         border-radius: 20px;
         border: 1px solid $color-border;
+        display: flex;
+        flex-direction: column;
 
         @media(min-width:768px) and (max-width:991.98px) {
             padding: 40px 70px;
@@ -87,7 +89,7 @@
     }
 
     &__textarea_style {
-        border: 1px solid $color-border;
+        border: 1px solid rgba(11, 82, 125, 1);
         border-radius: 20px;
         width: 100%;
 
@@ -142,26 +144,42 @@
         margin-bottom: 10px;
 
         textarea {
-            border: 1px solid #000;
+            border: 1px solid rgba(11, 82, 125, 1);
         }
 
+    }
+
+    &__privacy {
+        display: flex;
+        margin-bottom: 30px;
     }
 
     label {
         @include font-roboto-reg-14;
         font-size: 1.6em;
         color: inherit;
-        flex-basis: 15%;
+
     }
 
-    input {
+    /*  input {
         @include font-roboto-reg-14;
         border: 1px solid #000;
 
-    }
+    } */
 
     select {
         height: 20px;
+    }
+
+    button {
+        @include button-blue;
+        margin: auto;
+
+        @media(min-width:320px) and (max-width:767.98px) {
+            max-width: 300px;
+            padding: 20px 60px;
+        }
+
     }
 
 
