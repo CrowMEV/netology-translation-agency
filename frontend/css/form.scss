@@ -141,17 +141,33 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
+
+
+    }
+
+    &__textarea {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-bottom: 20px;
 
         textarea {
             border: 1px solid rgba(11, 82, 125, 1);
         }
-
     }
 
     &__privacy {
         display: flex;
         margin-bottom: 30px;
+
+        input {
+            width: 3%;
+        }
+
+        a {
+            color: rgba(61, 154, 226, 1);
+        }
     }
 
     label {

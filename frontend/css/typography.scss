@@ -58,8 +58,10 @@ $color-border: #3d9ae2;
   padding: 28px 145px;
   background: $color-button;
   color: $color-white;
-  border-radius: 20px;
+  border-radius: 50px;
   text-align: center;
+  border: 1px solid #022033;
+  box-shadow: 20px 26px 32px 0px rgba(11, 82, 125, 0.28);
 }
 
 @mixin button-white {
@@ -70,6 +72,8 @@ $color-border: #3d9ae2;
   padding: 24px 84px;
   background: $color-white;
   color: $color-text;
-  border-radius: 20px;
   text-align: center;
+  border-radius: 50px;
+
+
 }
