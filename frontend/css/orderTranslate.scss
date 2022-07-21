@@ -5,9 +5,10 @@
 .orderTranslate {
 
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; // ставим cover
+    background-position: center; // центрируем
     max-width: 1920px;
-    height: 100vh;
+    height: 646px; // зафиксировать для каждого диапазона
     margin-bottom: 50px;
     margin-left: auto;
     margin-right: auto;
@@ -19,8 +20,11 @@
         background-image: url('../img/backTranslate.jpg');
     }
 
-    @media (min-width: 320px) and (max-width: 575.98px) {
+    // ! Явно не хватает ещё одной картинки на промежуточные от 992 до 576. А то рожи совсем обрубает им.
+    // + нужно для малых диапазонов выставить шрифты и будет ок.
 
+    @media (min-width: 320px) and (max-width: 575.98px) {
+        height: 300px; // фиксируем 300
         background-image: url('../img/backTranslate-small.jpg');
     }
 
