@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "parcel build pages/index.html -d public --no-source-maps && node postbuild.js",
-    "dev": "parcel pages/index.html --open"
+    "dev": "parcel pages/index.html --open",
+    "server": "cd ./dev-server && php -S localhost:8080"
   },
   "keywords": [],
   "author": "",

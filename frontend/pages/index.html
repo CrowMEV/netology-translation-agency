@@ -291,16 +291,16 @@
         <div class="container">
         <h2>Заказать перевод</h2>
 
-        <form action="POST" class="form__translate">
+        <form id="order-form" name="orderForm" action="POST" class="form__translate">
           <!--          чекбокса -->
           <div class="form__radio">
             <div class="form__radio_ur">
               <span>Юридическое лицо</span>
-              <input type="radio" name="face">
+              <input type="radio" name="face" value="Юридическое лицо">
             </div>
             <div class="form__radio_fiz">
               <span>Физическое лицо</span>
-              <input type="radio" name="face">
+              <input type="radio" name="face" value="Физическое лицо">
             </div>
           </div>
 
@@ -316,11 +316,11 @@
           </div>
           <div class="form__input">
             <label for="telephone">Телефон</label>
-            <input type="text" name="telephone" class="form__input_style" placeholder="+79999999999">
+            <input type="tel" name="telephone" class="form__input_style" placeholder="+79999999999">
           </div>
           <div class="form__input">
             <label for="email">Email</label>
-            <input type="text" name="email" class="form__input_style" placeholder="example@mail.ru">
+            <input type="email" name="email" class="form__input_style" placeholder="example@mail.ru">
           </div>
 
           <!-- снова 2 селекта -->
@@ -330,52 +330,52 @@
 
             <div class="form__select_changeLanguage_wrap">
               <select name="originalLang" id="" size="1">
-                <option>азербайджанский</option>
-                <option value="1" selected>английский</option>
-                <option>арабский</option>
-                <option>армянский</option>
-                <option>белорусский</option>
-                <option>иврит</option>
-                <option>испанский</option>
-                <option>итальянский</option>
-                <option>китайский</option>
-                <option>корейский</option>
-                <option>молдавский</option>
-                <option>немецкий</option>
-                <option>польский</option>
-                <option>румынский</option>
-                <option>сербский</option>
-                <option>таджикский</option>
-                <option>турецкий</option>
-                <option>узбекский</option>
-                <option>украинский</option>
-                <option>французский</option>
-                <option>чешский</option>
-                <option>японский</option>
+                <option value="азербайджанский">азербайджанский</option>
+                <option value="английский" selected>английский</option>
+                <option value="арабский">арабский</option>
+                <option value="армянский">армянский</option>
+                <option value="белорусски">белорусский</option>
+                <option value="иврит">иврит</option>
+                <option value="испанский">испанский</option>
+                <option value="итальянски">итальянский</option>
+                <option value="китайский">китайский</option>
+                <option value="корейский">корейский</option>
+                <option value="молдавский">молдавский</option>
+                <option value="немецкий">немецкий</option>
+                <option value="польский">польский</option>
+                <option value="румынский">румынский</option>
+                <option value="сербский">сербский</option>
+                <option value="таджикский">таджикский</option>
+                <option value="турецкий">турецкий</option>
+                <option value="узбекский">узбекский</option>
+                <option value="украинский">украинский</option>
+                <option value="французски">французский</option>
+                <option value="чешский">чешский</option>
+                <option value="японский">японский</option>
               </select>
               <select name="targetLang" id="" size="1">
-                <option>азербайджанский</option>
-                <option value="1" selected>английский</option>
-                <option>арабский</option>
-                <option>армянский</option>
-                <option>белорусский</option>
-                <option>иврит</option>
-                <option>испанский</option>
-                <option>итальянский</option>
-                <option>китайский</option>
-                <option>корейский</option>
-                <option>молдавский</option>
-                <option>немецкий</option>
-                <option>польский</option>
-                <option>румынский</option>
-                <option>сербский</option>
-                <option>таджикский</option>
-                <option>турецкий</option>
-                <option>узбекский</option>
-                <option>украинский</option>
-                <option>французский</option>
-                <option>чешский</option>
-                <option>японский</option>
+                <option value="азербайджанский">азербайджанский</option>
+                <option value="английский" selected>английский</option>
+                <option value="арабский">арабский</option>
+                <option value="армянский">армянский</option>
+                <option value="белорусски">белорусский</option>
+                <option value="иврит">иврит</option>
+                <option value="испанский">испанский</option>
+                <option value="итальянски">итальянский</option>
+                <option value="китайский">китайский</option>
+                <option value="корейский">корейский</option>
+                <option value="молдавский">молдавский</option>
+                <option value="немецкий">немецкий</option>
+                <option value="польский">польский</option>
+                <option value="румынский">румынский</option>
+                <option value="сербский">сербский</option>
+                <option value="таджикский">таджикский</option>
+                <option value="турецкий">турецкий</option>
+                <option value="узбекский">узбекский</option>
+                <option value="украинский">украинский</option>
+                <option value="французски">французский</option>
+                <option value="чешский">чешский</option>
+                <option value="японский">японский</option>
               </select>
 
             </div>
@@ -404,7 +404,7 @@
 
           <div class="form__file">
             <label for="file">Прикрепить файл</label>
-            <input type="file" name="file">
+            <input type="file" name="file" multiple>
           </div>
           <!-- загрузить файл -->
 
@@ -415,8 +415,8 @@
 
           <!-- комментарии -->
           <div class="form__date">
-            <label for="date">Дополнительная информация (тематика перевода, предпочитаемый вид оплаты и т.д.)</label>
-            <textarea rows="7" class="form__textarea_style"></textarea>
+            <label for="comment">Дополнительная информация (тематика перевода, предпочитаемый вид оплаты и т.д.)</label>
+            <textarea rows="7" class="form__textarea_style" name="comment"></textarea>
           </div>
 
           <div class="form__privacy">
@@ -424,7 +424,7 @@
             <span>Я согласен на <a href="#">обработку персональных данных</a></span>
           </div>
 
-          <button type="button">Заказать перевод</button>
+          <button type="submit">Заказать перевод</button>
 
         </form>
       </div>
