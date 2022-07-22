@@ -50,28 +50,32 @@
 
         padding: 0 0 5px 0;
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
         margin-bottom: 10px;
-    }
 
-    &__radio_ur {
-        display: flex;
-        flex-basis: 50%;
+        label {
+            display: inline-block;
+            width: 400px;
+            padding: 10px;
+            border: 1px solid #000;
+            border-radius: 20px;
+            text-align: center;
+        }
 
-        span {
-            flex-basis: 70%;
+        input {
+            display: none;
+        }
+
+        input:checked+label {
+            border: 1px solid #0B527D;
+            border-radius: 20px;
+            background-color: #BDDBFF;
         }
     }
 
-    &__radio_fiz {
-        display: flex;
-        flex-basis: 50%;
 
-        span {
-            flex-basis: 70%;
-        }
-    }
+
 
     &__input {
 
@@ -117,9 +121,31 @@
     }
 
     &__checkbox_wrap {
+        padding: 0 0 5px 0;
         display: flex;
-
         justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+
+
+        label {
+            display: inline-block;
+            width: 400px;
+            padding: 10px;
+            border: 1px solid #000;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        input {
+            display: none;
+        }
+
+        input:checked+label {
+            border: 1px solid #0B527D;
+            border-radius: 20px;
+            background-color: #BDDBFF;
+        }
 
     }
 
@@ -177,11 +203,7 @@
 
     }
 
-    /*  input {
-        @include font-roboto-reg-14;
-        border: 1px solid #000;
 
-    } */
 
     select {
         height: 20px;
