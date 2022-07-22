@@ -302,15 +302,13 @@
         <form id="order-form" name="orderForm" action="POST" class="form__translate">
           <!--          чекбокса -->
           <div class="form__radio">
-            <div class="form__radio_ur">
-              <span>Юридическое лицо</span>
-              <input type="radio" name="face" value="Юридическое лицо">
+            <input type="radio" name="face" id="fz" value="Юридическое лицо">
+            <label for="fz" >Юридическое лицо</label>
+           
+              <input type="radio" name="face" id="ur" value="Физическое лицо">
+            <label for="ur">Физическое лицо</label>
             </div>
-            <div class="form__radio_fiz">
-              <span>Физическое лицо</span>
-              <input type="radio" name="face" value="Физическое лицо">
-            </div>
-          </div>
+          
 
           <!-- инпута 4 штуки -->
 
@@ -395,14 +393,12 @@
             <label for="image">Материалы</label>
 
             <div class="form__checkbox_wrap">
-              <div class="form__checkbox_electronic">
-                <span>в электронном виде</span>
-                <input type="radio" name="image">
-              </div>
-              <div class="form__checkbox_paper">
-                <span>на бумажном носителе</span>
-                <input type="radio" name="image">
-              </div>
+              <input type="radio" id="electr" name="image">
+              <label for="electr">в электронном виде</label>
+              
+              <input type="radio" id="paper" name="image">
+              <label for="paper">на бумажном носителе</label>
+            
 
             </div>
 
