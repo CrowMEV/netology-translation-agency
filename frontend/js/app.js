@@ -1,6 +1,7 @@
 // import 'babel-polyfill'
 import '../css/app.scss'
 import './order-form/order-form'
+import './lang-dropdown/lang-dropdown'
 
 
 const menuBurger=document.querySelector('.header__burger_icon')
@@ -27,5 +28,5 @@ menuBurgerLinks.onclick=()=>toggleBurger()
 function toggleBurger(){
            document.body.classList.toggle("lock")
         menuBurgerActive.classList.toggle('active')
-  
+
 }
