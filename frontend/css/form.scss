@@ -108,9 +108,7 @@
 
     &__select_changeLanguage_wrap {
         display: flex;
-
         justify-content: space-between;
-
     }
 
     &__checkbox {
@@ -159,7 +157,7 @@
         }
 
         /*  input[type='file'] {
-            opacity:0    
+            opacity:0
           } */
     }
 
@@ -204,11 +202,11 @@
     }
 
 
-
+/*
     select {
         height: 20px;
     }
-
+*/
     button {
         @include button-blue;
         margin: auto;
