@@ -1,0 +1,31 @@
+@import "typography";
+@import './media.scss';
+
+// PRE-FINAL - позиционирование добавлено
+
+.aboutCompany {
+  margin-bottom: 90px;
+
+  h2 {
+    @include font-roboto-bold-48;
+    color: $color-text;
+    text-align: center;
+    margin-bottom: 31px;
+
+    @media(min-width:320px) and (max-width:767.98px) {
+      font-size: 3.8em;
+    }
+  }
+
+  p {
+    @include font-roboto-reg-20;
+    color: $color-text;
+    line-height: 128%;
+  }
+
+  p:nth-child(n+2) {
+    margin-top: 20px;
+  }
+
+
+}

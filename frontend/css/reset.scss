@@ -66,7 +66,8 @@ input::-ms-clear {
 }
 
 button,
-input[type="submit"] {
+input[type="submit"],
+a {
 	display: inline-block;
 	box-shadow: none;
 	background-color: transparent;
@@ -88,4 +89,9 @@ button::-moz-focus-inner {
 
 label {
 	cursor: pointer;
+}
+
+
+input {
+	width: 100%;
 }
