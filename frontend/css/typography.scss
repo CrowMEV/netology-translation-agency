@@ -18,6 +18,15 @@ $color-border: #3d9ae2;
   line-height: 150%;
 }
 
+// добавил, т.к. часто встречается:
+@mixin font-roboto-reg-16 {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.6em;
+  line-height: 150%;
+}
+
 @mixin font-roboto-reg-20 {
   font-family: 'Roboto', sans-serif;
   font-style: normal;

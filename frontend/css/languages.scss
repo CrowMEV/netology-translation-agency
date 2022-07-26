@@ -2,22 +2,23 @@
 @import './media.scss';
 
 .languages {
-  text-align: center;
+  color: $color-text;
   margin-bottom: 80px;
+
+  @media(min-width:320px) and (max-width:767.98px) {
+    margin-bottom: 40px;
+  }
 
   h2 {
     @include font-roboto-bold-48;
-    color: $color-text;
-    margin-bottom: 60px;
+    text-align: center;
+    line-height: 100%;
+    margin-bottom: 40px;
 
     @media(min-width:320px) and (max-width:767.98px) {
-      font-size: 3.8em;
+      font-size: 2.4em;
+      margin-bottom: 20px;
     }
-  }
-
-  p {
-    @include font-roboto-reg-20;
-    color: $color-text;
   }
 
   &__wrap {
@@ -43,7 +44,23 @@
   &__item {
     @include font-roboto-reg-20;
     color: $color-text;
-    text-align: left;
-    display: block;
+    line-height: 192%;
+
+    @media(min-width:320px) and (max-width:767.98px) {
+      font-size: 1.4em;
+      line-height: 195%;
+    }
+  }
+
+  &__banner {
+    text-align: center;
+    @include font-roboto-reg-22;
+    color: $color-text;
+    line-height: 116%;
+
+    @media(min-width:320px) and (max-width:767.98px) {
+      font-size: 1.2em;
+      line-height: 164%;
+    }
   }
 }

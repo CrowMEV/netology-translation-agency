@@ -3,12 +3,15 @@
 
 .discountOffer {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 80px;
+
+  @media(min-width:320px) and (max-width:767.98px) {
+    margin-bottom: 40px;
+  }
+
 
   border: 1px solid $color-border;
   border-radius: 20px;
-  /*  padding-top: 30px;
-  padding-bottom: 38px; */
   padding: 20px;
   display: flex;
   align-items: center;
@@ -20,12 +23,19 @@
     margin-bottom: 40px;
 
     @media(min-width:320px) and (max-width:767.98px) {
-      font-size: 3em;
+      font-size: 2.4em;
+      margin-bottom: 20px;
     }
   }
 
   p {
-    @include font-roboto-reg-20;
+    @include font-roboto-reg-22;
     color: $color-text;
+    line-height: 116%;
+
+    @media(min-width:320px) and (max-width:767.98px) {
+      font-size: 1.4em;
+      line-height: 146%;
+    }
   }
 }

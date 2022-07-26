@@ -5,13 +5,18 @@
   text-align: center;
   margin-bottom: 90px;
 
+  @media(min-width:320px) and (max-width:767.98px) {
+    margin-bottom: 40px;
+  }
+
   h2 {
     @include font-roboto-bold-48;
     color: $color-text;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
 
     @media(min-width:320px) and (max-width:767.98px) {
-      font-size: 3.8em;
+      font-size: 2.4em;
+      margin-bottom: 20px;
     }
   }
 
@@ -22,10 +27,12 @@
 
   &__wrap {
     display: flex;
+    margin-bottom: 80px;
 
     @media (max-width: 991.98px) {
       flex-direction: column;
       align-items: center;
+      margin-bottom: 40px;
     }
 
     @media (min-width: 992px) {
@@ -48,11 +55,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 0 0 60px;
-
-      @media(min-width:320px) and (max-width:767.98px) {
-        margin-bottom: 0 0 40px;
-      }
     }
 
     &_container-inner {
@@ -62,6 +64,7 @@
       border-radius: 50px;
       border: 2px solid $color-border;
       display: flex;
+      align-items: center;
       padding-left: 100px;
     }
 
@@ -88,7 +91,6 @@
     &_content {
       text-align: left;
       margin-left: 9px;
-      margin-top: 7px;
 
       p {
         line-height: 119%;

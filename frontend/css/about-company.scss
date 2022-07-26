@@ -4,16 +4,22 @@
 // PRE-FINAL - позиционирование добавлено
 
 .aboutCompany {
-  margin-bottom: 90px;
+  margin-bottom: 80px;
+  color: $color-text;
+
+  @media(min-width:320px) and (max-width:767.98px) {
+    margin-bottom: 40px;
+  }
 
   h2 {
     @include font-roboto-bold-48;
-    color: $color-text;
     text-align: center;
-    margin-bottom: 31px;
+    line-height: 100%;
+    margin-bottom: 40px;
 
     @media(min-width:320px) and (max-width:767.98px) {
-      font-size: 3.8em;
+      font-size: 2.4em;
+      margin-bottom: 20px;
     }
   }
 
@@ -21,6 +27,11 @@
     @include font-roboto-reg-20;
     color: $color-text;
     line-height: 128%;
+
+    @media(min-width:320px) and (max-width:767.98px) {
+      font-size: 1.4em;
+      line-height: 152%;
+    }
   }
 
   p:nth-child(n+2) {
