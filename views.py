@@ -1,49 +1,32 @@
-import smtplib
-import os
-from email.message import EmailMessage
+from aiohttp import web
 from dotenv import load_dotenv
-from flask import render_template, request
 from app import application
+from mail import sending, prepare_data
+import aiohttp_jinja2
 
 load_dotenv()
 
 
-def show_page():
-    return render_template("index.html")
+async def show_page(request):
+    return aiohttp_jinja2.render_template("index.html", request, {})
 
 
-def send_to_user(from_, password, to, subject, content):
-    msg = EmailMessage()
-    msg.set_content(content)
-    msg['Subject'] = subject
-    msg['From'] = from_
-    msg['To'] = to
-    s = smtplib.SMTP(host='smtp.mail.ru', port=25)
-    s.starttls()
-    s.ehlo()
-    s.login(from_, password)
-    s.send_message(msg)
-    s.quit()
+async def send_mail(request):
+    # Парсим данные из реквеста
+    data = await request.post()
+
+    # Подготавливаем данные к отправке
+    form_dict = await prepare_data(data)
+
+    # Вызываем отправку почты
+    message = await sending(form_dict)
+
+    return aiohttp_jinja2.render_template("index.html", request, {'data': message})
 
 
-def send_mail():
-    LOGIN = os.getenv("LOGIN")
-    PASSWORD = os.getenv("PASSWORD")
-    user_mail = request.form['mail'].lower()
-    text = request.form['text']
-    address_list = [
-        [user_mail, "Заявка на перевод", "Ваша заявка принята"],
-        [LOGIN, "Новая заявка", text]
-    ]
-    data = None
-    for item in address_list:
-        try:
-            send_to_user(LOGIN, PASSWORD, item[0], item[1], item[2])
-        except Exception as err:
-            data = "Неверный адрес электронной почты"
-            break
-    return render_template("index.html", data=data)
-
-
-application.add_url_rule('/', view_func=show_page)
-application.add_url_rule('/', view_func=send_mail, methods=['POST'])
+application.add_routes([
+    web.get('/', show_page),
+    web.post('/', send_mail),
+    #Регистрируем маршрут, чтобы отдавать статику
+    web.static('/static', "./static")
+])
