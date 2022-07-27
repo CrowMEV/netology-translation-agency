@@ -1,29 +1,35 @@
 @import "typography";
 @import './media.scss';
 
-// PRE-FINAL - позиционирование и медиа добавлены!
-
 .featuresTranslate {
   text-align: center;
-  margin-bottom: 90px;
+  margin-bottom: 80px;
+
+  @media(min-width:320px) and (max-width:767.98px) {
+    margin-bottom: 40px;
+  }
 
   h2 {
     @include font-roboto-bold-48;
     color: $color-text;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 
     @media(min-width:550px) and (max-width:767.98px) {
-      font-size: 3.8em;
+      font-size: 2.4em;
+      line-height: 121%;
+      margin-bottom: 20px;
     }
 
     @media(min-width:320px) and (max-width:549.98px) {
-      font-size: 3em;
-      margin-bottom: 40px;
+      font-size: 2.4em;
+      line-height: 121%;
+      margin-bottom: 20px;
     }
   }
 
   p {
     @include font-roboto-reg-20;
+    line-height: 100%;
     color: $color-text;
   }
 

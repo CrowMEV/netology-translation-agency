@@ -18,6 +18,15 @@ $color-border: #3d9ae2;
   line-height: 150%;
 }
 
+// добавил, т.к. часто встречается:
+@mixin font-roboto-reg-16 {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.6em;
+  line-height: 150%;
+}
+
 @mixin font-roboto-reg-20 {
   font-family: 'Roboto', sans-serif;
   font-style: normal;
@@ -31,7 +40,7 @@ $color-border: #3d9ae2;
   font-style: normal;
   font-weight: 400;
   font-size: 2.2em;
-  line-height: 150%;
+  <<<<<<< HEAD line-height: 150%;
 }
 
 @mixin font-roboto-bold-24 {
@@ -42,7 +51,18 @@ $color-border: #3d9ae2;
   line-height: 150%;
 }
 
-@mixin font-roboto-bold-48 {
+=======line-height: 150%;
+}
+
+@mixin font-roboto-bold-24 {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2.4em;
+  line-height: 150%;
+}
+
+>>>>>>>main @mixin font-roboto-bold-48 {
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -62,6 +82,22 @@ $color-border: #3d9ae2;
   text-align: center;
   border: 1px solid #022033;
   box-shadow: 20px 26px 32px 0px rgba(11, 82, 125, 0.28);
+  <<<<<<< HEAD
+}
+
+@mixin button-white {
+  @include font-roboto-bold-48;
+  font-size: 1.9em;
+  max-width: 340px;
+  width: 100%;
+  padding: 24px 84px;
+  background: $color-white;
+  color: $color-text;
+  text-align: center;
+  border-radius: 50px;
+
+
+  =======>>>>>>>main
 }
 
 @mixin button-white {
