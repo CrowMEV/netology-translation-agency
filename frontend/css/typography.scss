@@ -40,7 +40,7 @@ $color-border: #3d9ae2;
   font-style: normal;
   font-weight: 400;
   font-size: 2.2em;
-  <<<<<<< HEAD line-height: 150%;
+  line-height: 150%;
 }
 
 @mixin font-roboto-bold-24 {
@@ -51,8 +51,6 @@ $color-border: #3d9ae2;
   line-height: 150%;
 }
 
-=======line-height: 150%;
-}
 
 @mixin font-roboto-bold-24 {
   font-family: 'Roboto', sans-serif;
@@ -62,7 +60,7 @@ $color-border: #3d9ae2;
   line-height: 150%;
 }
 
->>>>>>>main @mixin font-roboto-bold-48 {
+@mixin font-roboto-bold-48 {
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -82,7 +80,7 @@ $color-border: #3d9ae2;
   text-align: center;
   border: 1px solid #022033;
   box-shadow: 20px 26px 32px 0px rgba(11, 82, 125, 0.28);
-  <<<<<<< HEAD
+
 }
 
 @mixin button-white {
@@ -97,7 +95,6 @@ $color-border: #3d9ae2;
   border-radius: 50px;
 
 
-  =======>>>>>>>main
 }
 
 @mixin button-white {
