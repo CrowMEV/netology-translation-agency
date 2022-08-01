@@ -5,14 +5,20 @@
 
 //@import './header.scss';
 //@import './orderTranslate.scss';
+@import './components/header/Header';
+@import './components/navbar/Navbar';
+@import './components/orderTranslate/OrderTranslate';
 @import './components/about-company/AboutCompany';
 @import './components/languages/Languages';
 @import './components/features-translate/FeaturesTranslate';
 @import './components/how-we-work/HowWeWork';
 @import './components/discount/Discount';
 @import './components/discount-offer/DiscountOffer';
+@import './components/form/Form';
 @import './components/footer/Footer';
 @import './components/contacts/Contacts';
+@import './components/burgerMenu/BurgerMenu';
+
 //@import './form.scss';
 //@import './burger-menu.scss';
 //@import './lang-dropdown.scss';
@@ -32,7 +38,16 @@ body {
   margin: 0 auto;
   padding: 0 15px;
 
-  @media(min-width: 992px) and (max-width: 1199.99px) {
+  @media (max-width: 1199.99px) {
+    max-width: 960px;
+    width: 100%
+  }
+
+  @media (max-width: 360px) {
+    padding: 0 10px;
+  }
+
+  /*   @media(min-width: 992px) and (max-width: 1199.99px) {
     max-width: 960px;
   }
 
@@ -40,7 +55,7 @@ body {
     max-width: 720px;
   }
 
-  @media (min-width: 576px) and (max-width: 767.98px) {
+  @media (min-width: 460px) and (max-width: 767.98px) {
     max-width: 540px;
   }
 
@@ -51,5 +66,5 @@ body {
 
   @media (min-width: 320px) and (max-width: 420.98px) {
     max-width: 320px;
-  }
+  } */
 }

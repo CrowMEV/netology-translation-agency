@@ -1,8 +1,10 @@
-import Home from '../../img/socialIcons/bx_home-alt-2.svg';
-import Phone from '../../img/socialIcons/ri_phone-line.svg';
+import Home from '../../img/socialIcons/address.svg';
+import Phone from '../../img/socialIcons/tel.svg';
 import WhatsUp from '../../img/socialIcons/whatsapp.svg';
 import Telegram from '../../img/socialIcons/telegram.svg';
-import Email from '../../img/socialIcons/ri_at-line.svg';
+import Email from '../../img/socialIcons/mail.svg';
+
+import flags from './flags'
 
 function Contacts() {
   return (
@@ -44,13 +46,13 @@ function Contacts() {
 
           <div className="contacts__links_item">
             <img className="contacts__links_item_icon" src={WhatsUp} alt="вотсап"/>
-            <a href="https://wa.me/79132765509" target="_blank" className="contacts__links_item_link">+7 913 276
+            <a href="https://wa.me/79132765509" target="_blank" rel="noopener noreferrer" className="contacts__links_item_link">+7 913 276
               5509</a>
           </div>
 
           <div className="contacts__links_item">
             <img className="contacts__links_item_icon" src={Telegram} alt="телеграмм"/>
-            <a href="https://telegram.me/ilin_me" target="_blank" className="contacts__links_item_link">@ilin_em</a>
+            <a href="https://telegram.me/ilin_me" target="_blank" rel="noopener noreferrer" className="contacts__links_item_link">@ilin_em</a>
           </div>
 
           <div className="contacts__links_item">
@@ -60,6 +62,21 @@ function Contacts() {
         </address>
 
       </div>
+
+      <div class="contacts__flags">
+      {/*     <img class="contacts__flags_item" src="../img/flags/emojione-v1_flag-for-united-states.svg">
+          <img class="contacts__flags_item" src="../img/flags/emojione-v1_flag-for-united-kingdom.svg">
+          <img class="contacts__flags_item" src="../img/flags/emojione-v1_flag-for-germany.svg">
+          <img class="contacts__flags_item" src="../img/flags/emojione-v1_flag-for-china.svg">
+          <img class="contacts__flags_item" src="../img/flags/emojione-v1_flag-for-kazakhstan.svg">
+          <img class="contacts__flags_item" src="../img/flags/emojione-v1_flag-for-czechia.svg">
+          <img class="contacts__flags_item" src="../img/flags/emojione-v1_flag-for-spain.svg">
+          <img class="contacts__flags_item" src="../img/flags/emojione-v1_flag-for-canada.svg">
+          <img class="contacts__flags_item" src="../img/flags/emojione-v1_flag-for-france.svg">
+          <img class="contacts__flags_item" src="../img/flags/emojione-v1_flag-for-georgia.svg"> */}
+
+          {flags.map(flag=><img className="contacts__flags_item" src={flag.img} alt={flag.description} key={flag.id} />)}
+        </div>
 
     </section>
   )
