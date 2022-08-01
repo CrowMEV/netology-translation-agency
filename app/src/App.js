@@ -7,6 +7,7 @@ import Contacts from "./components/contacts/Contacts";
 import Discount from "./components/discount/Discount";
 import DiscountOffer from "./components/discount-offer/DiscountOffer";
 import HowWeWork from "./components/how-we-work/HowWeWork";
+import Sample from "./store/sample/sample";
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
         <DiscountOffer/>
         <Discount/>
         ** FORM PLACE **
+        ** STORE TEST **
+        <Sample/>
+        ** STORE TEST ENDS**
         <Contacts/>
         <Footer/>
       </div>
