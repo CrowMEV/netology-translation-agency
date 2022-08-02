@@ -1,52 +1,52 @@
 const flags=[
     {
-        id:1,
-        img:'/flags/canada.svg',
+       
+        country:'canada',
         description:'флаг канады'
     },
     {
-        id:2,
-        img:'/flags/china.svg',
+     
+        country:'china',
         description:'флаг китая'
     },
     {
-        id:3,
-        img:'/flags/czechia.svg',
+       
+        country:'czechia',
         description:'флаг чехии'
     },
     {
         id:4,
-        img:'/flags/france.svg',
+        country:'france',
         description:'флаг франции'
     },
     {
         id:5,
-        img:'/flags/georgia.svg',
+        country:'georgia',
         description:'флаг грузии'
     },
     {
         id:6,
-        img:'/flags/germany.svg',
+        country:'germany',
         description:'флаг германии'
     },
     {
         id:7,
-        img:'/flags/kazakhstan.svg',
+        country:'kazakhstan',
         description:'флаг казахстана'
     },
     {
         id:8,
-        img:'/flags/kingdom.svg',
+        country:'kingdom',
         description:'флаг англии'
     },
     {
         id:9,
-        img:'/flags/spain.svg',
+        country:'spain',
         description:'флаг испании'
     },
     {
         id:10,
-        img:'/flags/usa.svg',
+        country:'usa',
         description:'флаг сша'
     },
 ]
