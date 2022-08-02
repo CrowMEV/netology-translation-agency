@@ -75,7 +75,12 @@ function Contacts() {
           <img class="contacts__flags_item" src="../img/flags/emojione-v1_flag-for-france.svg">
           <img class="contacts__flags_item" src="../img/flags/emojione-v1_flag-for-georgia.svg"> */}
 
-          {flags.map(flag=><img className="contacts__flags_item" src={flag.img} alt={flag.description} key={flag.id} />)}
+          {flags.map(flag=>
+          <img className="contacts__flags_item" 
+          src={require(`../../img/flags/${flag.country}.svg`)} 
+          alt={flag.description} key={flag.country} 
+          />
+          )}
         </div>
 
     </section>
