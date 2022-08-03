@@ -284,6 +284,7 @@ function Form() {
 
           <div className="form__privacy">
             <input
+            className='form__privicy_check'
               required={true}
               type="checkbox"
               name="privacy"
