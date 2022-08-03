@@ -1,18 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
-  updatedData: null,
-  locallyStoredData: null,
 
-  successPopupVisible: false,
-  loadingPopupVisible: false,
-  failurePopupVisible: false,
-
-  callMeFormVisible: false,
-  callMeFormSuccess: false,
-  callMeFormPopupFailure: false,
-
-  burgerMenuVisible: false,
 }
 
 export const applicationSlice = createSlice({
@@ -21,6 +10,7 @@ export const applicationSlice = createSlice({
   reducers: {
 
     showSuccessPopup: (state, action) => {
+
       state.successPopupVisible = true;
     },
     hideSuccessPopup: (state, action) => {
