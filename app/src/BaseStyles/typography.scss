@@ -96,17 +96,3 @@ $color-border: #3d9ae2;
 
 
 }
-
-@mixin button-white {
-  @include font-roboto-bold-48;
-  font-size: 1.9em;
-  max-width: 340px;
-  width: 100%;
-  padding: 24px 84px;
-  background: $color-white;
-  color: $color-text;
-  text-align: center;
-  border-radius: 50px;
-
-
-}
