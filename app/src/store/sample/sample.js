@@ -25,7 +25,7 @@ function Sample() {
       <button style={style} onClick={hide}>HidePopup</button>
       { successPopupVisible?
         <div style={{fontSize: '30px', color: 'red'}}> YOU SEE MEE NOW!!! </div> : null
-      }
+      } 
     </div>
   )
 }

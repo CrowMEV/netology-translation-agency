@@ -111,8 +111,12 @@
         }
     }
 
-    button {
+    .btn {
         @include button-white;
+
+
+
+
 
         @media(min-width:500px) and (max-width:767.98px) {
             max-width: 300px;
@@ -122,6 +126,19 @@
         @media(min-width:320px) and (max-width:499.98px) {
             max-width: 250px;
             padding: 10px 30px;
+        }
+
+
+
+
+
+
+        &:hover {
+
+            background-color: $color-button;
+            color: $color-white;
+            transition: .5s ease-out;
+
         }
     }
 }

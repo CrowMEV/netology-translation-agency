@@ -32,10 +32,10 @@ function App() {
         <DiscountOffer/>
         <Discount/>
         <Form/>
-        ** FORM PLACE **
+       {/*  ** FORM PLACE **
         ** STORE TEST **
         <Sample/>
-        ** STORE TEST ENDS**
+        ** STORE TEST ENDS** */}
         <Contacts/>
         <Footer/>
       </div>
