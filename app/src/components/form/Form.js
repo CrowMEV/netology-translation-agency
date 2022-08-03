@@ -1,158 +1,301 @@
-import React from 'react'
+import React, {useRef, useState} from 'react'
+import {useDispatch, useSelector} from "react-redux";
+import {IMaskInput} from "react-imask";
+import {langs} from "./langs";
+import {v4} from "uuid";
+
+const HOST_URL = 'http://localhost:8888';
 
 function Form() {
+  const [originalLSelectVisible, setOLSelectVisible] = useState(false);
+  const [targetLSelectVisible, setTLSelectVisible] = useState(false);
+
+  const { form } = useSelector((state) => state);
+  const {
+      face,
+      city,
+      initials,
+      telephone,
+      email,
+      originalLang,
+      targetLang,
+      image,
+      date,
+      comment,
+      privacy,
+  } = form;
+
+  const dispatch = useDispatch();
+  const fileInputRef = useRef();
+
+  const updateValue = (name, value) => {
+    dispatch({type: 'form/updateValue', payload: {name, value}});
+  }
+
+  const setAgreement = (e) => {
+    const { name, checked } = e.target;
+    dispatch({type: 'form/updateValue', payload: { name, value: checked }});
+  };
+
+  const switchFactory = (value, method) => {
+    return () => {
+      if (value) {
+        method(false)
+      } else {
+        method(true);
+      }
+    }
+  }
+  const toggleOL = switchFactory(originalLSelectVisible, setOLSelectVisible);
+  const toggleTL = switchFactory(targetLSelectVisible, setTLSelectVisible);
+
+
+  const formSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const formData = new FormData();
+      Object.keys(form).forEach((key) => {
+        formData.set(key, form[key]);
+      });
+
+      const files = fileInputRef.current?.files;
+      Object.keys(files).forEach((key) => {
+        formData.append(`files[]`, files[key], files[key].name);
+      });
+
+      const request = await fetch(HOST_URL, {
+        method: 'POST',
+        body: formData,
+      });
+      if (request.ok) {
+        const data = await request.text();
+        console.log('From server: ');
+        console.log(data);
+        console.log(request.status, request.statusText);
+        // showSuccessMessage();
+      }
+    } catch (e) {
+      console.log(e.message);
+    }
+  }
+
   return (
    <>
-    <section id="form" class="form">
-        <div class="container">
+    <section id="form" className="form">
         <h2>Заказать перевод</h2>
 
-        <form id="order-form" name="orderForm" action="POST" class="form__translate">
-         
-          <div class="form__radio">
-            <input type="radio" name="face" id="fz" value="Юридическое лицо"/>
-            <label for="fz" >Юридическое лицо</label>
+        <form id="order-form" name="orderForm" onSubmit={formSubmit} className="form__translate">
 
-              <input type="radio" name="face" id="ur" value="Физическое лицо"/>
-            <label for="ur">Физическое лицо</label>
-            </div>
-
-
-      
-
-          <div class="form__input">
-            <label for="city">Город</label>
-            <input type="text" name="city" class="form__input_style" placeholder="Барнаул"/>
-          </div>
-          <div class="form__input">
-            <label for="initials">Фамилия, имя</label>
-            <input type="text" name="initials" class="form__input_style" placeholder="Иванов Иван"/>
-          </div>
-          <div class="form__input">
-            <label for="telephone">Телефон</label>
-            <input type="tel" name="telephone" class="form__input_style" placeholder="+79999999999"/>
-          </div>
-          <div class="form__input">
-            <label for="email">Email</label>
-            <input type="email" name="email" class="form__input_style" placeholder="example@mail.ru"/>
+          <div className="form__radio">
+            <input
+              type="radio"
+              name="face"
+              id="fz"
+              value="Юридическое лицо"
+              checked={face === 'Юридическое лицо'}
+              onChange={(e) => updateValue('face', e.target.value)}
+            />
+            <label htmlFor="fz" >Юридическое лицо</label>
+            <input
+              type="radio"
+              name="face"
+              id="ur"
+              value="Физическое лицо"
+              checked={face === "Физическое лицо"}
+              onChange={(e) => updateValue('face', e.target.value)}
+            />
+            <label htmlFor="ur">Физическое лицо</label>
           </div>
 
+          <div className="form__input">
+            <label htmlFor="city">Город</label>
+            <input
+              required={true}
+              type="text"
+              name="city"
+              className="form__input_style"
+              placeholder="Барнаул"
+              value={city}
+              onChange={(e) => updateValue('city', e.target.value)}
+            />
+          </div>
 
-          <div class="form__select_changeLanguage">
-            <label for="">Язык перевода</label>
+          <div className="form__input">
+            <label htmlFor="initials">Фамилия, имя</label>
+            <input
+              required={true}
+              type="text"
+              name="initials"
+              className="form__input_style"
+              placeholder="Иванов Иван"
+              value={initials}
+              onChange={(e) => updateValue('initials', e.target.value)}
+            />
+          </div>
 
-            <div class="form__select_changeLanguage_wrap">
+          <div className="form__input">
+            <label htmlFor="telephone">Телефон</label>
+            <IMaskInput
+              mask="+{7} (000) 000-00-00"
+              className="form__input_style"
+              name="telephone"
+              id="tel"
+              unmask
+              value={telephone}
+              lazy={false}
+              onAccept={(value) => updateValue('telephone', value)}
+            />
+          </div>
 
-              <div id="originalLangDD" class="lang-dropdown">
-                <div class="lang-dropdown__controls">
-                    с ... языка
+          <div className="form__input">
+            <label htmlFor="email">Email</label>
+            <input
+              required={true}
+              type="email"
+              name="email"
+              className="form__input_style"
+              placeholder="example@mail.ru"
+              value={email}
+              onChange={(e) => updateValue('email', e.target.value)}
+            />
+          </div>
+
+
+          <div className="form__select_changeLanguage">
+            <label htmlFor="">Язык перевода</label>
+
+            <div className="form__select_changeLanguage_wrap">
+
+              <div id="originalLangDD" className="lang-dropdown">
+                <div
+                  className="lang-dropdown__controls"
+                  onClick={toggleOL}
+                >
+                  {originalLang}
                 </div>
-                <select name="originalLang" class="lang-dropdown__select lang-dropdown__hidden" size="5">
-                  <option value="азербайджанский">азербайджанский</option>
-                  <option value="английский">английский</option>
-                  <option value="арабский">арабский</option>
-                  <option value="армянский">армянский</option>
-                  <option value="белорусский">белорусский</option>
-                  <option value="иврит">иврит</option>
-                  <option value="испанский">испанский</option>
-                  <option value="итальянский">итальянский</option>
-                  <option value="китайский">китайский</option>
-                  <option value="корейский">корейский</option>
-                  <option value="молдавский">молдавский</option>
-                  <option value="немецкий">немецкий</option>
-                  <option value="польский">польский</option>
-                  <option value="румынский">румынский</option>
-                  <option value="сербский">сербский</option>
-                  <option value="таджикский">таджикский</option>
-                  <option value="турецкий">турецкий</option>
-                  <option value="узбекский">узбекский</option>
-                  <option value="украинский">украинский</option>
-                  <option value="французский">французский</option>
-                  <option value="чешский">чешский</option>
-                  <option value="японский">японский</option>
-                  <option value="другой">другой</option>
+                <select
+                  name="originalLang"
+                  className={
+                    originalLSelectVisible ? 'lang-dropdown__select'
+                      : 'lang-dropdown__select lang-dropdown__hidden'
+                  }
+                  size="5">
+                  {langs.map(lang =>
+                    <option
+                      key={v4()}
+                      value={lang}
+                      onClick={(e) => {
+                        updateValue('originalLang', lang);
+                        toggleOL();
+                      }
+                      }
+                    >{lang}</option>
+                  )}
                 </select>
               </div>
 
-              <div id="targetLangDD" class="lang-dropdown">
-                <div class="lang-dropdown__controls">
-                    на ... язык
+              <div id="targetLangDD" className="lang-dropdown">
+                <div
+                  className="lang-dropdown__controls"
+                  onClick={toggleTL}
+                >
+                  {targetLang}
                 </div>
-                <select name="targetLang" class="lang-dropdown__select lang-dropdown__hidden" size="3">
-                  <option value="азербайджанский">азербайджанский</option>
-                  <option value="английский">английский</option>
-                  <option value="арабский">арабский</option>
-                  <option value="армянский">армянский</option>
-                  <option value="белорусский">белорусский</option>
-                  <option value="иврит">иврит</option>
-                  <option value="испанский">испанский</option>
-                  <option value="итальянский">итальянский</option>
-                  <option value="китайский">китайский</option>
-                  <option value="корейский">корейский</option>
-                  <option value="молдавский">молдавский</option>
-                  <option value="немецкий">немецкий</option>
-                  <option value="польский">польский</option>
-                  <option value="румынский">румынский</option>
-                  <option value="сербский">сербский</option>
-                  <option value="таджикский">таджикский</option>
-                  <option value="турецкий">турецкий</option>
-                  <option value="узбекский">узбекский</option>
-                  <option value="украинский">украинский</option>
-                  <option value="французский">французский</option>
-                  <option value="чешский">чешский</option>
-                  <option value="японский">японский</option>
-                  <option value="другой">другой</option>
+                <select
+                  name="targetLang"
+                  className={
+                    targetLSelectVisible ? 'lang-dropdown__select'
+                      : 'lang-dropdown__select lang-dropdown__hidden'
+                  }
+                  size="3">
+                  {langs.map(lang =>
+                    <option
+                      key={v4()}
+                      value={lang}
+                      onClick={(e) => {
+                        updateValue('targetLang', lang);
+                        toggleTL();
+                      }}
+                    >{lang}</option>
+                  )}
                 </select>
               </div>
 
             </div>
           </div>
 
-        
-
-          <div class="form__checkbox">
-            <label for="image">Материалы</label>
-
-            <div class="form__checkbox_wrap">
-              <input type="radio" id="electr" name="image"/>
-              <label for="electr">в электронном виде</label>
-
-              <input type="radio" id="paper" name="image"/>
-              <label for="paper">на бумажном носителе</label>
-
-
+          <div className="form__checkbox">
+            <label htmlFor="image">Материалы</label>
+            <div className="form__checkbox_wrap">
+              <input
+                type="radio"
+                name="image"
+                id="electronic"
+                value="В электронном виде"
+                checked={image === "В электронном виде"}
+                onChange={(e) => updateValue('image', e.target.value)}
+              />
+              <label htmlFor="electronic">в электронном виде</label>
+              <input
+                type="radio"
+                name="image"
+                id="paper"
+                value="На бумажном носителе"
+                checked={image === "На бумажном носителе"}
+                onChange={(e) => updateValue('image', e.target.value)}
+              />
+              <label htmlFor="paper">на бумажном носителе</label>
             </div>
-
           </div>
 
-        
 
-          <div class="form__file">
-            <label for="file">Прикрепить файл</label>
-            <input type="file" name="file" multiple/>
-          </div>
-       
-
-          <div class="form__date">
-            <label for="date">Дата готовности перевода</label>
-            <input type="date" name="date" class="form__input_style" placeholder="xx.xx.xxxx"/>
+          <div className="form__file">
+            <label htmlFor="documents">Прикрепить файл</label>
+            <input
+              type="file"
+              name="documents"
+              multiple
+              ref={fileInputRef}
+            />
           </div>
 
-      
-          <div class="form__textarea">
-            <label for="comment">Дополнительная информация</label>
-            <textarea rows="7" class="form__textarea_style" name="comment"></textarea>
+          <div className="form__date">
+            <label htmlFor="date">Дата готовности перевода</label>
+            <input
+              type="date"
+              name="date"
+              className="form__input_style"
+              value={date}
+              onChange={(e) => updateValue('date', e.target.value)}
+            />
           </div>
 
-          <div class="form__privacy">
-            <input type="checkbox" name="privacy"  />
+
+          <div className="form__textarea">
+            <label htmlFor="comment">Дополнительная информация</label>
+            <textarea
+              rows="7"
+              className="form__textarea_style"
+              name="comment"
+              value={comment}
+              onChange={(e) => updateValue('comment', e.target.value)}
+            />
+          </div>
+
+          <div className="form__privacy">
+            <input
+              required={true}
+              type="checkbox"
+              name="privacy"
+              checked={privacy}
+              onChange={setAgreement}
+            />
             <span>Я подтверждаю, что ознакомлен(а) с <a href="/">Политикой конфиденциальности</a></span>
           </div>
 
           <button type="submit">Заказать перевод</button>
 
         </form>
-      </div>
       </section>
    </>
   )
