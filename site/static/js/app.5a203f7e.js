@@ -428,7 +428,7 @@ var LangDropdown = /*#__PURE__*/function () {
 },{}],"../js/app.js":[function(require,module,exports) {
 "use strict";
 
-require("../../frontend/css/app.scss");
+require("../../../frontend/css/app.scss");
 
 require("./order-form/order-form");
 
