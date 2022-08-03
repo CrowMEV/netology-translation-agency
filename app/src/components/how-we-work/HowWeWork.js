@@ -55,7 +55,7 @@ function HowWeWork() {
         </div>
 
       </div>
-      <button type="button">Заказать перевод</button>
+      <button type="button"><a href="#form">Заказать перевод</a></button>
     </section>
   )
 }

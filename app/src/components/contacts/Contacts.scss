@@ -38,14 +38,18 @@
   }
 
   &__links {
+    @include font-roboto-reg-20;
     margin-bottom: 40px;
 
     @media (min-width: 1200px) {
       margin-left: 138px;
     }
 
+    @media (max-width: 767.98px) {
+      font-size: 1.4em;
+    }
+
     text-align: left;
-    @include font-roboto-reg-20;
     line-height: 102%;
     color: $color-text;
 

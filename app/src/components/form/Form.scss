@@ -18,14 +18,25 @@
         }
     }
 
+    label,
+    input,
+    textarea {
+        @include font-roboto-reg-14;
+        font-size: 1.6em;
+        color: inherit;
+
+        @media(min-width:320px) and (max-width:767.98px) {
+            font-size: 1.2em;
+        }
+    }
+
     span {
         @include font-roboto-reg-14;
         color: inherit;
     }
 
     &__translate {
-        /* max-width: 1180px;
-        width: 100%; */
+
         padding: 40px 120px;
         border-radius: 20px;
         border: 1px solid $color-border;
@@ -33,15 +44,15 @@
         flex-direction: column;
 
         @media(min-width:768px) and (max-width:991.98px) {
-            padding: 40px 70px;
-        }
-
-        @media(min-width:451px) and (max-width:767.98px) {
             padding: 40px 60px;
         }
 
-        @media(min-width:320px) and (max-width:450.98px) {
+        @media(min-width:451px) and (max-width:767.98px) {
             padding: 40px 40px;
+        }
+
+        @media(min-width:320px) and (max-width:450.98px) {
+            padding: 20px 20px;
         }
     }
 
@@ -54,12 +65,17 @@
         margin-bottom: 10px;
 
         label {
+
             display: inline-block;
-            width: 400px;
+            max-width: 400px;
+            width: 100%;
             padding: 10px;
             border: 1px solid #000;
             border-radius: 20px;
             text-align: center;
+
+            margin-right: 20px;
+
         }
 
         input {
@@ -85,17 +101,19 @@
     }
 
     &__input_style {
+        @include font-roboto-reg-16;
         border: 1px solid $color-border;
         border-radius: 20px;
         width: 100%;
-        padding: 7px 15px;
+        padding: 8px 30px;
     }
 
     &__textarea_style {
-        border: 1px solid rgba(11, 82, 125, 1);
+        @include font-roboto-reg-16;
+        border: 1px solid $color-border;
         border-radius: 20px;
         width: 100%;
-        padding: 7px 15px;
+        padding: 8px 30px;
     }
 
     &__select_changeLanguage {
@@ -129,9 +147,10 @@
             display: inline-block;
             width: 400px;
             padding: 10px;
-            border: 1px solid #000;
+            border: 1px solid $color-border;
             border-radius: 20px;
             text-align: center;
+            margin-right: 20px;
         }
 
         input {
@@ -176,7 +195,7 @@
         margin-bottom: 20px;
 
         textarea {
-            border: 1px solid rgba(11, 82, 125, 1);
+            border: 1px solid $color-border;
         }
     }
 
@@ -185,39 +204,34 @@
         margin-bottom: 30px;
 
         input {
-            width: 3%;
+            width: 10%;
+            margin-right: 10px;
         }
 
         a {
             color: rgba(61, 154, 226, 1);
         }
+
+        span {
+            @media(min-width:320px) and (max-width:767.98px) {
+
+                font-size: 1.2em;
+            }
+        }
     }
 
-    label {
-        @include font-roboto-reg-14;
-        font-size: 1.6em;
-        color: inherit;
-
-    }
 
 
-    /*
-    select {
-        height: 20px;
-    }
-*/
     button {
         @include button-blue;
         margin: auto;
 
         @media(min-width:320px) and (max-width:767.98px) {
             max-width: 300px;
-            padding: 20px 60px;
+            padding: 20px 40px;
+            font-size: 1.4em;
         }
-
     }
-
-
 }
 
 .lang-dropdown {
@@ -225,16 +239,18 @@
     color: $color-text;
     position: relative;
     width: 400px;
+    margin-right: 20px;
 
     &__controls {
         position: relative;
         border: 1px $color-border solid;
-        border-radius: 20px ;
+        border-radius: 20px;
         text-align: center;
         user-select: none;
         padding: 10px;
         display: inline-block;
         width: 100%;
+
     }
 
     &__select {
@@ -248,11 +264,17 @@
         outline: none;
     }
 
-    &__select > option {
-        margin: 2px 0;
-        padding: 20px;
-        display: block;
-        background-color: $color-checkbox;
+    &__select>option {
+        padding: 10px;
+        background-color: #bddbff;
+        position: relative;
+        border: 1px #3d9ae2 solid;
+        border-radius: 10px;
+        text-align: center;
+        max-width: 300px;
+        display: flex;
+        justify-content: center;
+        margin: 2px auto;
     }
 
     &__hidden {
