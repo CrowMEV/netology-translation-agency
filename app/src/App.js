@@ -15,7 +15,7 @@ import Footer from "./components/footer/Footer";
 
 import BurgerMenu from './components/burgerMenu/BurgerMenu';
 
-import Sample from "./store/sample/sample";
+/* import Sample from "./store/sample/sample"; */
 
 function App() {
   return (
