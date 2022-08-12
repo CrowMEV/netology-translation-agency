@@ -346,13 +346,13 @@ input {
 }
 @media (min-width: 576px) {
   .orderTranslate {
-    background-image: url("/static/images/backTranslate.b9beccfc.jpg");
+    background-image: url("../images/backTranslate.b9beccfc.jpg");
   }
 }
 @media (min-width: 320px) and (max-width: 575.98px) {
   .orderTranslate {
     height: 300px;
-    background-image: url("/static/images/backTranslate-small.d9e13fd7.jpg");
+    background-image: url("../images/backTranslate-small.d9e13fd7.jpg");
   }
 }
 .orderTranslate__wrap {

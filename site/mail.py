@@ -48,10 +48,25 @@ async def send_to_current_user(from_, password, to, subject, content, files):
 
 
 async def sending(data):
+    # Формируем тело письма с данными о заказчике
+    message_text = f"""
+    Город: {data.get('city', '')}
+    Заказчик: {data.get('initials', '')}
+    Телефон: {data.get('telephone', '')}
+    Email: {data.get('email', '')}
+    Дата готовности: {data.get('date', '')}
+    Дополнительно: {data.get('comment', '')}
+    """
     address_list = [
-        [data["mail"], "Заявка на перевод", "Ваша заявка принята"],
-        [data["login"], "Новая заявка", data["text"]]
+        [data["email"], "Заявка на перевод", "Ваша заявка принята"],
+        [data["login"], "Новая заявка", message_text]
     ]
+
+    # Проверяем указал ли пользователь электронный адрес
+    if not data.get('email'):
+        address_list = [address_list[-1]]
+
+    # Отправка письма
     message = None
     for item in address_list:
         try:
