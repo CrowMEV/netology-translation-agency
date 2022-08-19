@@ -1,5 +1,6 @@
 import smtplib
 import os
+from email import encoders
 from email.mime.application import MIMEApplication
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -22,7 +23,7 @@ async def prepare_data(data: dict) -> dict:
 
 async def send_to_current_user(from_, password, to, subject, content, files):
     msg = MIMEMultipart()
-    msg.attach(MIMEText(content))
+    msg.attach(MIMEText(content, _charset='utf-8'))
     msg['Subject'] = subject
     msg['From'] = from_
     msg['To'] = to
@@ -31,7 +32,8 @@ async def send_to_current_user(from_, password, to, subject, content, files):
         # attach files
         for file in files:
             attachment = MIMEApplication(file.file.read())
-            attachment.add_header('Content-Disposition', 'attachment; filename="%s"' % file.filename)
+            attachment.add_header('Content-Disposition', 'attachment',
+                                  filename=("utf-8", "", f"{file.filename}"))
             msg.attach(attachment)
 
     # send mail
