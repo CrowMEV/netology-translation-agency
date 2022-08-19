@@ -1,8 +1,7 @@
 import smtplib
 import os
-from email import encoders
+from email.mime.application import MIMEApplication
 from email.mime.text import MIMEText
-from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from aiohttp.web_request import FileField
 
@@ -31,10 +30,7 @@ async def send_to_current_user(from_, password, to, subject, content, files):
 
         # attach files
         for file in files:
-            main_type, sub_type = file.content_type.split("/")
-            attachment = MIMEBase(main_type, sub_type)
-            attachment.set_payload(file.file.read())
-            encoders.encode_base64(attachment)
+            attachment = MIMEApplication(file.file.read())
             attachment.add_header('Content-Disposition', 'attachment; filename="%s"' % file.filename)
             msg.attach(attachment)
 

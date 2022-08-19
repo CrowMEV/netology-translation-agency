@@ -32,6 +32,3 @@ services:
       - db
     networks:
       - mongonetwork
-
-
-
