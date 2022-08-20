@@ -6,7 +6,7 @@ networks:
 
 services:
   db:
-    image: mongo:focal
+    image: mongo:4.4.6
     container_name: mongo
     restart: unless-stopped
     env_file:
@@ -32,6 +32,3 @@ services:
       - db
     networks:
       - mongonetwork
-
-
-
