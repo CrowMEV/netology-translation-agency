@@ -10,6 +10,9 @@ function Form() {
   const [originalLSelectVisible, setOLSelectVisible] = useState(false);
   const [targetLSelectVisible, setTLSelectVisible] = useState(false);
 
+
+
+
   const { form } = useSelector((state) => state);
   const {
       face,
@@ -253,6 +256,8 @@ function Form() {
             <label htmlFor="documents">Прикрепить файл</label>
             <input
               type="file"
+            
+               
               name="documents"
               multiple
               ref={fileInputRef}
