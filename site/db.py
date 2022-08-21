@@ -10,9 +10,9 @@ db = client['altai']
 
 if not db.site_data.find_one():
     db.site_data.insert_one({
-        'static_phone': os.getenv('STATIC_PHONE'),
-        'mobile_phone': os.getenv('MOBILE_PHONE'),
-        'whatsapp': os.getenv('WHATSAPP'), 'telegramm': os.getenv('TELEGRAMM'),
+        'phone_numbers': [os.getenv('PHONE_1'), os.getenv('PHONE_2')],
+        'whatsapp': os.getenv('WHATSAPP'),
+        'telegram': os.getenv('TELEGRAM'),
         'mail': os.getenv('MAIL'), 'address': os.getenv('ADDRESS')
     })
 
@@ -22,6 +22,6 @@ async def get_data():
     return db_data
 
 
-async def save_data(request_data):
-    # db['site_data'].update_one({'static_phone': '73852243947'}, {'$set': {'static_phone': '1'}})
-    db_data = db['site_data']
+async def save_data(data):
+    for field_name, field_value in data.items():
+        db['site_data'].update_one({field_name: field_value}, {'$set': {field_name: '1'}})

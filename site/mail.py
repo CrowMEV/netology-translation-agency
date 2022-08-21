@@ -7,14 +7,19 @@ from email.mime.multipart import MIMEMultipart
 from aiohttp.web_request import FileField
 
 
-async def prepare_data(data: dict) -> dict:
-    files = []
+async def prepare_data(data: dict):
+    total_size = 0
+    files = {}
     form_dict = {}
     for field_name, field_value in data.items():
         if isinstance(field_value, FileField):
-            files.append(field_value)
+            file = field_value.file.read()
+            total_size += len(file)
+            files[field_value.filename] = file
         else:
             form_dict[field_name] = field_value
+    if total_size / 1024 ** 2 > 50:
+        return None
     form_dict["files"] = files
     form_dict.update(login=os.getenv("LOGIN"))
     form_dict.update(password=os.getenv("PASSWORD"))
@@ -30,10 +35,10 @@ async def send_to_current_user(from_, password, to, subject, content, files):
     if from_ == to:
 
         # attach files
-        for file in files:
-            attachment = MIMEApplication(file.file.read())
+        for filename, value in files.items():
+            attachment = MIMEApplication(value)
             attachment.add_header('Content-Disposition', 'attachment',
-                                  filename=("utf-8", "", f"{file.filename}"))
+                                  filename=("utf-8", "", f"{filename}"))
             msg.attach(attachment)
 
     # send mail
