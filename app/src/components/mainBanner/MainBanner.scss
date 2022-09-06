@@ -1,0 +1,163 @@
+@import '../../BaseStyles/typography.scss';
+@import '../../BaseStyles/media.scss';
+
+.mainBanner {
+    background-repeat: no-repeat;
+    background-size: cover; // ставим cover
+    width: 100%;
+    margin: 0px 0 50px 0;
+    padding-top: 37px;
+    background: linear-gradient(231.1deg, rgba(38, 187, 210, 0.79) 19.27%, #447B9C 58.26%, #0B527D 87.46%);
+
+    &__wrap {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: space-between;
+    }
+
+    &__img {
+        display: flex;
+        align-content: flex-end;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @media (min-width:576px) {
+        //background-image: url('../../img/backTranslate.jpg');
+    }
+
+    // ! Явно не хватает ещё одной картинки на промежуточные от 992 до 576. А то рожи совсем обрубает им.
+    // + нужно для малых диапазонов выставить шрифты и будет ок.
+
+    @media (min-width: 320px) and (max-width: 575.98px) {
+        height: 300px; // фиксируем 300
+        //background-image: url('../../img/backTranslate-small.jpg');
+    }
+
+    &__text {
+        display: flex;
+        width: 50%;
+        align-items: flex-start;
+        flex-direction: column;
+        color: $color-white;
+        align-content: flex-start;
+
+        @media(min-width: 992px) and (max-width: 1439.99px) {
+            max-width: 960px;
+        }
+
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            max-width: 720px;
+        }
+
+        @media (min-width: 576px) and (max-width: 767.98px) {
+            max-width: 540px;
+            align-items: flex-start;
+        }
+
+
+        @media (min-width: 421px) and (max-width: 575.98px) {
+            max-width: 420px;
+            align-items: flex-start;
+        }
+
+        @media (min-width: 320px) and (max-width: 420.98px) {
+            max-width: 320px;
+            padding: 0 10px;
+            align-items: flex-start;
+        }
+    }
+
+    h1 {
+        @include font-roboto-bold-48;
+        color: $color-white;
+        font-weight: 700;
+        margin-bottom: 85px;
+        font-family: "Jura";
+        font-size: 90px;
+        line-height: 73px;
+
+        @media(min-width:992px) and (max-width:1438.98px) {
+            font-size: 72px;
+            line-height: 70px;
+            margin-bottom: 35px;  
+            //font-size: 3.2rem;
+        }
+
+        @media(min-width:768px) and (max-width:991.98px) {
+            font-size: 46px;
+            line-height: 48px;
+            margin-bottom: 15px;  
+        }
+     
+        @media(min-width:320px) and (max-width:767.98px) {
+            font-size: 22px;
+            line-height: 27px;
+            margin-bottom: 10px;
+        }
+    }
+
+    p {
+        @include font-roboto-reg-22;
+        color: $color-white;
+        margin-bottom: 70px;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 25px;
+        line-height: 29px;
+
+        @media(min-width:992px) {
+            //font-size: 3.2rem;
+
+        }
+
+        @media(min-width:768px) and (max-width:991.98x) {
+            font-size: 2.7em;
+            margin-bottom: 50px;
+        }
+
+        @media(min-width:320px) and (max-width:767.98px) {
+            font-size: 1.4em;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+    }
+
+    .btn {
+        @include button-white;
+
+        @media(min-width:500px) and (max-width:767.98px) {
+            max-width: 300px;
+            padding: 15px 50px;
+        }
+
+        @media(min-width:320px) and (max-width:499.98px) {
+            max-width: 250px;
+            padding: 10px 30px;
+        }
+
+        &:hover {
+
+            background-color: $color-button;
+            color: $color-white;
+            transition: .5s ease-out;
+
+        }
+    }
+.prettyFemale {
+    z-index: 2;
+    padding-bottom: 0px;
+    margin-top: auto;
+    //right: 20%;
+}
+
+    .dottedBackground {
+        position: absolute;
+        z-index: 1;
+        float: left;
+        right: 7%;
+    }
+}
