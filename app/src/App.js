@@ -6,9 +6,8 @@ import MainBanner from './components/mainBanner/MainBanner';
 import AboutCompany from "./components/about-company/AboutCompany";
 import Languages from "./components/languages/Languages";
 import FeaturesTranslate from "./components/features-translate/FeaturesTranslate";
-import HowWeWork from "./components/how-we-work/HowWeWork";
 import DiscountOffer from "./components/discount-offer/DiscountOffer";
-import Discount from "./components/discount/Discount";
+import Discount from "./components/costDependency/СostDependency";
 import Form from './components/form/Form';
 import Contacts from "./components/contacts/Contacts";
 import Footer from "./components/footer/Footer";
@@ -29,8 +28,8 @@ function App() {
         <Languages/>
         <FeaturesTranslate/>
         <DiscountOffer/>
-        <HowWeWork/>
         <Discount/>
+        {/* <HowWeWork/> */}
         <Form/>
        {/*  ** FORM PLACE **
         ** STORE TEST **
