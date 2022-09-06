@@ -28,8 +28,8 @@ function App() {
         <AboutCompany/>
         <Languages/>
         <FeaturesTranslate/>
-        <HowWeWork/>
         <DiscountOffer/>
+        <HowWeWork/>
         <Discount/>
         <Form/>
        {/*  ** FORM PLACE **
