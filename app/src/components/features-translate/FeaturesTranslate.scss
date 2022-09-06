@@ -3,7 +3,7 @@
 
 .featuresTranslate {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 77px;
 
   @media(min-width:320px) and (max-width:767.98px) {
     margin-bottom: 40px;
@@ -46,6 +46,14 @@
       display: flex;
       flex-wrap: wrap;
     }
+
+    @media (min-width: 1438px) {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-evenly;
+      flex-direction: row;
+      align-items: flex-start;
+    }
   }
 
   &__item {
@@ -64,24 +72,40 @@
     @media (min-width: 768px) and (max-width: 991.98px) {
       width: 50%;
 
-      &:nth-child(n+3) {
+      /* &:nth-child(n+3) {
         margin-top: 68px;
-      }
+      } */
 
       &_text {
         margin-top: 28px;
+        margin-bottom: 22px;
+        
       }
     }
 
-    @media (min-width: 992px) {
+    @media (min-width: 992px) and (max-width: 1438px){
       width: 25%;
 
-      &:nth-child(n+5) {
+      /* &:nth-child(n+5) {
         margin-top: 68px;
-      }
+      } */
 
       &_text {
         margin-top: 28px;
+        margin-bottom: 44px;
+      }
+    }
+
+    @media (min-width: 1438px){
+      width: 25%;
+
+      /* &:nth-child(n+5) {
+        margin-top: 68px;
+      } */
+
+      &_text {
+        margin-top: 28px;
+        //margin-bottom: 44px;
       }
     }
   }
