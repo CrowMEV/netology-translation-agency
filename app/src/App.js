@@ -1,8 +1,8 @@
 import './App.scss';
 
-import Header from './components/header/Header';
+//import Header from './components/header/Header';
 import Navbar from './components/navbar/Navbar';
-import OrderTranslate from './components/orderTranslate/OrderTranslate';
+import MainBanner from './components/mainBanner/MainBanner';
 import AboutCompany from "./components/about-company/AboutCompany";
 import Languages from "./components/languages/Languages";
 import FeaturesTranslate from "./components/features-translate/FeaturesTranslate";
@@ -21,10 +21,10 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <Header/>
         <Navbar/>
+        {/* <Header/> */}
         <BurgerMenu/>
-        <OrderTranslate/>
+        <MainBanner/>
         <AboutCompany/>
         <Languages/>
         <FeaturesTranslate/>

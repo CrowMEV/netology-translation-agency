@@ -7,7 +7,7 @@
 //@import './orderTranslate.scss';
 @import './components/header/Header';
 @import './components/navbar/Navbar';
-@import './components/orderTranslate/OrderTranslate';
+@import './components/mainBanner/MainBanner';
 @import './components/about-company/AboutCompany';
 @import './components/languages/Languages';
 @import './components/features-translate/FeaturesTranslate';
@@ -29,18 +29,61 @@ body {
   font-size: 10px;
 }
 
+h2 {
+  @include font-roboto-bold-48;
+  text-align: center;
+  line-height: 100%;
+  margin-bottom: 40px;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 56px; 
+
+  @media(min-width:768px) and (max-width:991.98px) {
+    font-size: 44px;
+    line-height: 52px;
+  }
+
+  @media(min-width:320px) and (max-width:767.98px) {
+    font-size: 24px;
+    line-height: 28px;
+    margin-bottom: 20px;
+  }
+} 
+
+p {
+  @include font-roboto-reg-20;
+    color: $color-text;
+    font-size: 24px; 
+    line-height: 36px;
+
+  @media(min-width: 992px) and (max-width: 1199.99px) {
+    font-size: 20px;
+    line-height: 30px;
+  }     
+
+  @media(min-width:768px) and (max-width:991.98px) {
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  @media(min-width:320px) and (max-width:767.98px) {
+    font-size: 14px;
+      line-height: 20px;
+  }
+} 
+
 .lock {
   overflow: hidden;
 }
 
 .container {
-  max-width: 1178px;
+  //max-width: 90%;
   margin: 0 auto;
-  padding: 0 15px;
+  //padding: 0 15px;
 
   @media (max-width: 1199.99px) {
     max-width: 960px;
-    width: 100%
+    width: 85%
   }
 
   @media (max-width: 360px) {
@@ -68,3 +111,9 @@ body {
     max-width: 320px;
   } */
 }
+
+.containerWrap {
+  width: 85%;
+  margin: auto;
+}
+
