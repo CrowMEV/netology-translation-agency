@@ -1,3 +1,4 @@
+import { v4 } from "uuid";
 import { ICONS } from "./constants";
 
 function FeaturesTranslate() {
@@ -7,7 +8,7 @@ function FeaturesTranslate() {
         <h2>Переводим тексты любой сложности и тематики</h2>
         <div className="featuresTranslate__wrap">
           {ICONS.map((icon) => (
-            <div className="featuresTranslate__item">
+            <div key={v4()} className="featuresTranslate__item">
               <img src={icon.src} alt={icon.name} />
               <p className="featuresTranslate__item_text">{icon.name}</p>
             </div>
