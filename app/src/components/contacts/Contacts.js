@@ -39,7 +39,7 @@ function Contacts() {
               width="100%"
               height="320"
               frameBorder="1"
-              allowFullScreen="true"
+              //allowFullScreen="true"
               style={{ position: "relative" }}
             />
           </div>

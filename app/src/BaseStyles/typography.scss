@@ -73,7 +73,7 @@ $color-filling: #D1E5EF;
 @mixin button-blue {
   @include font-roboto-bold-48;
   font-size: 1.9em;
-  max-width: 460px;
+  max-width: 50%;
   width: 100%;
   padding: 28px 145px;
   background: $color-button;
@@ -81,8 +81,8 @@ $color-filling: #D1E5EF;
   border-radius: 50px;
   text-align: center;
   border: 1px solid #022033;
-  box-shadow: 20px 26px 32px 0px rgba(11, 82, 125, 0.28);
-
+  //box-shadow: 20px 26px 32px 0px rgba(11, 82, 125, 0.28);
+  margin: auto;
 }
 
 @mixin button-white {
