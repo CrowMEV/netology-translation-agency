@@ -6,6 +6,7 @@ import Email from '../../img/socialIcons/mail.svg';
 
 function Contacts() {
   return (
+    <div className="containerWrap">
     <section id="contacts" className="contacts">
       <h2>Контакты</h2>
       <div className="contacts__wrap">
@@ -127,6 +128,7 @@ function Contacts() {
         </address>
       </div>      
     </section>
+    </div>
   );
 }
 
