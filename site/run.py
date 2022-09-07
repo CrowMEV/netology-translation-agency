@@ -1,5 +1,5 @@
 import views
-import db
+# import db
 from app import application
 from aiohttp import web
 
