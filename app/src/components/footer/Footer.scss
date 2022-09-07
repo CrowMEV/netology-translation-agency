@@ -4,14 +4,16 @@
 .footer {
   margin-bottom: 80px;
   background-color: $color-footer;
-  height: 276px;
+  //height: 276px;
   color: $color-white;
+
 
   @media (max-width: 991.98px) {
     height: auto;
   }
 
   padding-top: 32px;
+  padding-bottom: 30px;
 
   &__wrap {
     display: flex;
