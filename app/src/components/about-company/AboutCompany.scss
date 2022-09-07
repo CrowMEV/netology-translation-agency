@@ -7,36 +7,45 @@
   margin-bottom: 80px;
   color: $color-text;
 
+  &__img {
+    width: 140px;
+    margin-right: 36px;
+
+    @media(min-width: 768px) and (max-width: 1439.99px) {
+      width: 100px;
+    }
+
+  }
+
+&__premiumWrap {
+  display: flex;
+  margin-top: 30px;
+  flex-direction: row;
+  align-items: center;
+}
+
+&__textPremium {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 36px;
+}
+
   @media(min-width:320px) and (max-width:767.98px) {
     margin-bottom: 40px;
   }
 
-  h2 {
-    @include font-roboto-bold-48;
-    text-align: center;
-    line-height: 100%;
-    margin-bottom: 40px;
-
-    @media(min-width:320px) and (max-width:767.98px) {
-      font-size: 2.4em;
-      margin-bottom: 20px;
-    }
-  }
-
-  p {
+  /* p {
     @include font-roboto-reg-20;
     color: $color-text;
     line-height: 128%;
+    font-size: 24px;
+    line-height: 36px;
 
     @media(min-width:320px) and (max-width:767.98px) {
       font-size: 1.4em;
       line-height: 152%;
     }
-  }
-
-  p:nth-child(n+2) {
-    margin-top: 20px;
-  }
-
-
+  } */
 }

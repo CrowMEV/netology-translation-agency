@@ -22,7 +22,10 @@
   }
 
   &__wrap {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    //не получается сделать одинаковое заполнение столбцов 
+    //column-fill: balance не срабатывает
+    column-fill: balance;
 
     @media (max-width: 575.98px) {
       column-count: 2;
@@ -38,7 +41,17 @@
 
     @media (min-width: 1200px) {
       column-count: 5;
+      column-fill: balance;
     }
+  }
+
+  &__content {
+    display: flex;
+  }
+
+  &__img {
+    width: 20px;
+    margin-right: 40px;
   }
 
   &__item {
