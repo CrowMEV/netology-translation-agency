@@ -1,8 +1,8 @@
 @import '../../BaseStyles/typography.scss';
 @import '../../BaseStyles/media.scss';
 
-.discount {
-  text-align: center;
+.costDependency {
+  //text-align: center;
   margin-bottom: 80px;
 
   @media(min-width:320px) and (max-width:767.98px) {
@@ -27,6 +27,8 @@
   }
 
   &__wrap {
+    padding-bottom: 40px;
+    
     @media (max-width: 767.98px) {
       display: block;
     }
@@ -38,6 +40,8 @@
   }
 
   &__item {
+    text-align: center;
+    
     @media (max-width: 767.98px) {
       display: flex;
       margin-top: 22px;
