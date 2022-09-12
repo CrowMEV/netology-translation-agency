@@ -11,29 +11,12 @@
 
     &__wrap {
         display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        align-content: center;
-        justify-content: space-between;
     }
 
     &__img {
         display: flex;
-        align-content: flex-end;
-        justify-content: center;
-        align-items: center;
-    }
-
-    @media (min-width:576px) {
-        //background-image: url('../../img/backTranslate.jpg');
-    }
-
-    // ! Явно не хватает ещё одной картинки на промежуточные от 992 до 576. А то рожи совсем обрубает им.
-    // + нужно для малых диапазонов выставить шрифты и будет ок.
-
-    @media (min-width: 320px) and (max-width: 575.98px) {
-        height: 300px; // фиксируем 300
-        //background-image: url('../../img/backTranslate-small.jpg');
+        width: 50%;
+        position: relative;
     }
 
     &__text {
@@ -43,31 +26,7 @@
         flex-direction: column;
         color: $color-white;
         align-content: flex-start;
-
-        @media(min-width: 992px) and (max-width: 1439.99px) {
-            max-width: 960px;
-        }
-
-        @media (min-width: 768px) and (max-width: 991.98px) {
-            max-width: 720px;
-        }
-
-        @media (min-width: 576px) and (max-width: 767.98px) {
-            max-width: 540px;
-            align-items: flex-start;
-        }
-
-
-        @media (min-width: 421px) and (max-width: 575.98px) {
-            max-width: 420px;
-            align-items: flex-start;
-        }
-
-        @media (min-width: 320px) and (max-width: 420.98px) {
-            max-width: 320px;
-            padding: 0 10px;
-            align-items: flex-start;
-        }
+        justify-content: center;
     }
 
     h1 {
@@ -75,24 +34,24 @@
         color: $color-white;
         font-weight: 700;
         margin-bottom: 85px;
-        font-family: "Jura";
+        font-family: "Jura"; 
         font-size: 90px;
         line-height: 73px;
 
-        @media(min-width:992px) and (max-width:1438.98px) {
+        @media(min-width:1440px) and (max-width:1919.98px) {
             font-size: 72px;
-            line-height: 70px;
-            margin-bottom: 35px;  
-            //font-size: 3.2rem;
+            line-height: 72px;
+            margin-bottom: 35px; 
+            margin-top: 43px;
         }
 
-        @media(min-width:768px) and (max-width:991.98px) {
+        @media(min-width:768px) and (max-width:1439.98px) {
             font-size: 46px;
             line-height: 48px;
-            margin-bottom: 15px;  
+            margin-bottom: 15px;
         }
-     
-        @media(min-width:320px) and (max-width:767.98px) {
+
+        @media(min-width: 200px) and (max-width:767.98px) {
             font-size: 22px;
             line-height: 27px;
             margin-bottom: 10px;
@@ -102,62 +61,75 @@
     p {
         @include font-roboto-reg-22;
         color: $color-white;
-        margin-bottom: 70px;
+        margin-bottom: 50px;
         font-family: 'Roboto';
         font-style: normal;
         font-weight: 400;
         font-size: 25px;
         line-height: 29px;
 
-        @media(min-width:992px) {
-            //font-size: 3.2rem;
-
+        @media(min-width:1440px) and (max-width:1919.98px) {
+            font-size: 21px;
+            line-height: 25px;
         }
 
-        @media(min-width:768px) and (max-width:991.98x) {
-            font-size: 2.7em;
-            margin-bottom: 50px;
+        @media(min-width:768px) and (max-width:1439.98px) {
+            font-size: 16px;
+            line-height: 19px;
+        }
+
+        @media(min-width: 200px) and (max-width:767.98px) {
+            text-align: left;
+            margin-bottom: 30px;
+            font-size: 12px;
+            line-height: 14px;
+        }
+    }
+
+    .prettyFemale {
+        z-index: 2;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+
+        @media(min-width:1440px) {
+            width: 695.53px;
+        }
+
+        @media(min-width:768px) and (max-width:1439.98px) {
+            width: 435.54px;
         }
 
         @media(min-width:320px) and (max-width:767.98px) {
-            font-size: 1.4em;
-            text-align: left;
-            margin-bottom: 30px;
+            width: 193.54px;
         }
     }
-
-    .btn {
-        @include button-white;
-
-        @media(min-width:500px) and (max-width:767.98px) {
-            max-width: 300px;
-            padding: 15px 50px;
-        }
-
-        @media(min-width:320px) and (max-width:499.98px) {
-            max-width: 250px;
-            padding: 10px 30px;
-        }
-
-        &:hover {
-
-            background-color: $color-button;
-            color: $color-white;
-            transition: .5s ease-out;
-
-        }
-    }
-.prettyFemale {
-    z-index: 2;
-    padding-bottom: 0px;
-    margin-top: auto;
-    //right: 20%;
-}
 
     .dottedBackground {
         position: absolute;
         z-index: 1;
-        float: left;
-        right: 7%;
+        right: 0;
+        bottom: 10%;
+
+        @media(min-width:1920px) {
+            width: 736px;
+            //height: 400px; 
+        }
+
+        @media(min-width:1440px) and (max-width:1919.98px){
+            width: 478px;
+            //height: 400px; 
+        }
+
+        @media(min-width:768px) and (max-width:1439.98px) {
+            width: 245px;
+            //height: 205px; 
+
+        }
+
+        @media(min-width:320px) and (max-width:767.98px) {
+            width: 122px;
+            //height: 112px;
+        } 
     }
 }

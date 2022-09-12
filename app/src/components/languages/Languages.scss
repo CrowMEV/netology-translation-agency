@@ -9,39 +9,19 @@
     margin-bottom: 40px;
   }
 
-  h2 {
-    @include font-roboto-bold-48;
-    text-align: center;
-    line-height: 100%;
-    margin-bottom: 40px;
-
-    @media(min-width:320px) and (max-width:767.98px) {
-      font-size: 2.4em;
-      margin-bottom: 20px;
-    }
-  }
-
   &__wrap {
     margin-bottom: 30px;
-    //не получается сделать одинаковое заполнение столбцов 
-    //column-fill: balance не срабатывает
+    column-count: 5;
     column-fill: balance;
+    margin-left: 15%;
 
-    @media (max-width: 575.98px) {
+    @media (min-width: 200px) and (max-width:1439.98px) {
       column-count: 2;
-    }
-
-    @media (min-width: 576px) and (max-width: 991.98px) {
-      column-count: 3;
-    }
-
-    @media (min-width: 992px) and (max-width: 1199.98px) {
-      column-count: 4;
-    }
-
-    @media (min-width: 1200px) {
-      column-count: 5;
       column-fill: balance;
+    }
+
+    @media (min-width: 200px) and (max-width:767.98px) {
+      margin-left: 10%;
     }
   }
 
@@ -52,28 +32,31 @@
   &__img {
     width: 20px;
     margin-right: 40px;
+
+    @media (min-width: 200px) and (max-width:767.98px) {
+        display: none;
+    }
   }
 
   &__item {
     @include font-roboto-reg-20;
     color: $color-text;
-    line-height: 192%;
-
-    @media(min-width:320px) and (max-width:767.98px) {
-      font-size: 1.4em;
-      line-height: 195%;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 45px; 
+  
+    @media(min-width: 768px) and (max-width:1919.98px) {
+      font-size: 20px  ;
+      line-height: 45px;
+    }
+  
+    @media(min-width: 200px) and (max-width:767.98px)  {
+      font-size: 14px;
+      line-height: 32px;
     }
   }
 
   &__banner {
     text-align: center;
-    @include font-roboto-reg-22;
-    color: $color-text;
-    line-height: 116%;
-
-    @media(min-width:320px) and (max-width:767.98px) {
-      font-size: 1.2em;
-      line-height: 164%;
-    }
   }
 }

@@ -2,71 +2,45 @@
 @import '../../BaseStyles/media.scss';
 
 .costDependency {
-  //text-align: center;
   margin-bottom: 80px;
 
   @media(min-width:320px) and (max-width:767.98px) {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
-
-  h2 {
-    @include font-roboto-bold-48;
-    color: $color-text;
-    margin-bottom: 40px;
-    line-height: 100%;
-
-    @media(min-width:320px) and (max-width:767.98px) {
-      font-size: 2.4em;
-      margin-bottom: 20px;
-    }
-  }
-
-  p {
-    @include font-roboto-reg-20;
-    color: $color-text;
-  }
-
+  
   &__wrap {
     padding-bottom: 40px;
-    
-    @media (max-width: 767.98px) {
-      display: block;
-    }
+    display: flex;
+    flex-wrap: wrap;
 
-    @media (min-width: 768px) {
-      display: flex;
-      flex-wrap: wrap;
+    @media(min-width: 320px) and (max-width: 1439.99px) {
+      column-count: 2;
+      margin-top: 22px;
     }
   }
 
   &__item {
     text-align: center;
-    
-    @media (max-width: 767.98px) {
-      display: flex;
-      margin-top: 22px;
+    font-size: 24px;
+    line-height: 30px;
 
-      &_text {
-        text-align: left;
-        margin-left: 22px;
-      }
-
-      align-items: center;
-    }
-
-    @media (min-width: 768px) and (max-width: 991.98px) {
-      width: 50%;
-
-      &:nth-child(n+3) {
-        margin-top: 68px;
-      }
-
-      &_text {
-        margin-top: 28px;
+    &__text {
+      @media (min-width: 320px) {
+        font-size: 24px;
+        line-height: 30px;
       }
     }
 
-    @media (min-width: 992px) {
+    @media (min-width: 320px) and (max-width: 1439.98px) {
+      width: 50%; 
+      margin-bottom: 24px;
+
+      &_text {
+        margin-top: 12px;
+      }
+    }
+
+    @media (min-width: 1440px) {
       width: 25%;
 
       &:nth-child(n+5) {

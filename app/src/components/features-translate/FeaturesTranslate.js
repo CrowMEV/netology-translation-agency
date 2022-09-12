@@ -10,7 +10,7 @@ function FeaturesTranslate() {
           {ICONS.map((icon) => (
             <div key={v4()} className="featuresTranslate__item">
               <img src={icon.src} alt={icon.name} />
-              <p className="featuresTranslate__item_text">{icon.name}</p>
+              <p className="featuresTranslate__text">{icon.name}</p>
             </div>
           ))}
         </div>
