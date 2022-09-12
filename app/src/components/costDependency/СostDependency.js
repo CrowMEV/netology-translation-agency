@@ -13,7 +13,7 @@ function СostDependency() {
                 src={require(`../../img/${icon.image}`)}
                 alt={icon.content}
               />
-              <p className="costDependency__item_text">{icon.content}</p>
+              <p className="costDependency__item__text">{icon.content}</p>
             </div>
           ))}
         </div>

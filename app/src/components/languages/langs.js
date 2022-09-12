@@ -20,6 +20,8 @@ import ukrainian from '../../img/flags/tajik.svg';
 import french from '../../img/flags/french.svg';
 import czech from '../../img/flags/czech.svg';
 import japanese from '../../img/flags/japanese.svg';
+import kazajo from '../../img/flags/kazajo.svg';
+import húngaro from '../../img/flags/húngaro.svg';
 
 export const LANGS = [
 {
@@ -43,6 +45,10 @@ export const LANGS = [
   flag: belorussian,
 },
 {
+  name: 'венгерский',
+  flag: húngaro,
+},
+{
   name: 'иврит',
   flag: hebrew,
 },
@@ -53,6 +59,10 @@ export const LANGS = [
 {
   name: 'итальянский',
   flag: italian,
+},
+{
+  name: 'казахский',
+  flag: kazajo,
 },
 {
   name: 'китайский',

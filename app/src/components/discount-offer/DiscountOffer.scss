@@ -6,42 +6,24 @@
   margin: 0 auto 80px auto;
   width: 80%;
   background-color: $color-filling;
-
-  @media(min-width:320px) and (max-width:767.98px) {
-    margin-bottom: 40px;
-    width: 100%;
-  }
-
-  @media (min-width: 992px) and (max-width: 1438px){
-    width: 100%;
-  }
-
-  //border: 1px solid $color-border;
   border-radius: 20px;
   padding: 30px 30px 38px 30px;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  h2 {
-    @include font-roboto-bold-48;
-    color: $color-text;
+  @media(min-width:320px) and (max-width:1438.98px) {
     margin-bottom: 40px;
+    width: 100%;
+  }
 
-    @media(min-width:320px) and (max-width:767.98px) {
-      font-size: 2.4em;
-      margin-bottom: 20px;
-    }
+  @media(min-width:320px) and (max-width:767.98px) {
+    padding: 30px 30px 30px 30px;
   }
 
   p {
-    @include font-roboto-reg-22;
-    color: $color-text;
-    line-height: 116%;
-
     @media(min-width:320px) and (max-width:767.98px) {
-      font-size: 1.4em;
-      line-height: 146%;
+      display: none;
     }
   }
 }
