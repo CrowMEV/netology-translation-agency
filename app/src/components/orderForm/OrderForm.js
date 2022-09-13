@@ -1,5 +1,5 @@
 import React from "react";
-import "./orderForm.scss";
+import "./OrderForm.scss";
 
 function OrderForm() {
   return (
