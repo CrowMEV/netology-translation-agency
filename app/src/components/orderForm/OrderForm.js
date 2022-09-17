@@ -3,7 +3,7 @@ import Modal from "../modal/Modal";
 import "./OrderForm.scss";
 
 function OrderForm() {
-  const [modalActive, setModalActive] = useState(true);
+  const [modalActive, setModalActive] = useState(false);
 
   return (
     <>
