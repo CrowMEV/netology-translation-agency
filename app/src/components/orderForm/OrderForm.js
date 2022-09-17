@@ -110,7 +110,12 @@ function OrderForm() {
                 />
                 <span>
                   Я подтверждаю, что ознакомлен(а) с{" "}
-                  <a href="/" onClick={() => setModalActive(true)}>
+                  <a href="/" onClick={(e) =>
+                    {
+                      setModalActive(true)
+                      e.preventDefault()
+                    }
+                  }>
                     Политикой конфиденциальности
                   </a>
                 </span>
