@@ -11,9 +11,8 @@
 
   &__wrap {
     margin-bottom: 30px;
-    column-count: 5;
+    column-count: 4;
     column-fill: balance;
-    margin-left: 15%;
 
     @media (min-width: 200px) and (max-width:1439.98px) {
       column-count: 2;

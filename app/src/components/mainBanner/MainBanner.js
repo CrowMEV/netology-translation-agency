@@ -1,6 +1,6 @@
 import React from "react";
-import prettyFemale from "../../img/prettyFemale.svg";
-import dottedBackground from "../../img/dottedBackground.svg";
+import bannerMerge from "../../img/bannerMerge.png";
+import femaleMob from "../../img/femaleMob.svg";
 
 function MainBanner() {
   return (
@@ -14,19 +14,26 @@ function MainBanner() {
               <div>ассоциация</div>
               <div>переводчиков</div>
             </h1>
-            <p>Язык — ключ к общению. Мы поможем понять друг друга.</p>
-            {/* <button className='btn '><a href="#form">Заказать перевод</a></button> */}
+            <p>
+              Язык — ключ к общению.{" "}
+              <span class="textNoBreak">Мы поможем понять друг друга.</span>{" "}
+              <span class="textBreak">
+                <br />
+                Мы поможем понять друг друга.
+              </span>
+            </p>
           </div>
           <div class="mainBanner__img">
             <img
               class="prettyFemale"
-              src={prettyFemale}
+              src={bannerMerge}
               alt="красивая женщина"
             />
+
             <img
-              class="dottedBackground"
-              src={dottedBackground}
-              alt="фон с точками"
+              class="prettyFemaleMob"
+              src={femaleMob}
+              alt="красивая женщина"
             />
           </div>
         </div>
