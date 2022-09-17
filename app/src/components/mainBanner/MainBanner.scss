@@ -9,14 +9,27 @@
     padding-top: 37px;
     background: linear-gradient(231.1deg, rgba(38, 187, 210, 0.79) 19.27%, #447B9C 58.26%, #0B527D 87.46%);
 
+    @media (min-width: 200px) and (max-width:599.98px) {
+        margin: 0px 0 20px 0;
+        padding-top: 16px;
+      }
+    
     &__wrap {
         display: flex;
+        display: flex;
+        //align-items: flex-end;
+        justify-content: space-between;
     }
 
     &__img {
         display: flex;
-        width: 50%;
+        width: 60%;
         position: relative;
+        align-items: flex-end;
+
+        @media (min-width: 200px) and (max-width:599.98px) {
+            width: 35%;
+          }
     }
 
     &__text {
@@ -27,6 +40,11 @@
         color: $color-white;
         align-content: flex-start;
         justify-content: center;
+
+        @media(min-width: 200px) and (max-width:599.98px) {
+            width: 65%;
+        }
+
     }
 
     h1 {
@@ -53,7 +71,7 @@
 
         @media(min-width: 200px) and (max-width:767.98px) {
             font-size: 22px;
-            line-height: 27px;
+            line-height: 24px;
             margin-bottom: 10px;
         }
     }
@@ -80,56 +98,41 @@
 
         @media(min-width: 200px) and (max-width:767.98px) {
             text-align: left;
-            margin-bottom: 30px;
+            margin-bottom: 14px;
             font-size: 12px;
             line-height: 14px;
         }
-    }
+    }   
+}
 
-    .prettyFemale {
-        z-index: 2;
-        position: absolute;
-        right: 0;
-        bottom: 0;
+.prettyFemale {
+    max-width: 100%;
+    //z-index: 2;
+    //position: absolute;
+    right: 0;
+    bottom: 0;
+    @media (min-width: 200px) and (max-width:599.98px) {
+        display: none;
+      }
+}
 
-        @media(min-width:1440px) {
-            width: 695.53px;
-        }
+.prettyFemaleMob {
+    width: 100%;
+    right: 0;
+    bottom: 0;
+    @media (min-width: 600px) {
+        display: none;
+      }
+}
 
-        @media(min-width:768px) and (max-width:1439.98px) {
-            width: 435.54px;
-        }
+.textNoBreak {
+    @media (min-width: 200px) and (max-width:1439.98px) {
+        display: none;
+      }
+}
 
-        @media(min-width:320px) and (max-width:767.98px) {
-            width: 193.54px;
-        }
-    }
-
-    .dottedBackground {
-        position: absolute;
-        z-index: 1;
-        right: 0;
-        bottom: 10%;
-
-        @media(min-width:1920px) {
-            width: 736px;
-            //height: 400px; 
-        }
-
-        @media(min-width:1440px) and (max-width:1919.98px){
-            width: 478px;
-            //height: 400px; 
-        }
-
-        @media(min-width:768px) and (max-width:1439.98px) {
-            width: 245px;
-            //height: 205px; 
-
-        }
-
-        @media(min-width:320px) and (max-width:767.98px) {
-            width: 122px;
-            //height: 112px;
-        } 
-    }
+.textBreak {
+    @media (min-width: 1440px) {
+        display: none;
+      }
 }
