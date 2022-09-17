@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+<<<<<<< HEAD:site/frontend/package.json
     "build-prod": "parcel build pages/index.html -d ../site/templates --no-source-maps && node postbuild-prod.js",
+=======
+    "build-prod": "parcel build pages/index.html -d ../templates --no-source-maps && node postbuild-prod.js",
+>>>>>>> abb7600 (леша сделал скрипт):frontend/package.json
     "build": "parcel build pages/index.html -d public --no-source-maps && node postbuild.js",
     "dev": "parcel pages/index.html --open",
     "server": "cd ./dev-server && php -S localhost:8080"
@@ -17,6 +21,8 @@
     "@babel/preset-react": "^7.10.4",
     "autoprefixer": "^9.5.1",
     "cssnano": "^4.1.10",
+    "parcel": "^2.7.0",
+    "postcss": "^8.4.16",
     "postcss-modules": "^3.2.0",
     "posthtml-include": "^1.7.4",
     "sass": "^1.26.10"

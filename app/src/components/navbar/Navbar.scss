@@ -1,0 +1,75 @@
+@import '../../BaseStyles/typography.scss';
+@import '../../BaseStyles/media.scss';
+
+.containerSticky {
+    background-color: $color-filling;
+    position: sticky;
+    top: 0px;
+    z-index: 3;
+}
+
+.navbar {
+    @media(min-width: 1440px) {
+        @include font-roboto-reg-20;
+        display: flex;
+        align-items: center;
+        color: $color-text;
+        font-size: 16px;
+        justify-content: space-between;
+
+        li {
+            margin-left: 25px;
+            font-size: 16px;
+            color: #022033;
+        }
+
+        a {
+            padding: 5px 0;
+        }
+
+        img {
+            width: 85px;
+        }
+    }
+
+    @media(min-width: 320px) and (max-width:1439.98px) {
+        @include font-roboto-reg-20;
+        display: flex;
+        align-items: center;
+        color: $color-text;
+        font-size: 14px;
+        justify-content: space-between;
+
+        li {
+            margin-left: 20px;
+            font-size: 14px;
+            color: #022033;
+        }
+
+        a {
+            padding: 5px 0;
+        }
+
+        img {
+            width: 63px;
+        }
+
+    }
+}
+
+.hidden {
+    @media(min-width:320px) and (max-width:767.98px) {
+        display: none;
+    }
+}
+
+.burger {
+    img {
+        width: 50px;
+        cursor: pointer;
+    }
+
+    @media(min-width:768px) {
+        display: none;
+    }
+}

@@ -1,0 +1,138 @@
+@import '../../BaseStyles/typography.scss';
+@import '../../BaseStyles/media.scss';
+
+.mainBanner {
+    background-repeat: no-repeat;
+    background-size: cover; // ставим cover
+    width: 100%;
+    margin: 0px 0 50px 0;
+    padding-top: 37px;
+    background: linear-gradient(231.1deg, rgba(38, 187, 210, 0.79) 19.27%, #447B9C 58.26%, #0B527D 87.46%);
+
+    @media (min-width: 200px) and (max-width:599.98px) {
+        margin: 0px 0 20px 0;
+        padding-top: 16px;
+      }
+    
+    &__wrap {
+        display: flex;
+        display: flex;
+        //align-items: flex-end;
+        justify-content: space-between;
+    }
+
+    &__img {
+        display: flex;
+        width: 60%;
+        position: relative;
+        align-items: flex-end;
+
+        @media (min-width: 200px) and (max-width:599.98px) {
+            width: 35%;
+          }
+    }
+
+    &__text {
+        display: flex;
+        width: 50%;
+        align-items: flex-start;
+        flex-direction: column;
+        color: $color-white;
+        align-content: flex-start;
+        justify-content: center;
+
+        @media(min-width: 200px) and (max-width:599.98px) {
+            width: 65%;
+        }
+
+    }
+
+    h1 {
+        @include font-roboto-bold-48;
+        color: $color-white;
+        font-weight: 700;
+        margin-bottom: 85px;
+        font-family: "Jura"; 
+        font-size: 90px;
+        line-height: 73px;
+
+        @media(min-width:1440px) and (max-width:1919.98px) {
+            font-size: 72px;
+            line-height: 72px;
+            margin-bottom: 35px; 
+            margin-top: 43px;
+        }
+
+        @media(min-width:768px) and (max-width:1439.98px) {
+            font-size: 46px;
+            line-height: 48px;
+            margin-bottom: 15px;
+        }
+
+        @media(min-width: 200px) and (max-width:767.98px) {
+            font-size: 22px;
+            line-height: 24px;
+            margin-bottom: 10px;
+        }
+    }
+
+    p {
+        @include font-roboto-reg-22;
+        color: $color-white;
+        margin-bottom: 50px;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 25px;
+        line-height: 29px;
+
+        @media(min-width:1440px) and (max-width:1919.98px) {
+            font-size: 21px;
+            line-height: 25px;
+        }
+
+        @media(min-width:768px) and (max-width:1439.98px) {
+            font-size: 16px;
+            line-height: 19px;
+        }
+
+        @media(min-width: 200px) and (max-width:767.98px) {
+            text-align: left;
+            margin-bottom: 14px;
+            font-size: 12px;
+            line-height: 14px;
+        }
+    }   
+}
+
+.prettyFemale {
+    max-width: 100%;
+    //z-index: 2;
+    //position: absolute;
+    right: 0;
+    bottom: 0;
+    @media (min-width: 200px) and (max-width:599.98px) {
+        display: none;
+      }
+}
+
+.prettyFemaleMob {
+    width: 100%;
+    right: 0;
+    bottom: 0;
+    @media (min-width: 600px) {
+        display: none;
+      }
+}
+
+.textNoBreak {
+    @media (min-width: 200px) and (max-width:1439.98px) {
+        display: none;
+      }
+}
+
+.textBreak {
+    @media (min-width: 1440px) {
+        display: none;
+      }
+}

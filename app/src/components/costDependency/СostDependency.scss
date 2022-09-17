@@ -1,0 +1,60 @@
+@import '../../BaseStyles/typography.scss';
+@import '../../BaseStyles/media.scss';
+
+.costDependency {
+  margin-bottom: 80px;
+
+  @media(min-width:320px) and (max-width:767.98px) {
+    margin-bottom: 20px;
+  }
+  
+  &__wrap {
+    padding-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+
+    @media(min-width: 320px) and (max-width: 1439.99px) {
+      column-count: 2;
+      margin-top: 22px;
+    }
+  }
+
+  &__item {
+    text-align: center;
+    font-size: 24px;
+    line-height: 30px;
+
+    &__text {
+      @media (min-width: 320px) {
+        font-size: 24px;
+        line-height: 30px;
+      }
+    }
+
+    @media (min-width: 320px) and (max-width: 1439.98px) {
+      width: 50%; 
+      margin-bottom: 24px;
+
+      &_text {
+        margin-top: 12px;
+      }
+    }
+
+    @media (min-width: 1440px) {
+      width: 25%;
+
+      &:nth-child(n+5) {
+        margin-top: 68px;
+      }
+
+      &_text {
+        margin-top: 28px;
+      }
+    }
+  }
+
+  img {
+    width: 64px;
+    height: 64px;
+  }
+}

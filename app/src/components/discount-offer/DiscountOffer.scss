@@ -1,0 +1,29 @@
+@import '../../BaseStyles/typography.scss';
+@import '../../BaseStyles/media.scss';
+
+.discountOffer {
+  text-align: center;
+  margin: 0 auto 80px auto;
+  width: 80%;
+  background-color: $color-filling;
+  border-radius: 20px;
+  padding: 30px 30px 38px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media(min-width:320px) and (max-width:1438.98px) {
+    margin-bottom: 40px;
+    width: 100%;
+  }
+
+  @media(min-width:320px) and (max-width:767.98px) {
+    padding: 30px 30px 30px 30px;
+  }
+
+  p {
+    @media(min-width:320px) and (max-width:767.98px) {
+      display: none;
+    }
+  }
+}

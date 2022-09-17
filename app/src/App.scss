@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import './BaseStyles/reset.scss';
+@import './BaseStyles/typography.scss';
+@import './BaseStyles/media.scss';
+
+//@import './header.scss';
+//@import './orderTranslate.scss';
+@import './components/header/Header';
+@import './components/navbar/Navbar';
+@import './components/mainBanner/MainBanner';
+@import './components/about-company/AboutCompany';
+@import './components/languages/Languages';
+@import './components/features-translate/FeaturesTranslate';
+@import './components/how-we-work/HowWeWork';
+@import './components/costDependency/СostDependency';
+@import './components/discount-offer/DiscountOffer';
+@import './components/orderForm/OrderForm';
+@import './components/footer/Footer';
+@import './components/contacts/Contacts';
+@import './components/burgerMenu/BurgerMenu';
+
+//@import './form.scss';
+//@import './burger-menu.scss';
+//@import './lang-dropdown.scss';
+
+html,
+body {
+  height: 100vh;
+  font-size: 10px;
+}
+
+h2 {
+  @include font-roboto-bold-48;
+  text-align: center;
+  line-height: 100%;
+  margin-bottom: 40px;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 56px; 
+
+  @media(min-width: 1440px) and (max-width:1919.98px) {
+    font-size: 48px;
+    line-height: 56px;
+    margin-bottom: 40px;
+  } 
+
+  @media(min-width: 768px) and (max-width:1439.98px) {
+    font-size: 44px  ;
+    line-height: 52px;
+    margin-bottom: 40px;
+  }
+
+  @media(min-width: 200px) and (max-width:767.98px)  {
+    font-size: 24px;
+    line-height: 28px;
+    margin-bottom: 15px;
+  }
+} 
+
+p {
+  @include font-roboto-reg-20;
+    color: $color-text;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+
+    @media(min-width: 1440px) and (max-width:1919.98px) {
+      font-size: 20px;
+      line-height: 30px 
+    } 
+  
+    @media(min-width: 768px) and (max-width:1439.98px) {
+      font-size: 18px  ;
+      line-height: 26px;
+    }
+  
+    @media(min-width: 200px) and (max-width:767.98px)  {
+      font-size: 14px;
+      line-height: 20px;
+    }
+} 
+
+.lock {
+  overflow: hidden;
+}
+
+.container {
+  margin: 0 auto;
+
+  @media (max-width: 320px) {
+    padding: 0 10px;
+  }
+}
+
+.containerWrap {
+  width: 85%;
+  margin: auto;
+}
+
+.textMain {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 36px;
+
+  @media(min-width: 768px) and (max-width:1439.98px) {
+    font-size: 18px  ;
+    line-height: 26px;
+  }
+
+  @media(min-width: 200px) and (max-width:767.98px)  {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
