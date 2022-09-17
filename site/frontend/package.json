@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+<<<<<<< HEAD:site/frontend/package.json
     "build-prod": "parcel build pages/index.html -d ../site/templates --no-source-maps && node postbuild-prod.js",
+=======
+    "build-prod": "parcel build pages/index.html -d ../templates --no-source-maps && node postbuild-prod.js",
+>>>>>>> abb7600 (леша сделал скрипт):frontend/package.json
     "build": "parcel build pages/index.html -d public --no-source-maps && node postbuild.js",
     "dev": "parcel pages/index.html --open",
     "server": "cd ./dev-server && php -S localhost:8080"
