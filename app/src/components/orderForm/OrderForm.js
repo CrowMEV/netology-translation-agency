@@ -1,9 +1,29 @@
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { langs } from "../form/langs";
 import Modal from "../modal/Modal";
 import "./OrderForm.scss";
 
 function OrderForm() {
   const [modalActive, setModalActive] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const sendData = (data) => {
+    const opt = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    };
+    return fetch('/user/login', opt)
+      .then((res) => console.log("data", res))
+      .catch((error) => {
+        console.log("error", error);
+      });
+  };
 
   return (
     <>
@@ -13,61 +33,82 @@ function OrderForm() {
           <section id="orderForm" className="orderForm__translate">
             <h2>Заказать перевод</h2>
 
-            <form id="order-form" name="orderForm" onSubmit={() => {}}>
+            <form
+              id="order-form"
+              name="order-form"
+              onSubmit={handleSubmit(sendData)}
+            >
               <div className="orderForm__input">
-                <label htmlFor="initials">Фамилия, имя</label>
+                <label htmlFor="name">Фамилия, имя</label>
                 <input
+                  {...register("name", { required: true })}
                   type="text"
-                  name="initials"
                   className="orderForm__input_style"
                   placeholder="Иванов Иван"
-                  required
                 />
+                {errors.name?.type === "required" && (
+                  <span>Это поле обязательное</span>
+                )}
               </div>
 
               <div className="orderForm__input">
                 <label htmlFor="telephone">Телефон</label>
                 <input
+                  {...register("telephone", { required: true })}
                   className="orderForm__input_style"
                   type="number"
-                  name="telephone"
                   placeholder="+7 999 9999999"
-                  required
                 />
+                {errors.telephone && <span>Это поле обязательное</span>}
               </div>
 
               <div className="orderForm__input">
                 <label htmlFor="email">Email</label>
                 <input
+                  {...register("email", { required: true })}
                   className="orderForm__input_style"
                   type="email"
-                  name="email"
                   placeholder="example@mail.ru"
-                  required
                 />
+                {errors.email && <span>Это поле обязательное</span>}
               </div>
 
               <div className="orderForm__select_changeLanguage">
                 <label htmlFor="">Язык перевода</label>
                 <div className="orderForm__select_changeLanguage_wrap">
                   <div className="orderForm__input_double">
-                    <input
-                      required={true}
-                      type="originalLang"
-                      name="originalLang"
+                    <select {...register("original_l", { required: true })}
                       className="orderForm__input_style"
-                      placeholder="английский"
-                    />
+                      id="original_l"
+                      form="order-form"
+                    >
+                      {langs.map((el, index) => (
+                        <option key={index} value={el}>
+                          c {el}
+                        </option>
+                      ))}
+                    </select>
+                    {errors.original_l && (
+                      <span>Это поле обязательное</span>
+                    )}
                   </div>
 
                   <div className="orderForm__input_double">
-                    <input
-                      required={true}
-                      type="originalLang"
-                      name="originalLang"
+                    <select
+                      {...register("translate_l", { required: true })}
                       className="orderForm__input_style"
-                      placeholder="английский"
-                    />
+                      id="translate_l"
+                      form="order-form"
+                    >
+                      {langs.map((el, index) => (
+                        <option key={index} value={el}>
+                          на {el}
+                        </option>
+                      ))}
+                    </select>
+                    {errors.translate_l && (
+                      <span>Это поле обязательное</span>
+                    )}
                   </div>
                 </div>
               </div>
@@ -75,18 +116,17 @@ function OrderForm() {
               <div className="orderForm__file">
                 <div className="orderForm__select_changeLanguage_wrap">
                   <div className="orderForm__input_double">
+                    <label htmlFor="file" className="orderForm__file_upload">
+                      <i class="material-icons">file_upload</i> Выберите файл
+                    </label>
                     <input
-                      name="originalLang"
-                      className="orderForm__input_style"
-                      placeholder="выберите файл"
-                      required
+                      id="file"
+                      type="file"
+                      {...register("file", { required: true })}
                     />
-                  </div>
-                  <div className="orderForm__input_double">
-                    <span className="orderForm__input_style">
-                      {" "}
-                      файл не выбран
-                    </span>
+                    {errors.file && (
+                      <span>Это поле обязательное</span>
+                    )}
                   </div>
                 </div>
               </div>
@@ -94,28 +134,29 @@ function OrderForm() {
               <div className="orderForm__textarea">
                 <label htmlFor="comment">Дополнительная информация</label>
                 <textarea
+                  {...register("comment")}
                   rows="7"
                   className="orderForm__textarea_style"
-                  name="comment"
                   placeholder="тематика перевода, предпочитаемый вид оплаты и другое"
                 />
               </div>
 
               <div className="orderForm__privacy">
                 <input
+                  {...register("privacy", { required: true })}
                   className="orderForm__privicy_check"
-                  required={true}
                   type="checkbox"
-                  name="privacy"
                 />
+                {errors.privacy && <span>Это поле обязательное</span>}
                 <span>
                   Я подтверждаю, что ознакомлен(а) с{" "}
-                  <a href="/" onClick={(e) =>
-                    {
-                      setModalActive(true)
-                      e.preventDefault()
-                    }
-                  }>
+                  <a
+                    href="/"
+                    onClick={(e) => {
+                      setModalActive(true);
+                      e.preventDefault();
+                    }}
+                  >
                     Политикой конфиденциальности
                   </a>
                 </span>
