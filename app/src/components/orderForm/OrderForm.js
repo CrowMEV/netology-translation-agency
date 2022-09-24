@@ -25,12 +25,25 @@ function OrderForm() {
   
   const onSubmit = async (data) => {
     const formData = new FormData();
-    formData.append("file", data.file[0]);
-    console.log("file",data.file[0])
+    getFileArr(data.file).forEach((file, idx) => {
+      formData.append(`file[${idx}]`, data.file[idx]);
+    })
+    formData.append('name', data.name);
+    formData.append('telephone', data.telephone);
+    formData.append('email', data.email);
+    formData.append('original_l', data.original_l);
+    formData.append('translate_l', data.translate_l);
+    formData.append('comment', data.comment);
+    formData.append('privacy', data.privacy);
+
+    console.log("formData",formData)
 
     const res = await fetch("http://localhost:80/send_mail", {
       mode: 'no-cors',
       method: "POST",
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
       body: formData,
     }).then((res) => res.json());
     alert(JSON.stringify(`${res.message}, status: ${res.status}`));
@@ -180,7 +193,7 @@ function OrderForm() {
                           value: ".jpg, .jpeg, .png, .zip, .doc, .docx, .pdf, .djvu",
                           message: "*недопустимый формат файла",
                         },
-                        required: true,
+                        required: false,
                       })}
                     />
                     {errors?.file && (
