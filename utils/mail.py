@@ -1,6 +1,5 @@
 import smtplib
 import os
-from email import encoders
 from email.mime.application import MIMEApplication
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -53,12 +52,12 @@ async def send_to_current_user(from_, password, to, subject, content, files):
 async def sending(data):
     # Формируем тело письма с данными о заказчике
     message_text = f"""
-    Город: {data.get('city', '')}
-    Заказчик: {data.get('initials', '')}
+    Заказчик: {data.get('name', '')}
     Телефон: {data.get('telephone', '')}
     Email: {data.get('email', '')}
-    Дата готовности: {data.get('date', '')}
-    Дополнительно: {data.get('comment', '')}
+    Перевод с: {data.get('original_l', '')}
+    Перевод на: {data.get('translate_l', '')}
+    Комментарий: {data.get('comment', '')}
     """
     address_list = [
         [data["email"], "Заявка на перевод", "Ваша заявка принята"],

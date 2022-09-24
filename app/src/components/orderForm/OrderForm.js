@@ -38,12 +38,12 @@ function OrderForm() {
 
     console.log("formData",formData)
 
-    const res = await fetch("http://localhost:80/send_mail", {
+    const res = await fetch("http://localhost:8000/send_mail", {
       mode: 'no-cors',
       method: "POST",
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
+      // headers: {
+      //   'Content-Type': 'multipart/form-data',
+      // },
       body: formData,
     }).then((res) => res.json());
     alert(JSON.stringify(`${res.message}, status: ${res.status}`));
