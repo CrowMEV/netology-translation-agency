@@ -10,7 +10,7 @@ import { getFileArr } from "./utils";
 function OrderForm() {
   const [modalActive, setModalActive] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [sucsess, setSuccess] = useState(true);
+  const [sucsess, setSuccess] = useState(false);
 
   const {
     register,
