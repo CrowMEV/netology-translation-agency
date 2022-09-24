@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
+import { sendOrder } from "../../api";
 import { langs } from "../form/langs";
 import Modal from "../modal/Modal";
 import { ERROR_MESSAGE } from "./constants";
@@ -8,6 +9,9 @@ import { getFileArr } from "./utils";
 
 function OrderForm() {
   const [modalActive, setModalActive] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [sucsess, setSuccess] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -19,38 +23,33 @@ function OrderForm() {
   });
 
   const watchFile = watch("file");
+  const files = useMemo(() => getFileArr(watchFile), [watchFile]);
 
-  const files = useMemo(() => getFileArr(watchFile), [watchFile])
-  console.log("files", files)
-  
   const onSubmit = async (data) => {
     const formData = new FormData();
     getFileArr(data.file).forEach((file, idx) => {
       formData.append(`file[${idx}]`, data.file[idx]);
-    })
-    formData.append('name', data.name);
-    formData.append('telephone', data.telephone);
-    formData.append('email', data.email);
-    formData.append('original_l', data.original_l);
-    formData.append('translate_l', data.translate_l);
-    formData.append('comment', data.comment);
-    formData.append('privacy', data.privacy);
+    });
+    formData.append("name", data.name);
+    formData.append("telephone", data.telephone);
+    formData.append("email", data.email);
+    formData.append("original_l", data.original_l);
+    formData.append("translate_l", data.translate_l);
+    formData.append("comment", data.comment);
+    formData.append("privacy", data.privacy);
 
-    console.log("formData",formData)
-
-    const res = await fetch("http://localhost:80/send_mail", {
-      mode: 'no-cors',
-      method: "POST",
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-      body: formData,
-    }).then((res) => res.json());
-    alert(JSON.stringify(`${res.message}, status: ${res.status}`));
-    reset();
+    try {
+      setLoading(true);
+      await sendOrder(formData);
+      reset();
+      setSuccess(true);
+    } catch (err) {
+      console.error(err);
+      alert("Не удалось отправить запрос");
+    } finally {
+      setLoading(false);
+    }
   };
-
-  console.log("watchFile", watchFile);
 
   return (
     <>
@@ -92,7 +91,7 @@ function OrderForm() {
                 <input
                   {...register("telephone", {
                     pattern: {
-                      value: /^[\d\+][\d\(\)\ -]{4,14}\d$/,
+                      value: /^[0-9+][0-9()-]{4,14}\d$/,
                       message: "*некорректный формат телефона",
                     },
                     minLength: {
@@ -190,17 +189,25 @@ function OrderForm() {
                       multiple
                       {...register("file", {
                         accept: {
-                          value: ".jpg, .jpeg, .png, .zip, .doc, .docx, .pdf, .djvu",
+                          value:
+                            ".jpg, .jpeg, .png, .zip, .doc, .docx, .pdf, .djvu",
                           message: "*недопустимый формат файла",
                         },
                         required: false,
                       })}
                     />
                     {errors?.file && (
-                      <p className="orderForm__error">{errors?.file?.message || "*файл не выбран"}</p>
+                      <p className="orderForm__error">
+                        {errors?.file?.message || "*файл не выбран"}
+                      </p>
                     )}
                   </div>
-                 <div className="orderForm__file-list"> {files.map((el,idx) => <span key={idx}>{el.name}</span>)}</div>
+                  <div className="orderForm__file-list">
+                    {" "}
+                    {files.map((el, idx) => (
+                      <span key={idx}>{el.name}</span>
+                    ))}
+                  </div>
                 </div>
               </div>
 
@@ -238,7 +245,14 @@ function OrderForm() {
               </div>
 
               <div className="orderForm__button">
-                <button type="submit">Заказать перевод</button>
+                <button type="submit">
+                  {loading ? "Отправка..." : "Заказать перевод"}
+                </button>
+                {sucsess && (
+                    <p className="orderForm__sucsess">
+                    <i class="material-icons">done</i>Заказ успешно отправлен
+                    </p>
+                )}
               </div>
             </form>
           </section>
