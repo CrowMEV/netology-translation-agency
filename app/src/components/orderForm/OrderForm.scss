@@ -11,10 +11,6 @@
         display: none;
     }
 
-    option {
-        color:red;
-    }
-
     input,
     label,
     textarea {
@@ -34,6 +30,11 @@
         font-weight: 400;
         line-height: 19px;
         color: #697379;
+
+        .error {
+            font-size: 0.9em;
+            color: #bd0f0f;
+        }
     }
 
     &__file_upload {
@@ -42,6 +43,13 @@
         padding: 6px 12px;
         cursor: pointer;
         border-radius: 20px;
+    }
+
+    &__file-list {
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        padding-left: 25px;
     }
 
     &__button {
@@ -190,6 +198,11 @@
         }
     }
 
+    &__error {
+        font-size: 1.2em;
+        color: #bd0f0f;
+    }
+
     button {
         @include button-blue;
         margin: auto;
@@ -201,6 +214,8 @@
         }
     }
 }
+
+
 
 .lang-dropdown {
     @include font-roboto-reg-14;

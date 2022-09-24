@@ -1,29 +1,43 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { langs } from "../form/langs";
 import Modal from "../modal/Modal";
+import { ERROR_MESSAGE } from "./constants";
 import "./OrderForm.scss";
+import { getFileArr } from "./utils";
 
 function OrderForm() {
   const [modalActive, setModalActive] = useState(false);
   const {
     register,
     handleSubmit,
+    reset,
+    watch,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    mode: "onBlur",
+  });
 
-  const sendData = (data) => {
-    const opt = {
+  const watchFile = watch("file");
+
+  const files = useMemo(() => getFileArr(watchFile), [watchFile])
+  console.log("files", files)
+  
+  const onSubmit = async (data) => {
+    const formData = new FormData();
+    formData.append("file", data.file[0]);
+    console.log("file",data.file[0])
+
+    const res = await fetch("http://localhost:80/send_mail", {
+      mode: 'no-cors',
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
-    };
-    return fetch('/user/login', opt)
-      .then((res) => console.log("data", res))
-      .catch((error) => {
-        console.log("error", error);
-      });
+      body: formData,
+    }).then((res) => res.json());
+    alert(JSON.stringify(`${res.message}, status: ${res.status}`));
+    reset();
   };
+
+  console.log("watchFile", watchFile);
 
   return (
     <>
@@ -36,48 +50,86 @@ function OrderForm() {
             <form
               id="order-form"
               name="order-form"
-              onSubmit={handleSubmit(sendData)}
+              onSubmit={handleSubmit(onSubmit)}
             >
               <div className="orderForm__input">
                 <label htmlFor="name">Фамилия, имя</label>
                 <input
-                  {...register("name", { required: true })}
+                  {...register("name", {
+                    maxLength: 30,
+                    minLength: {
+                      value: 4,
+                      message: "*некорректное имя",
+                    },
+                    required: true,
+                  })}
                   type="text"
                   className="orderForm__input_style"
                   placeholder="Иванов Иван"
                 />
                 {errors.name?.type === "required" && (
-                  <span>Это поле обязательное</span>
+                  <p className="orderForm__error">
+                    {errors?.name?.message || ERROR_MESSAGE}
+                  </p>
                 )}
               </div>
 
               <div className="orderForm__input">
                 <label htmlFor="telephone">Телефон</label>
                 <input
-                  {...register("telephone", { required: true })}
+                  {...register("telephone", {
+                    pattern: {
+                      value: /^[\d\+][\d\(\)\ -]{4,14}\d$/,
+                      message: "*некорректный формат телефона",
+                    },
+                    minLength: {
+                      value: 6,
+                      message: "*некорректный формат телефона",
+                    },
+                    maxLength: {
+                      value: 15,
+                      message: "*некорректный формат телефона",
+                    },
+                    required: true,
+                  })}
                   className="orderForm__input_style"
-                  type="number"
-                  placeholder="+7 999 9999999"
+                  type="tel"
+                  placeholder="123-456-7890"
                 />
-                {errors.telephone && <span>Это поле обязательное</span>}
+                {errors?.telephone && (
+                  <p className="orderForm__error">
+                    {errors?.telephone?.message || ERROR_MESSAGE}
+                  </p>
+                )}
               </div>
 
               <div className="orderForm__input">
                 <label htmlFor="email">Email</label>
                 <input
-                  {...register("email", { required: true })}
+                  {...register("email", {
+                    pattern: {
+                      value: /^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/i,
+                      message: "*некорректный email",
+                    },
+                    required: true,
+                  })}
                   className="orderForm__input_style"
                   type="email"
                   placeholder="example@mail.ru"
                 />
-                {errors.email && <span>Это поле обязательное</span>}
+                {errors?.email && (
+                  <p className="orderForm__error">
+                    {errors?.email?.message || ERROR_MESSAGE}
+                  </p>
+                )}
               </div>
 
               <div className="orderForm__select_changeLanguage">
                 <label htmlFor="">Язык перевода</label>
                 <div className="orderForm__select_changeLanguage_wrap">
                   <div className="orderForm__input_double">
-                    <select {...register("original_l", { required: true })}
+                    <select
+                      {...register("original_l", { required: true })}
                       className="orderForm__input_style"
                       id="original_l"
                       form="order-form"
@@ -88,8 +140,8 @@ function OrderForm() {
                         </option>
                       ))}
                     </select>
-                    {errors.original_l && (
-                      <span>Это поле обязательное</span>
+                    {errors?.original_l && (
+                      <p className="orderForm__error">{ERROR_MESSAGE}</p>
                     )}
                   </div>
 
@@ -106,8 +158,8 @@ function OrderForm() {
                         </option>
                       ))}
                     </select>
-                    {errors.translate_l && (
-                      <span>Это поле обязательное</span>
+                    {errors?.translate_l && (
+                      <p className="orderForm__error">{ERROR_MESSAGE}</p>
                     )}
                   </div>
                 </div>
@@ -122,12 +174,20 @@ function OrderForm() {
                     <input
                       id="file"
                       type="file"
-                      {...register("file", { required: true })}
+                      multiple
+                      {...register("file", {
+                        accept: {
+                          value: ".jpg, .jpeg, .png, .zip, .doc, .docx, .pdf, .djvu",
+                          message: "*недопустимый формат файла",
+                        },
+                        required: true,
+                      })}
                     />
-                    {errors.file && (
-                      <span>Это поле обязательное</span>
+                    {errors?.file && (
+                      <p className="orderForm__error">{errors?.file?.message || "*файл не выбран"}</p>
                     )}
                   </div>
+                 <div className="orderForm__file-list"> {files.map((el,idx) => <span key={idx}>{el.name}</span>)}</div>
                 </div>
               </div>
 
@@ -147,7 +207,6 @@ function OrderForm() {
                   className="orderForm__privicy_check"
                   type="checkbox"
                 />
-                {errors.privacy && <span>Это поле обязательное</span>}
                 <span>
                   Я подтверждаю, что ознакомлен(а) с{" "}
                   <a
@@ -159,8 +218,12 @@ function OrderForm() {
                   >
                     Политикой конфиденциальности
                   </a>
+                  {errors?.privacy && (
+                    <p className="error">*необходимо подтверждение</p>
+                  )}
                 </span>
               </div>
+
               <div className="orderForm__button">
                 <button type="submit">Заказать перевод</button>
               </div>
