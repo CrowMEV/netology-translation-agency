@@ -11,6 +11,12 @@
         display: none;
     }
 
+    button:hover {
+        background: rgba(0,0,0,0);
+        color: #3a7999;
+        box-shadow: inset 0 0 0 3px #3a7999;
+    }
+
     input,
     label,
     textarea {
@@ -35,6 +41,14 @@
             font-size: 0.9em;
             color: #bd0f0f;
         }
+        
+    }
+
+    &__sucsess {
+        display: flex;
+        padding: 10px;
+        color: green;
+        font-size: 1.4em;
     }
 
     &__file_upload {
@@ -55,6 +69,8 @@
     &__button {
         display: flex;
         margin: auto;
+        flex-direction: column;
+        align-items: center;
     }
 
     &__translate {
