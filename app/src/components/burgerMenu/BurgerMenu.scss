@@ -31,7 +31,11 @@
         a {
             @include font-roboto-reg-14;
             color: $color-text;
-            padding: 10px 0;
+            padding: 10px 0;            
+        }
+
+        a:hover {
+            color: #3B7598;
         }
     }
 }
@@ -39,7 +43,7 @@
 .active {
     position: fixed;
     width: 100%;
-    height: 50%;
+    height: auto;
     transform: translateX(0);
     display: flex;
     transition: transform 0.5s;

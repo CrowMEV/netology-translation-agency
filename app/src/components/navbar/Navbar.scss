@@ -9,6 +9,10 @@
 }
 
 .navbar {
+    a:hover {
+        color: #3B7598;
+    }
+    
     @media(min-width: 1440px) {
         @include font-roboto-reg-20;
         display: flex;
