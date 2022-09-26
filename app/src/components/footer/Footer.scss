@@ -2,6 +2,10 @@
 @import '../../BaseStyles/media.scss';
 
 .footer {
+  a:hover{
+    color: rgb(2, 32, 51);
+  }
+
   background-color: $color-footer;
   color: $color-white;
   padding-top: 32px;
