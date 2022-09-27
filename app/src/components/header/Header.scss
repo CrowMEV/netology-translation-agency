@@ -34,6 +34,10 @@
         a:last-child {
             margin-bottom: 0;
         }
+
+        a:hover {
+            color: #3B7598;
+        }
     }
 
 
@@ -49,6 +53,10 @@
         address,
         a {
             color: inherit;
+        }
+
+        a:hover {
+            color: #3B7598;
         }
 
         p {
@@ -73,6 +81,10 @@
 
         a:last-child {
             margin-bottom: 0;
+        }
+
+        a:hover {
+            color: #3B7598;
         }
 
         @media(min-width: 320px) and (max-width: 767.98px) {

@@ -12,9 +12,8 @@
     }
 
     button:hover {
-        background: rgba(0,0,0,0);
-        color: #3a7999;
-        box-shadow: inset 0 0 0 3px #3a7999;
+        background: #3B7598;
+        border: none;
     }
 
     input,
@@ -46,9 +45,26 @@
 
     &__sucsess {
         display: flex;
-        padding: 10px;
-        color: green;
-        font-size: 1.4em;
+        color: #022033;
+        @media(min-width:1440px) {
+            font-size: 24px;
+            line-height: 28px;
+            margin-top: 40px;
+            margin-bottom: 25px;
+        }
+        
+        @media(min-width:768px) and (max-width:1439.98px) {
+            font-size: 24px;
+            margin-top: 30px;
+            margin-bottom: 25px;
+        }
+
+        @media(min-width:320px) and (max-width:767.98px) {
+            font-size: 16px;
+            line-height: 19px;
+            margin-top: 25px;
+        }
+        
     }
 
     &__file_upload {
@@ -71,6 +87,7 @@
         margin: auto;
         flex-direction: column;
         align-items: center;
+        border: none;
     }
 
     &__translate {
@@ -223,15 +240,15 @@
         @include button-blue;
         margin: auto;
         max-width: 70%;
+        border: none;
 
         @media(min-width:320px) and (max-width:767.98px) {
             max-width: 100%;
             font-size: 1.4em;
+            border: none;
         }
     }
 }
-
-
 
 .lang-dropdown {
     @include font-roboto-reg-14;
@@ -276,5 +293,4 @@
     &__hidden {
         display: none;
     }
-
 }
