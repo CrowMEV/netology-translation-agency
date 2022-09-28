@@ -9,4 +9,4 @@ application = web.Application(
 
 if __name__ == '__main__':
     setup_rout(application)
-    web.run_app(application, host='localhost', port=8000)
+    web.run_app(application)
