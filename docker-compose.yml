@@ -16,7 +16,7 @@ services:
       - mail.env
       - db.env
     ports:
-      - '8000:8000'
+      - '8000:8080'
     depends_on:
       - db
 
