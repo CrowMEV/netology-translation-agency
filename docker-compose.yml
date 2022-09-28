@@ -1,0 +1,29 @@
+version: '3.3'
+
+services:
+  db:
+    image: mongo:4.4.6
+    restart: unless-stopped
+    env_file:
+      - db.env
+    ports:
+      - '27017:27017'
+
+  backend:
+    build: ./backend
+    restart: always
+    env_file:
+      - mail.env
+      - db.env
+    ports:
+      - '8000:8000'
+    depends_on:
+      - db
+
+  frontend:
+    build: ./frontend
+    restart: always
+    ports:
+      - '80:80'
+    depends_on:
+      - backend
