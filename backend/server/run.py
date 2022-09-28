@@ -1,6 +1,6 @@
 from aiohttp import web
 
-from server.app import application
+from .app import application
 from .views import routes
 
 
