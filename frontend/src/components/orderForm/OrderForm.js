@@ -38,7 +38,7 @@ function OrderForm() {
     formData.append("comment", data.comment);
     formData.append("privacy", data.privacy);
     const res = await fetch("http://localhost:8000/send_mail", {
-      mode: 'no-cors',
+      mode: 'cors',
       method: "POST",
       body: formData,
     }).then((res) => res.json());

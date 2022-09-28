@@ -1,7 +1,7 @@
 import asyncio
 import nest_asyncio
 from utils.mail import sending, prepare_data
-from server.database.db_crud import get_data, save_data
+from database.db_crud import get_data, save_data
 
 
 nest_asyncio.apply()

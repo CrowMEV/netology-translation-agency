@@ -1,4 +1,4 @@
-from server.database.base import db
+from database.base import db
 
 
 async def get_data():
