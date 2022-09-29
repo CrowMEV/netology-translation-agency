@@ -11,8 +11,6 @@ nest_asyncio.apply()
 
 async def send_mail(request) -> web.json_response:
     data = await request.post()
-    if not data:
-        raise Exception
     form_dict = await prepare_data(data)
     if not form_dict:
         return {'error': 'Объем загружаемых файлов превышает 50 мб'}
@@ -29,4 +27,3 @@ async def get_from_base(request) -> dict:
 async def save_to_base(request):
     request_data = await request.post()
     await save_data(request_data)
-
