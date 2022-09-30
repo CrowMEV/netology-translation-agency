@@ -1,5 +1,6 @@
-import React, { useMemo, useState, useRef } from "react";
+import React, { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
+import { sendOrder } from "../../api";
 import { langs } from "../form/langs";
 import Modal from "../modal/Modal";
 import { ERROR_MESSAGE } from "./constants";
@@ -13,6 +14,8 @@ function OrderForm() {
 
   const {
     register,
+    handleSubmit,
+    reset,
     watch,
     formState: { errors },
   } = useForm({
@@ -21,16 +24,32 @@ function OrderForm() {
 
   const watchFile = watch("file");
   const files = useMemo(() => getFileArr(watchFile), [watchFile]);
-  const form = useRef(null)
-  const submit = (e) => {
-    e.preventDefault()
-    const formData = new FormData(form.current);
 
-    const res = fetch("http://localhost:8000/send_mail", {
-      mode: 'no-cors',
-      method: "POST",
-      body: formData,
-    }).then((res) => res.json());
+  const onSubmit = (data) => {
+    const formData = new FormData();
+    getFileArr(data.file).forEach((file, idx) => {
+      formData.append(`file[${idx}]`, data.file[idx]);
+    });
+    formData.append("name", data.name);
+    formData.append("telephone", data.telephone);
+    formData.append("email", data.email);
+    formData.append("original_l", data.original_l);
+    formData.append("translate_l", data.translate_l);
+    formData.append("comment", data.comment);
+    formData.append("privacy", data.privacy);
+
+  console.log("watchFile", watchFile);
+    try {
+      setLoading(true);
+      sendOrder(formData);
+      reset();
+      setSuccess(true);
+    } catch (err) {
+      console.error(err);
+      alert("Не удалось отправить запрос");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -44,8 +63,7 @@ function OrderForm() {
             <form
               id="order-form"
               name="order-form"
-              ref={form}
-              onSubmit={submit}
+              onSubmit={handleSubmit(onSubmit)}
             >
               <div className="orderForm__input">
                 <label htmlFor="name">Фамилия, имя</label>
