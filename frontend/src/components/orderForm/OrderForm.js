@@ -25,7 +25,7 @@ function OrderForm() {
   const watchFile = watch("file");
   const files = useMemo(() => getFileArr(watchFile), [watchFile]);
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const formData = new FormData();
     getFileArr(data.file).forEach((file, idx) => {
       formData.append(`file[${idx}]`, data.file[idx]);
@@ -41,7 +41,7 @@ function OrderForm() {
   console.log("watchFile", watchFile);
     try {
       setLoading(true);
-      sendOrder(formData);
+      await sendOrder(formData);
       reset();
       setSuccess(true);
     } catch (err) {
