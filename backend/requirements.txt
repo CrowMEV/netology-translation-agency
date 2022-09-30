@@ -1,4 +1,5 @@
 aiohttp==3.8.1
+aiohttp-middlewares==2.1.0
 gunicorn==20.1.0
 pymongo==4.2.0
 nest-asyncio==1.5.5

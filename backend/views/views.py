@@ -13,10 +13,13 @@ async def send_mail(request) -> web.json_response:
     data = await request.post()
     form_dict = await prepare_data(data)
     if not form_dict:
-        return {'error': 'Объем загружаемых файлов превышает 50 мб'}
+        return web.Response(
+            text="Объем загружаемых файлов превышает 50 мб"
+        )
     asyncio.run(sending(form_dict))
-    return web.json_response({'success': 'Письмо успешно отправлено'},
-                             status=200)
+    return web.Response(
+        text="Письмо отпралено"
+    )
 
 
 async def get_from_base(request) -> dict:
