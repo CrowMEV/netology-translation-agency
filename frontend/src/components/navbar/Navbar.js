@@ -12,7 +12,9 @@ function Navbar() {
       <nav class="containerWrap">
         <div class="navbar">
           <span className="header__logo">
-            <img src={logo} alt="алтайская ассоциация" />
+            <a href="#aboutCompany">
+              <img src={logo} alt="алтайская ассоциация" />
+            </a>
           </span>
           <ul class="navbar">
             <li>
@@ -28,16 +30,25 @@ function Navbar() {
                 <a href="#languages">Языки для перевода</a>
               </li>
               <li>
-                <a href="#form">Заказать перевод</a>
+                <a href="#orderForm">Заказать перевод</a>
               </li>
               <li>
                 <a href="#contacts">Контакты</a>
               </li>
             </div>
             <li className="burger">
-              <img className="burger" onClick={() => setActiveBurger(true)} src={burgerIcon} alt="меню"></img>
+              <img
+                className="burger"
+                onClick={() => setActiveBurger(true)}
+                src={burgerIcon}
+                alt="меню"
+              ></img>
             </li>
-            {activeBurger && <div classNmae="hidden"><BurgerMenu active={activeBurger} setActive={setActiveBurger} /></div>}
+            {activeBurger && (
+              <div classNmae="hidden">
+                <BurgerMenu active={activeBurger} setActive={setActiveBurger} />
+              </div>
+            )}
           </ul>
         </div>
       </nav>

@@ -5,12 +5,10 @@
     background-repeat: no-repeat;
     background-size: cover; // ставим cover
     width: 100%;
-    margin: 0px 0 50px 0;
     padding-top: 37px;
     background: linear-gradient(231.1deg, rgba(38, 187, 210, 0.79) 19.27%, #447B9C 58.26%, #0B527D 87.46%);
 
     @media (min-width: 200px) and (max-width:599.98px) {
-        margin: 0px 0 20px 0;
         padding-top: 16px;
       }
     

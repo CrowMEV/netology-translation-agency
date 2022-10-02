@@ -2,10 +2,14 @@
 @import '../../BaseStyles/media.scss';
 
 .costDependency {
-  margin-bottom: 80px;
+  padding-top: 80px;
 
-  @media(min-width:320px) and (max-width:767.98px) {
-    margin-bottom: 20px;
+  @media(min-width: 768px) and (max-width:1439.98px) {
+    padding-top: 60px;
+  }
+
+  @media(min-width: 200px) and (max-width:767.98px)  {
+    padding-top: 40px;
   }
   
   &__wrap {

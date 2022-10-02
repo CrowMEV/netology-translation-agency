@@ -16,7 +16,7 @@ import serbian from '../../img/flags/serbian.svg';
 import tajik from '../../img/flags/tajik.svg';
 import turkish from '../../img/flags/turkish.svg';
 import uzbek from '../../img/flags/uzbek.svg';
-import ukrainian from '../../img/flags/tajik.svg';
+import ukrainian from '../../img/flags/ukrainian.svg';
 import french from '../../img/flags/french.svg';
 import czech from '../../img/flags/czech.svg';
 import japanese from '../../img/flags/japanese.svg';
