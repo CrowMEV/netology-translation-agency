@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
-//import { sendOrder } from "../../api";
+import { sendOrder } from "../../api";
 import { langs, langsInflected } from "../form/langs";
 import Modal from "../modal/Modal";
 import { ERROR_MESSAGE } from "./constants";
@@ -15,7 +15,7 @@ function OrderForm() {
   const {
     register,
     handleSubmit,
-    //reset,
+    reset,
     watch,
     formState: { errors },
   } = useForm({
@@ -38,7 +38,7 @@ function OrderForm() {
     formData.append("comment", data.comment);
     formData.append("privacy", data.privacy);
 
-  console.log("watchFile", watchFile);
+    console.log("watchFile", watchFile);
     try {
       setLoading(true);
       await sendOrder(formData);
@@ -56,10 +56,9 @@ function OrderForm() {
     <>
       {modalActive && <Modal setActive={setModalActive} />}
       <div className="containerWrap">
-        <div className="orderForm">
-          <section id="orderForm" className="orderForm__translate">
+        <section id="orderForm" className="orderForm">
+          <div className="orderForm__translate">
             <h2>Заказать перевод</h2>
-
             <form
               id="order-form"
               name="order-form"
@@ -143,7 +142,7 @@ function OrderForm() {
                   <div className="orderForm__input_double">
                     <select
                       {...register("original_l", { required: true })}
-                      className="orderForm__input_style"
+                      className="orderForm__input_style select"
                       id="original_l"
                       form="order-form"
                     >
@@ -161,7 +160,7 @@ function OrderForm() {
                   <div className="orderForm__input_double">
                     <select
                       {...register("translate_l", { required: true })}
-                      className="orderForm__input_style"
+                      className="orderForm__input_style select"
                       id="translate_l"
                       form="order-form"
                     >
@@ -182,7 +181,8 @@ function OrderForm() {
                 <div className="orderForm__select_changeLanguage_wrap">
                   <div className="orderForm__input_double">
                     <label htmlFor="file" className="orderForm__file_upload">
-                      <i className="material-icons">file_upload</i> Выберите файл
+                      <i className="material-icons">file_upload</i> Выберите
+                      файл
                     </label>
                     <input
                       id="file"
@@ -250,14 +250,15 @@ function OrderForm() {
                   {loading ? "Отправка..." : "Заказать перевод"}
                 </button>
                 {sucsess && (
-                    <p className="orderForm__sucsess">
-                    <i className="material-icons">done</i>Заказ успешно отправлен
-                    </p>
+                  <p className="orderForm__sucsess">
+                    <i className="material-icons">done</i>Заказ успешно
+                    отправлен
+                  </p>
                 )}
               </div>
             </form>
-          </section>
-        </div>
+          </div>
+        </section>
       </div>
     </>
   );

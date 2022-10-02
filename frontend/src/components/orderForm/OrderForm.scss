@@ -3,9 +3,16 @@
 
 .orderForm {
     color: $color-text;
-    margin-bottom: 40px;
-    background-color: $color-filling;
+    padding-top: 80px;
     border-radius: 20px;
+
+    @media(min-width: 768px) and (max-width:1439.98px) {
+        padding-top: 60px;
+      }
+    
+      @media(min-width: 200px) and (max-width:767.98px)  {
+        padding-top: 40px;
+      }
     
     input[type="file"] {
         display: none;
@@ -91,11 +98,11 @@
     }
 
     &__translate {
-
         padding: 40px 120px;
         border-radius: 20px;
         display: flex;
         flex-direction: column;
+        background-color: #D1E5EF;
 
         @media(min-width:768px) and (max-width:991.98px) {
             padding: 40px 60px;
@@ -305,3 +312,33 @@
         display: none;
     }
 }
+
+.select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    
+    background-image: url(https://netology-code.github.io/html-2-homeworks/form-elements/city-select/img/select-arrows.svg);
+    background-repeat: no-repeat;
+    background-position: right 5px center;
+    
+    display: inline-block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 38px;
+    
+    padding-right: 25px;
+    
+    margin: 0;
+    
+    border: 1px solid #cbd1d4;
+    background-color: #f9f9f9;
+    
+    font-size: 14px;
+    font-family: Arial,sans-serif;
+    color: #333333;
+  }
+  
+  .select:focus {
+    outline: 2px solid #0f8fee;
+    outline-offset: 4px;
+  }
