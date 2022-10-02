@@ -37,24 +37,19 @@ function OrderForm() {
     formData.append("translate_l", data.translate_l);
     formData.append("comment", data.comment);
     formData.append("privacy", data.privacy);
-    const res = await fetch("http://localhost:8000/send_mail", {
-      mode: 'no-cors',
-      method: "POST",
-      body: formData,
-    }).then((res) => res.json());
-    alert(JSON.stringify(`${res.message}, status: ${res.status}`));
 
-    // try {
-    //   setLoading(true);
-    //   await sendOrder(formData);
-    //   reset();
-    //   setSuccess(true);
-    // } catch (err) {
-    //   console.error(err);
-    //   alert("Не удалось отправить запрос");
-    // } finally {
-    //   setLoading(false);
-    // }
+  console.log("watchFile", watchFile);
+    try {
+      setLoading(true);
+      await sendOrder(formData);
+      reset();
+      setSuccess(true);
+    } catch (err) {
+      console.error(err);
+      alert("Не удалось отправить запрос");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
