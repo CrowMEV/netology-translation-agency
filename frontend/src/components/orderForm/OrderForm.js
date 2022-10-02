@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
-import { sendOrder } from "../../api";
-import { langs } from "../form/langs";
+//import { sendOrder } from "../../api";
+import { langs, langsInflected } from "../form/langs";
 import Modal from "../modal/Modal";
 import { ERROR_MESSAGE } from "./constants";
 import "./OrderForm.scss";
@@ -15,7 +15,7 @@ function OrderForm() {
   const {
     register,
     handleSubmit,
-    reset,
+    //reset,
     watch,
     formState: { errors },
   } = useForm({
@@ -152,7 +152,7 @@ function OrderForm() {
                       id="original_l"
                       form="order-form"
                     >
-                      {langs.map((el, index) => (
+                      {langsInflected.map((el, index) => (
                         <option key={index} value={el}>
                           c {el}
                         </option>
@@ -187,7 +187,7 @@ function OrderForm() {
                 <div className="orderForm__select_changeLanguage_wrap">
                   <div className="orderForm__input_double">
                     <label htmlFor="file" className="orderForm__file_upload">
-                      <i class="material-icons">file_upload</i> Выберите файл
+                      <i className="material-icons">file_upload</i> Выберите файл
                     </label>
                     <input
                       id="file"
@@ -256,7 +256,7 @@ function OrderForm() {
                 </button>
                 {sucsess && (
                     <p className="orderForm__sucsess">
-                    <i class="material-icons">done</i>Заказ успешно отправлен
+                    <i className="material-icons">done</i>Заказ успешно отправлен
                     </p>
                 )}
               </div>

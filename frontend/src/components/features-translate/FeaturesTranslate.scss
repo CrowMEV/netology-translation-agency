@@ -50,6 +50,7 @@
     @media(min-width: 320px) and (max-width:767.98px) {
       font-size: 20px;
       line-height: 23px;
+      text-align: initial;
     }
 
   }
@@ -63,6 +64,7 @@
       display: flex;
       margin-top: 22px;
       align-items: center;
+      text-align: initial;
     }
 
     @media (min-width: 768px) and (max-width: 991.98px) {
