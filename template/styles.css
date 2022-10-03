@@ -1,0 +1,150 @@
+html,
+body {
+    height: 100vh;
+    font-size: 10px;
+}
+
+input,
+label {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.6em;
+    line-height: 150%;
+    color: inherit;
+}
+
+input {
+    border-radius: 20px;
+    padding: 8px 20px;
+    border-style: none;
+}
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    text-align: center;
+    line-height: 100%;
+    margin-bottom: 40px;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 56px;    
+}
+
+.headerAuth {
+    padding-top: 40px;
+}
+
+form {
+    color: rgba(2, 32, 51, 1);
+    padding-top: 80px;
+    border-radius: 20px;
+    padding: 90px 0px;
+    margin-bottom: 70px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: #D1E5EF;
+}
+
+button {
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+    border: none;
+    background: #0B527D;
+    border: none;
+    margin: auto;
+    max-width: 50%;
+    border: none;
+    font-size: 20px;
+    width: 100%;
+    padding: 18px 45px;
+    color: rgba(255, 255, 255, 1);
+    border-radius: 50px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+button:hover {
+    background: #3B7598;
+    border: none;
+}
+
+.authWrap {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 60%;
+    margin: auto;
+}
+
+.inputWrap {
+    padding: 0 0 5px 0;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto 57px auto;
+}
+
+.inputWrapContact {
+    padding: 0 0 5px 0;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto 15px auto;
+}
+
+.buttonWrap {
+    width: 80%;
+    margin: 0 auto 0 auto;
+}
+
+@media screen and (min-width: 320px) {
+    h2 {
+      font-size: 34px;
+    }
+
+    form {
+        padding: 40px 0px;
+    }
+
+    button {
+        margin-top: 10px;
+        max-width: 100%;
+    }
+
+    .inputWrap {
+        margin: 0 auto 27px auto;
+    }
+
+    .authWrap {
+        width: 80%;
+    }
+
+  }
+  @media screen and (min-width: 767.98px) {
+    h2 {
+      font-size: 48px;
+    }
+
+    form {
+        padding: 90px 0px;
+    }
+
+    button {
+        margin-top: 30px;
+        max-width: 50%;
+    }
+
+    .inputWrap {
+        margin: 0 auto 57px auto;
+    }
+
+    .authWrap {
+        width: 60%;
+    }
+  }
