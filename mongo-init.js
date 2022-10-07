@@ -5,6 +5,7 @@ conn = new Mongo();
 db = conn.getDB("altai");
 
 // create new collection and set data
+//_getEnv() for get variable from environment
 db.site_data.insert(
     {
         address: _getEnv('ADDRESS'),
