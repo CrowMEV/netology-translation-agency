@@ -15,4 +15,3 @@ db.site_data.insert(
         phone_2: _getEnv("PHONE_2")
     }
 )
-

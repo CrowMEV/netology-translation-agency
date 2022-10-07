@@ -13,13 +13,18 @@
     <div class="authWrap">
         <h2 class="headerAuth">Авторизация</h2>
         <form id="order-form" method="post" action="/">
+            {% for msg in get_flashed_messages(
+                category_filter=['auth_message', 'login_message']
+            ) %}
+                <div class="flash">{{ msg }}</div>
+            {% endfor %}
             <div class="inputWrap">
                 <label for="login">Логин</label>
                 <input type="text" name="login" required/>
             </div>
             <div class="inputWrap">
                 <label for="password">Пароль</label>
-                <input type="text" name="password" required/>
+                <input type="password" name="password" required/>
             </div>
             <div class="buttonWrap">
                 <button type="submit">Войти</button>
