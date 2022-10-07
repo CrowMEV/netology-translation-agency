@@ -1,6 +1,14 @@
-from flask import request, render_template, redirect
+from flask import request, render_template, redirect, url_for
 
 from database.db_crud import get_data, save_data
+
+
+def login():
+    return render_template("authorization.html")
+
+
+def check_login():
+    return redirect(url_for('get_base'))
 
 
 def get_from_base():
@@ -9,6 +17,6 @@ def get_from_base():
 
 
 def save_to_base():
-    request_data = request.data
+    request_data = request.form
     save_data(request_data)
-    return redirect('/')
+    return redirect(url_for('get_base'))

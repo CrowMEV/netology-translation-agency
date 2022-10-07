@@ -7,7 +7,9 @@ def get_data():
 
 
 def save_data(data):
+    db_data = db['site_data'].find_one()
     for field_name, field_value in data.items():
-        db['site_data'].update_one(
-            {field_name: field_value}, {'$set': {field_name: field_value}}
-        )
+        if field_value.strip():
+            db['site_data'].update_one(
+                {field_name: db_data.get(field_name)}, {'$set': {field_name: field_value}}
+            )
