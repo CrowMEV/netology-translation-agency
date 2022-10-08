@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href={{ url_for('static', filename='styles.css') }}>
+    <link rel="stylesheet" href=/static/style_change_contacts.css>
     <title>Document</title>
 </head>
 
 <body>
     <div class="authWrap">
         <h2>Замена контактов</h2>
-        <form id="order-form" method="post" action="/admin/">
+        <form id="order-form" method="post" action="/change_contacts/admin/">
             <div class="inputWrapContact">
                 <label for="address">Адрес</label>
                 <input type="text" name="address"

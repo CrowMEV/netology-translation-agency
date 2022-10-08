@@ -22,6 +22,19 @@ services:
     depends_on:
       - db
 
+  change_contacts:
+    build: ./change_contacts
+    restart: always
+    ports:
+      - '5000:5000'
+    env_file:
+      - admin.env
+      - db.env
+      - mail.env
+    command: ./entrypoint.sh
+    depends_on:
+      - db
+
   frontend:
     build: ./frontend
     restart: always
