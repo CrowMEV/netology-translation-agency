@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href=/static/style_change_contacts.css>
     <title>Document</title>
 </head>
 
 <body>
     <div class="authWrap">
         <h2>Замена контактов</h2>
-        <form id="order-form">
+        <form id="order-form" method="post" action="/change_contacts/admin/">
             <div class="inputWrapContact">
                 <label for="address">Адрес</label>
                 <input type="text" name="address"
@@ -20,17 +20,17 @@
             </div>
             <div class="inputWrapContact">
                 <label for="tel_one">Телефон</label>
-                <input type="tel" name="tel_one"
+                <input type="tel" name="phone_1"
                        placeholder="{{ contacts.get('phone_1', '') }}"/>
             </div>
             <div class="inputWrapContact">
                 <label for="tel_two">Телефон</label>
-                <input type="tel" name="tel_two"
+                <input type="tel" name="phone_2"
                        placeholder="{{ contacts.get('phone_2', '') }}"/>
             </div>
             <div class="inputWrapContact">
                 <label for="whatsApp">WhatsApp</label>
-                <input type="tel" name="whatsApp"
+                <input type="tel" name="whatsapp"
                        placeholder="{{ contacts.get('whatsapp', '') }}"/>
             </div>
             <div class="inputWrapContact">
@@ -44,7 +44,7 @@
                        placeholder="{{ contacts.get('email', '') }}"/>
             </div>
             <div class="buttonWrap">
-                <button type="submit">Войти</button>
+                <button type="submit">Применить</button>
             </div>
         </form>
     </div>

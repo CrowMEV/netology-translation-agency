@@ -1,0 +1,10 @@
+from flask import session, redirect, url_for, flash
+
+
+def login_required(function):
+    def wrapper(*args, **kwargs):
+        if not session.get('isAuth'):
+            flash("Пожалуйста, авторизуйтесь", 'auth_message')
+            return redirect(url_for('login'))
+        return function(*args, **kwargs)
+    return wrapper

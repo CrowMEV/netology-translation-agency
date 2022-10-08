@@ -2,7 +2,9 @@ version: '3.3'
 
 services:
   db:
-    image: mongo:4.4.6
+    build:
+      context: .
+      dockerfile: db.Dockerfile
     restart: unless-stopped
     env_file:
       - db.env
@@ -17,6 +19,19 @@ services:
       - db.env
     ports:
       - '8000:8000'
+    depends_on:
+      - db
+
+  change_contacts:
+    build: ./change_contacts
+    restart: always
+    ports:
+      - '5000:5000'
+    env_file:
+      - admin.env
+      - db.env
+      - mail.env
+    command: ./entrypoint.sh
     depends_on:
       - db
 
