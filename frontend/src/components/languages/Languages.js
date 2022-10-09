@@ -10,7 +10,7 @@ function Languages() {
           {LANGS.map((lang) => (
             <li key={v4()} className="languages__item">
               <div className="languages__content">
-                <img class="languages__img" src={lang.flag} alt="премия" />
+                <img className="languages__img" src={lang.flag} alt="премия" />
                 <span>{lang.name}</span>
               </div>
             </li>

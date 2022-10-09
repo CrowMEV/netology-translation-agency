@@ -6,8 +6,8 @@ function BurgerMenu({ active, setActive }) {
       className={active ? "header__burger active" : "header__burger"}
       onClick={() => setActive(false)}
     >
-      <div class="close">
-        <span class="material-icons" onClick={() => setActive(false)}>
+      <div className="close">
+        <span className="material-icons" onClick={() => setActive(false)}>
           close
         </span>
       </div>

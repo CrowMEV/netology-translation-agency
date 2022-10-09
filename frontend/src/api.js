@@ -4,3 +4,9 @@ export const sendOrder = (data) =>
     method: "POST",
     body: data,
   });
+
+export const getContacts = () =>
+  fetch("http://localhost:8000/get_contacts", {
+    mode: "no-cors",
+    method: "GET",
+  }).then(res => res.json());
