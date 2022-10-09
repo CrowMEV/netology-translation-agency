@@ -1,5 +1,5 @@
 FROM python:alpine3.16
-WORKDIR /admin
+WORKDIR /app
 COPY ./requirements.txt .
 RUN pip3 install --no-cache-dir --upgrade pip -r requirements.txt
 COPY . .

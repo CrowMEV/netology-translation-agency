@@ -28,9 +28,10 @@ services:
     ports:
       - '5000:5000'
     env_file:
-      - admin.env
       - db.env
       - mail.env
+    volumes:
+      - static-data:/app/templates/static
     command: ./entrypoint.sh
     depends_on:
       - db
@@ -40,5 +41,9 @@ services:
     restart: always
     ports:
       - '80:80'
+    volumes:
+      - static-data:/usr/share/nginx/html/static/change-contacts
     depends_on:
       - backend
+volumes:
+  static-data:
