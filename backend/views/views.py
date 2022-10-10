@@ -10,6 +10,8 @@ nest_asyncio.apply()
 
 
 async def send_mail(request) -> web.json_response:
+    if not request.headers.get('Origin'):
+        return web.HTTPForbidden()
     data = await request.post()
     form_dict = await prepare_data(data)
     if not form_dict:
