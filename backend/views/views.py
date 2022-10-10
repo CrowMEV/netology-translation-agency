@@ -17,8 +17,10 @@ async def send_mail(request) -> web.json_response:
             'Your files weight is over 50 mb',
             status=400
         )
-    asyncio.run(sending(form_dict))
-    return web.json_response('Success', status=200)
+    # asyncio.run(sending(form_dict))
+    # return web.json_response('Success', status=200)
+    send_message = await sending(form_dict)
+    return web.json_response(**send_message)
 
 
 async def get_contacts(request):

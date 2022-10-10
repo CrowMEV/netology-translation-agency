@@ -4,6 +4,10 @@ from email.mime.application import MIMEApplication
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from aiohttp.web_request import FileField
+import logging
+
+
+logging.basicConfig(level=logging.INFO)
 
 
 async def prepare_data(data: dict):
@@ -60,20 +64,24 @@ async def sending(data):
     Комментарий: {data.get('comment', '')}
     """
     address_list = [
-        [data["email"], "Заявка на перевод", "Ваша заявка принята"],
-        [data["login"], "Новая заявка", message_text]
+        [data.get("login"), "Новая заявка", message_text]
     ]
 
     # Проверяем указал ли пользователь электронный адрес
-    if not data.get('email'):
-        address_list = [address_list[-1]]
-
+    if data.get('email', ''):
+        address_list.insert(
+            0, [data.get("email"), "Заявка на перевод", "Ваша заявка принята"]
+        )
     # Отправка письма
-    message = None
+    message = {'data': 'success', 'status': 200}
     for item in address_list:
         try:
-            await send_to_current_user(data["login"], data["password"], item[0], item[1], item[2], data["files"])
+            await send_to_current_user(
+                data["login"], data["password"], item[0], item[1],
+                item[2], data["files"]
+            )
         except Exception as err:
-            message = "Неверный адрес электронной почты"
+            logging.info(err)
+            message = {'data': 'email sending error', 'status': 400}
             break
     return message
