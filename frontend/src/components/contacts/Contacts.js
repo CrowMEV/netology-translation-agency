@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { getContacts as getContactsApi } from "../../api";
 
 function Contacts() {
-  const [contacts, setContacts] = useState(null);
+  const [contacts, setContacts] = useState({});
   const [isLoaded, setIsLoaded] = useState(false);
 
   console.log("contacts", contacts)
