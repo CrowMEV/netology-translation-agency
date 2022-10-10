@@ -10,13 +10,10 @@ function Contacts() {
   const [contacts, setContacts] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  console.log("contacts", contacts)
-
   const getContacts = async () => {
     try {
       const res = await getContactsApi();
       setContacts(res);
-      console.log("res", res)
     } catch (err) {
       console.error(err);
     } finally {
@@ -46,7 +43,7 @@ function Contacts() {
                   top: "0px",
                 }}
               >
-                Барнаул
+                {contacts.city}
               </a>
               <a
                 href="https://yandex.ru/maps/197/barnaul/house/depovskaya_ulitsa_7/bEoYcQBhTEQGQFtpfX91eXVhYA==/?ll=83.771511%2C53.348925&utm_medium=mapframe&utm_source=maps&z=17.28"
@@ -57,7 +54,7 @@ function Contacts() {
                   top: "14px",
                 }}
               >
-                Деповская улица, 7 — Яндекс Карты
+                {contacts.address}
               </a>
               <iframe
                 title={"карта"}
@@ -82,9 +79,9 @@ function Contacts() {
                 className="contacts__links_item_link"
                 href="https://yandex.ru/maps/197/barnaul/house/depovskaya_ulitsa_7/bEoYcQBhTEQGQFtpfX91eXVhYA==/?ll=83.771511%2C53.348925&utm_medium=mapframe&utm_source=maps&z=17.28"
               >
-                г. Барнаул
+                {contacts.city}
                 <br />
-                ул. Деповская, 7, офис Б-310
+                {contacts.address}
               </a>
             </div>
             <div className="contacts__links_item">

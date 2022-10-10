@@ -10,7 +10,9 @@ import { getFileArr } from "./utils";
 function OrderForm() {
   const [modalActive, setModalActive] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [sucsess, setSuccess] = useState(false);  
+  const [success, setSuccess] = useState(false); 
+  const [errorFileSize, setErrorFileSize] = useState(false);
+  const [filesArr, setFilesArr] = useState([]);
 
   const {
     register,
@@ -23,13 +25,36 @@ function OrderForm() {
   });
 
   const watchFile = watch("file");
-  const files = useMemo(() => getFileArr(watchFile), [watchFile]);
+  useMemo(() => watchFile ? setFilesArr(getFileArr(watchFile)) : null, [watchFile]);
+
+  const validateSize = (input) => {
+    let filesSize = 0; // in MiB
+    const kbInMb = 1024 * 1024;
+    
+    for(let i = 0; i < filesArr?.length; i++) {
+      filesSize += filesArr[i].size / kbInMb;
+    }
+
+    if (filesSize > 50) {
+      setErrorFileSize(true);
+    }
+  }
+
+  const handleDeleteFile = (name) => {
+    const newFilesArr= filesArr.filter(el => el.name !== name);
+    setFilesArr(newFilesArr);
+  }
 
   const onSubmit = async (data) => {
+    if (errorFileSize) {
+      return;
+    }
+
     const formData = new FormData();
-    getFileArr(data.file).forEach((file, idx) => {
-      formData.append(`file[${idx}]`, data.file[idx]);
+    filesArr.forEach((file, idx) => {
+      formData.append(`file[${idx}]`, file);
     });
+
     formData.append("name", data.name);
     formData.append("telephone", data.telephone);
     formData.append("email", data.email);
@@ -38,7 +63,6 @@ function OrderForm() {
     formData.append("comment", data.comment);
     formData.append("privacy", data.privacy);
 
-    console.log("watchFile", watchFile);
     try {
       setLoading(true);
       await sendOrder(formData);
@@ -195,6 +219,7 @@ function OrderForm() {
                           message: "*недопустимый формат файла",
                         },
                         required: false,
+                        onChange: (ev) => validateSize(ev.target),
                       })}
                     />
                     {errors?.file && (
@@ -202,11 +227,19 @@ function OrderForm() {
                         {errors?.file?.message || "*файл не выбран"}
                       </p>
                     )}
+                    {errorFileSize && (
+                      <p className="orderForm__error">
+                        {errors?.file?.message ||
+                          "*размер файла(ов) превышает 50мб"}
+                      </p>
+                    )}
                   </div>
                   <div className="orderForm__file-list">
                     {" "}
-                    {files.map((el, idx) => (
-                      <span key={idx}>{el.name}</span>
+                    {filesArr?.map((el, idx) => (
+                      <span key={idx}>
+                        {el.name} <i className="material-icons clear" onClick={() => handleDeleteFile(el.name)}>clear</i>
+                      </span>
                     ))}
                   </div>
                 </div>
@@ -249,7 +282,7 @@ function OrderForm() {
                 <button type="submit">
                   {loading ? "Отправка..." : "Заказать перевод"}
                 </button>
-                {sucsess && (
+                {success && (
                   <p className="orderForm__sucsess">
                     <i className="material-icons">done</i>Заказ успешно
                     отправлен
