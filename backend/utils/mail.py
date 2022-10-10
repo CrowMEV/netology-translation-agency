@@ -4,10 +4,6 @@ from email.mime.application import MIMEApplication
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from aiohttp.web_request import FileField
-import logging
-
-
-logging.basicConfig(level=logging.INFO)
 
 
 async def prepare_data(data: dict):
@@ -81,7 +77,6 @@ async def sending(data):
                 item[2], data["files"]
             )
         except Exception as err:
-            logging.info(err)
             message = {'data': 'email sending error', 'status': 400}
             break
     return message
