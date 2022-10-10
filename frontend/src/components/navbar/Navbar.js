@@ -8,15 +8,15 @@ function Navbar() {
   const [activeBurger, setActiveBurger] = useState(false);
 
   return (
-    <div class="containerSticky">
-      <nav class="containerWrap">
-        <div class="navbar">
+    <div className="containerSticky">
+      <nav className="containerWrap">
+        <div className="navbar">
           <span className="header__logo">
             <a href="#aboutCompany">
               <img src={logo} alt="алтайская ассоциация" />
             </a>
           </span>
-          <ul class="navbar">
+          <ul className="navbar">
             <li>
               <a href="#aboutCompany">
                 <img src={rewardNavbar} alt="награда" />

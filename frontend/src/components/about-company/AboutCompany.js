@@ -19,9 +19,9 @@ function AboutCompany() {
           Находимся в самом сердце города — к нам легко добраться с любого
           направления на личном и общественном транспорте.
         </p>
-        <div class="aboutCompany__premiumWrap">
-        <img class="aboutCompany__img" src={premium} alt="премия" />
-          <div class="aboutCompany__textPremium"> 
+        <div className="aboutCompany__premiumWrap">
+        <img className="aboutCompany__img" src={premium} alt="премия" />
+          <div className="aboutCompany__textPremium"> 
             “Алтайская региональная ассоциация переводчиков” — лауреат
             престижной бизнес-премии "Выбор клиентов и партнеров 2021" по версии
             Межотраслевой рейтинговой компании.

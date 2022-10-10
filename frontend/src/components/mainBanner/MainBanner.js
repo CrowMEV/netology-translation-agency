@@ -4,10 +4,10 @@ import femaleMob from "../../img/femaleMob.svg";
 
 function MainBanner() {
   return (
-    <section class="mainBanner">
-      <div class="containerWrap">
-        <div class="mainBanner__wrap">
-          <div class="mainBanner__text">
+    <section className="mainBanner">
+      <div className="containerWrap">
+        <div className="mainBanner__wrap">
+          <div className="mainBanner__text">
             <h1>
               <div>Алтайская</div>
               <div>региональная</div>
@@ -16,22 +16,22 @@ function MainBanner() {
             </h1>
             <p>
               Язык — ключ к общению.{" "}
-              <span class="textNoBreak">Мы поможем понять друг друга.</span>{" "}
-              <span class="textBreak">
+              <span className="textNoBreak">Мы поможем понять друг друга.</span>{" "}
+              <span className="textBreak">
                 <br />
                 Мы поможем понять друг друга.
               </span>
             </p>
           </div>
-          <div class="mainBanner__img">
+          <div className="mainBanner__img">
             <img
-              class="prettyFemale"
+              className="prettyFemale"
               src={bannerMerge}
               alt="красивая женщина"
             />
 
             <img
-              class="prettyFemaleMob"
+              className="prettyFemaleMob"
               src={femaleMob}
               alt="красивая женщина"
             />

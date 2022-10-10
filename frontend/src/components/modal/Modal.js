@@ -3,18 +3,18 @@ import "./Modal.scss";
 
 function Modal({ setActive }) {
   return (
-    <div class="modal" onClick={() => setActive(false)}>
-      <div class="modalContent" onClick={(e) => e.isPropagationStopped()}>
-        <div class="headerModal">
-          <div class="closeModal">
-            <span class="material-icons" onClick={() => setActive(false)}>
+    <div className="modal" onClick={() => setActive(false)}>
+      <div className="modalContent" onClick={(e) => e.isPropagationStopped()}>
+        <div className="headerModal">
+          <div className="closeModal">
+            <span className="material-icons" onClick={() => setActive(false)}>
               close
             </span>
           </div>
           <p>Политика конфиденциальности</p>
         </div>
-        <div class="modalContentText">
-          <p class="descriptionWrap">
+        <div className="modalContentText">
+          <p className="descriptionWrap">
             в отношении личных данных клиентов, пользующихся сервисами
             официального сайта <br />
             Общества с ограниченной ответственностью “Алтайская региональная
@@ -22,7 +22,7 @@ function Modal({ setActive }) {
             переводчиков” (далее по тексту - компания).
           </p>
           <br />
-          <div class="modalText">
+          <div className="modalText">
             <p>Уважаемые клиенты!</p>
             <br />
             <p>
@@ -89,8 +89,8 @@ function Modal({ setActive }) {
             </p>
           </div>
         </div>
-        <footer class="modalFooter">
-          <button class="button" onClick={() => setActive(false)}>
+        <footer className="modalFooter">
+          <button className="button" onClick={() => setActive(false)}>
             Понятно
           </button>
         </footer>
