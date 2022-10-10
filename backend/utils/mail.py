@@ -69,8 +69,8 @@ async def sending(data):
 
     # Проверяем указал ли пользователь электронный адрес
     if data.get('email', ''):
-        address_list.insert(
-            0, [data.get("email"), "Заявка на перевод", "Ваша заявка принята"]
+        address_list.append(
+            [data.get("email"), "Заявка на перевод", "Ваша заявка принята"]
         )
     # Отправка письма
     message = {'data': 'success', 'status': 200}
