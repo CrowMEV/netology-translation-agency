@@ -24,5 +24,7 @@ async def send_mail(request) -> web.json_response:
 
 
 async def get_contacts(request):
+    if not request.headers.get('Origin'):
+        return web.HTTPForbidden()
     data = await get_data()
     return web.json_response(data, status=200)
