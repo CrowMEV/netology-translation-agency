@@ -42,7 +42,7 @@ services:
     ports:
       - '80:80'
     volumes:
-      - static-data:/usr/share/nginx/html/static/change-contacts
+      - static-data:/usr/share/nginx/html/static
     depends_on:
       - backend
 volumes:

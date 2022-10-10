@@ -8,6 +8,7 @@ db = conn.getDB("altai");
 //_getEnv() for get variable from environment
 db.site_data.insert(
     {
+        city: _getEnv('CITY'),
         address: _getEnv('ADDRESS'),
         email: _getEnv("EMAIL"),
         whatsapp: _getEnv("WHATSAPP"),
