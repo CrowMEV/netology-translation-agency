@@ -13,11 +13,6 @@
     <div class="authWrap">
         <h2 class="headerAuth">Авторизация</h2>
         <form id="order-form" method="post" action="/change_contacts/">
-            {% for msg in get_flashed_messages(
-                category_filter=['auth_message', 'login_message']
-            ) %}
-                <div class="flash">{{ msg }}</div>
-            {% endfor %}
             <div class="inputWrap">
                 <label for="login">Логин</label>
                 <input type="text" name="login" required/>
@@ -25,9 +20,11 @@
             <div class="inputWrap">
                 <label for="password">Пароль</label>
                 <input type="password" name="password" required/>
-                <span class="error">
-                    Неправильный логин или пароль!  
-                </span>
+                {% for msg in get_flashed_messages(category_filter=['auth_message', 'login_message']) %}
+                    <span class="war">
+                        Неправильный логин или пароль!  
+                    </span>
+                {% endfor %}
             </div>
             <div class="buttonWrap">
                 <button type="submit">Войти</button>

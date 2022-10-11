@@ -1,0 +1,14 @@
+__pycache__
+*/__pycache__
+**/__pycache__
+.git
+Dockerfile
+*.Dockerfile
+.gitignore
+.dockerignore
+node_modules
+backend
+frontend
+change_contacts
+*.env
+
