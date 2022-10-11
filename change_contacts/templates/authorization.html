@@ -22,7 +22,7 @@
                 <input type="password" name="password" required/>
                 {% for msg in get_flashed_messages(category_filter=['auth_message', 'login_message']) %}
                     <span class="war">
-                        Неправильный логин или пароль!  
+                        {{ msg }}  
                     </span>
                 {% endfor %}
             </div>
