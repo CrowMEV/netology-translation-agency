@@ -171,40 +171,6 @@
         }
     }
 
-    &__checkbox {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        margin-bottom: 10px;
-    }
-
-    &__checkbox_wrap {
-        padding: 0 0 5px 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 10px;
-
-        label {
-            display: inline-block;
-            width: 400px;
-            padding: 10px;
-            border-radius: 20px;
-            text-align: center;
-            margin-right: 20px;
-        }
-
-        input {
-            display: none;
-        }
-
-        input:checked+label {
-            border-radius: 20px;
-            background-color: #BDDBFF;
-        }
-
-    }
-
     &__file {
         display: flex;
         flex-direction: column;
@@ -229,13 +195,20 @@
         margin-bottom: 20px;
     }
 
-    &__privacy {
-        display: flex;
+    &__privacyWrap {
         margin-bottom: 30px;
 
+    }
+
+    &__privacy {
+        display: flex;
+        align-items: center;
+
         input {
-            width: 5%;
+            width: 24px;
+            height: 24px;
             margin-right: 10px;
+            border-bottom-style: none;
         }
 
         a {
@@ -253,7 +226,7 @@
         font-size: 1.2em;
         color: #bd0f0f;
     }
-
+    
     button {
         @include button-blue;
         margin: auto;
