@@ -1,5 +1,4 @@
 import './App.scss';
-//import Header from './components/header/Header';
 import Navbar from './components/navbar/Navbar';
 import MainBanner from './components/mainBanner/MainBanner';
 import AboutCompany from "./components/about-company/AboutCompany";
@@ -11,8 +10,6 @@ import Contacts from "./components/contacts/Contacts";
 import Footer from "./components/footer/Footer";
 import BurgerMenu from './components/burgerMenu/BurgerMenu';
 import OrderForm from './components/orderForm/OrderForm';
-
-/* import Sample from "./store/sample/sample"; */
 
 function App() {
   return (
@@ -27,12 +24,6 @@ function App() {
         <DiscountOffer/>
         <Discount/>
         <OrderForm/>
-        {/* <HowWeWork/> 
-        <Form/>
-         ** FORM PLACE **
-        ** STORE TEST **
-        <Sample/>
-        ** STORE TEST ENDS** */}
         <Contacts/>
         <Footer/>
       </div>

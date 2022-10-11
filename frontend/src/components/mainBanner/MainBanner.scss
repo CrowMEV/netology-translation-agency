@@ -15,7 +15,6 @@
     &__wrap {
         display: flex;
         display: flex;
-        //align-items: flex-end;
         justify-content: space-between;
     }
 
@@ -105,8 +104,6 @@
 
 .prettyFemale {
     max-width: 100%;
-    //z-index: 2;
-    //position: absolute;
     right: 0;
     bottom: 0;
     @media (min-width: 200px) and (max-width:599.98px) {

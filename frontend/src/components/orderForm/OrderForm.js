@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { sendOrder } from "../../api";
-import { langs, langsInflected } from "../form/langs";
+import { langs, langsInflected } from "./langs";
 import Modal from "../modal/Modal";
 import { ERROR_MESSAGE } from "./constants";
 import "./OrderForm.scss";
