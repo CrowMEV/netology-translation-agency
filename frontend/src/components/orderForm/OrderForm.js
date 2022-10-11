@@ -255,27 +255,29 @@ function OrderForm() {
                 />
               </div>
 
-              <div className="orderForm__privacy">
-                <input
-                  {...register("privacy", { required: true })}
-                  className="orderForm__privicy_check"
-                  type="checkbox"
-                />
-                <span>
-                  Я подтверждаю, что ознакомлен(а) с{" "}
-                  <a
-                    href="/"
-                    onClick={(e) => {
-                      setModalActive(true);
-                      e.preventDefault();
-                    }}
-                  >
-                    Политикой конфиденциальности
-                  </a>
-                  {errors?.privacy && (
-                    <p className="error">*необходимо подтверждение</p>
+              <div className="orderForm__privacyWrap">
+                <div className="orderForm__privacy">
+                  <input
+                    {...register("privacy", { required: true })}
+                    id="checkbox"
+                    type="checkbox"
+                  />
+                  <span>
+                    Я подтверждаю, что ознакомлен(а) с{" "}
+                    <a
+                      href="/"
+                      onClick={(e) => {
+                        setModalActive(true);
+                        e.preventDefault();
+                      }}
+                    >
+                      Политикой конфиденциальности
+                    </a>
+                  </span>
+                  </div>
+                {errors?.privacy && (
+                    <p className="orderForm__error">*необходимо подтверждение</p>
                   )}
-                </span>
               </div>
 
               <div className="orderForm__button">

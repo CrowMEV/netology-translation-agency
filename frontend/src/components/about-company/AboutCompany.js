@@ -21,11 +21,11 @@ function AboutCompany() {
         </p>
         <div className="aboutCompany__premiumWrap">
         <img className="aboutCompany__img" src={premium} alt="премия" />
-          <div className="aboutCompany__textPremium"> 
+          <p> 
             “Алтайская региональная ассоциация переводчиков” — лауреат
             престижной бизнес-премии "Выбор клиентов и партнеров 2021" по версии
             Межотраслевой рейтинговой компании.
-          </div>
+          </p>
         </div>
       </section>
     </div>

@@ -62,7 +62,6 @@ function Contacts() {
                 width="100%"
                 height="320"
                 frameBorder="1"
-                //allowFullScreen="true"
                 style={{ position: "relative" }}
               />
             </div>
@@ -90,7 +89,7 @@ function Contacts() {
                 src={Phone}
                 alt="мобильный телефон"
               />
-              <a href="tel:+79132765509" className="contacts__links_item_link">
+              <a href={`tel:+${contacts.phone_1}`} className="contacts__links_item_link">
               {contacts.phone_1}
               </a>
             </div>
@@ -101,7 +100,7 @@ function Contacts() {
                 src={Phone}
                 alt="городской телефон"
               />
-              <a href="tel:+73852243947" className="contacts__links_item_link">
+              <a href={`tel:+${contacts.phone_2}`} className="contacts__links_item_link">
                 {contacts.phone_2}
               </a>
             </div>
@@ -113,7 +112,7 @@ function Contacts() {
                 alt="вотсап"
               />
               <a
-                href="https://wa.me/79132765509"
+                href={`https://wa.me/${contacts.whatsapp}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="contacts__links_item_link"
@@ -129,7 +128,7 @@ function Contacts() {
                 alt="телеграмм"
               />
               <a
-                href="https://telegram.me/ilin_me"
+                href={`https://telegram.me/${contacts.telegram.slice(1)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="contacts__links_item_link"
@@ -145,7 +144,7 @@ function Contacts() {
                 alt="электронная почта"
               />
               <a
-                href="mailto:perevod_arap@mail.ru"
+                href={`mailto:${contacts.email}`}
                 className="contacts__links_item_link"
               >
                 {contacts.email}
