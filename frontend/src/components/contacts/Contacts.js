@@ -128,7 +128,7 @@ function Contacts() {
                 alt="телеграмм"
               />
               <a
-                href={`https://telegram.me/${contacts.telegram.slice(1)}`}
+                href={`https://telegram.me/${contacts.telegram}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="contacts__links_item_link"
