@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import logo from "../../img/socialIcons/logo.svg";
-import rewardNavbar from "../../img/rewardNavbar.svg";
+import rewardNavbar from "../../img/rewardNavbar.png";
 import BurgerMenu from "../burgerMenu/BurgerMenu";
 import burgerIcon from "../../img/burgerIcon.svg";
 
