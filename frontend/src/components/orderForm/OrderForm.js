@@ -12,6 +12,7 @@ function OrderForm() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false); 
   const [errorFileSize, setErrorFileSize] = useState(false);
+  const [errorSubmit, setErrorSubmit] = useState(false);
   const [filesArr, setFilesArr] = useState([]);
 
   const {
@@ -63,16 +64,15 @@ function OrderForm() {
     formData.append("comment", data.comment);
     formData.append("privacy", data.privacy);
 
-    try {
-      setLoading(true);
-      await sendOrder(formData);
+    const response = await sendOrder(formData);
+
+    if (response.status === 200) {
       reset();
-      setSuccess(true);
-    } catch (err) {
-      console.error(err);
-      alert("Не удалось отправить запрос");
-    } finally {
       setLoading(false);
+      setSuccess(true);
+    } else {
+      setLoading(false);
+      setErrorSubmit(true);
     }
   };
 
@@ -238,7 +238,13 @@ function OrderForm() {
                     {" "}
                     {filesArr?.map((el, idx) => (
                       <span key={idx}>
-                        {el.name} <i className="material-icons clear" onClick={() => handleDeleteFile(el.name)}>clear</i>
+                        {el.name}{" "}
+                        <i
+                          className="material-icons clear"
+                          onClick={() => handleDeleteFile(el.name)}
+                        >
+                          clear
+                        </i>
                       </span>
                     ))}
                   </div>
@@ -274,10 +280,10 @@ function OrderForm() {
                       Политикой конфиденциальности
                     </a>
                   </span>
-                  </div>
+                </div>
                 {errors?.privacy && (
-                    <p className="orderForm__error">*необходимо подтверждение</p>
-                  )}
+                  <p className="orderForm__error">*необходимо подтверждение</p>
+                )}
               </div>
 
               <div className="orderForm__button">
@@ -288,6 +294,12 @@ function OrderForm() {
                   <p className="orderForm__sucsess">
                     <i className="material-icons">done</i>Заказ успешно
                     отправлен
+                  </p>
+                )}
+                {errorSubmit && (
+                  <p className="orderForm__sucsess__sendError">
+                    <i className="material-icons">done</i>Не удалось отправить
+                    заказ. Свяжитесь с менеджером 
                   </p>
                 )}
               </div>

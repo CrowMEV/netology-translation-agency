@@ -50,9 +50,11 @@
         
     }
 
+
     &__sucsess {
         display: flex;
         color: #022033;
+
         @media(min-width:1440px) {
             font-size: 24px;
             line-height: 28px;
@@ -72,6 +74,9 @@
             margin-top: 25px;
         }
         
+        &__sendError {
+            color: #bd0f0f;
+        }
     }
 
     &__file_upload {
