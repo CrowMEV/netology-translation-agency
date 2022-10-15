@@ -29,9 +29,10 @@
     line-height: 30px;
 
     &__text {
-      @media (min-width: 320px) {
-        font-size: 24px;
-        line-height: 30px;
+      font-size: 24px;
+      
+      @media (min-width: 320px) and (max-width: 1439.98px) {
+        font-size: 20px;
       }
     }
 
