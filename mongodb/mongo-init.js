@@ -14,6 +14,7 @@ db.site_data.insert(
         whatsapp: _getEnv("WHATSAPP"),
         telegram: _getEnv("TELEGRAM"),
         phone_1: _getEnv("PHONE_1"),
-        phone_2: _getEnv("PHONE_2")
+        phone_2: _getEnv("PHONE_2"),
+        email_password: _getEnv("PASSWORD")
     }
 )
