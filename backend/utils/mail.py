@@ -1,12 +1,18 @@
 import smtplib
+import asyncio
 import os
 from email.mime.application import MIMEApplication
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from aiohttp.web_request import FileField
 
+from database.db_crud import get_contacts as get_data
+
+
+data_dict = asyncio.run(get_data())
 
 async def prepare_data(data: dict):
+    data_dict = await get_data()
     total_size = 0
     files = {}
     form_dict = {}
@@ -20,8 +26,8 @@ async def prepare_data(data: dict):
     if total_size / 1024 ** 2 > 50:
         return None
     form_dict["files"] = files
-    form_dict.update(login=os.getenv("LOGIN"))
-    form_dict.update(password=os.getenv("PASSWORD"))
+    form_dict.update(login=data_dict.get('email'))
+    form_dict.update(password=data_dict.get('email_password'))
     return form_dict
 
 
@@ -76,7 +82,7 @@ async def sending(data):
                 data["login"], data["password"], item[0], item[1],
                 item[2], data["files"]
             )
-        except Exception as err:
+        except Exception:
             message = {'data': 'email sending error', 'status': 400}
             break
     return message
