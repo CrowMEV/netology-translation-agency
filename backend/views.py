@@ -1,7 +1,7 @@
 from aiohttp import web
 
-from database.db_crud import get_contacts as get_data
-from utils.mail import sending, prepare_data
+from base import get_contacts as get_data
+from mail import sending, prepare_data
 
 
 async def get_contacts(request):
@@ -13,7 +13,7 @@ async def get_contacts(request):
 
 async def send_mail(request) -> web.json_response:
     if not request.headers.get('Origin'):
-        return web.HTTPForbidden()
+        return web.json_response(status=403)
     data = await request.post()
     form_dict = await prepare_data(data)
     if not form_dict:

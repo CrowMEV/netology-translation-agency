@@ -1,7 +1,7 @@
 from aiohttp import web
 from aiohttp_cors import setup as cors_setup, ResourceOptions
 
-from views.views import get_contacts, send_mail
+from views import get_contacts, send_mail
 
 
 async def web_app():

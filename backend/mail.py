@@ -1,15 +1,11 @@
 import smtplib
-import asyncio
-import os
 from email.mime.application import MIMEApplication
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from aiohttp.web_request import FileField
 
-from database.db_crud import get_contacts as get_data
+from base import get_contacts as get_data
 
-
-data_dict = asyncio.run(get_data())
 
 async def prepare_data(data: dict):
     data_dict = await get_data()
@@ -31,33 +27,40 @@ async def prepare_data(data: dict):
     return form_dict
 
 
-async def send_to_current_user(from_, password, to, subject, content, files):
+async def send_to_current_user(
+    from_: str,
+    password: str,
+    to: str,
+    subject: str,
+    **kwargs
+):
     msg = MIMEMultipart()
-    msg.attach(MIMEText(content, _charset='utf-8'))
+    msg.attach(MIMEText(kwargs.get('content', ''), _charset='utf-8'))
     msg['Subject'] = subject
     msg['From'] = from_
     msg['To'] = to
-    if from_ == to:
-
-        # attach files
+    host = from_.split('@')[1]
+    files = kwargs.get('files', {})
+    if files:
         for filename, value in files.items():
             attachment = MIMEApplication(value)
             attachment.add_header('Content-Disposition', 'attachment',
-                                  filename=("utf-8", "", f"{filename}"))
+                                    filename=("utf-8", "", f"{filename}"))
             msg.attach(attachment)
 
     # send mail
-    s = smtplib.SMTP(host='smtp.mail.ru', port=25)
-    s.starttls()
-    s.ehlo()
-    s.login(from_, password)
-    s.send_message(msg)
-    s.quit()
+    smtp = smtplib.SMTP(host=f'smtp.{host}', port=25)
+    smtp.starttls()
+    smtp.ehlo()
+    smtp.login(from_, password)
+    response = smtp.send_message(msg)
+    smtp.quit()
+    return response
 
 
-async def sending(data):
+async def sending(data: dict):
     # Формируем тело письма с данными о заказчике
-    message_text = f"""
+    content = f"""
     Заказчик: {data.get('name', '')}
     Телефон: {data.get('telephone', '')}
     Email: {data.get('email', '')}
@@ -65,24 +68,24 @@ async def sending(data):
     Перевод на: {data.get('translate_l', '')}
     Комментарий: {data.get('comment', '')}
     """
-    address_list = [
-        [data.get("login"), "Новая заявка", message_text]
-    ]
-
-    # Проверяем указал ли пользователь электронный адрес
-    if data.get('email', ''):
-        address_list.append(
-            [data.get("email"), "Заявка на перевод", "Ваша заявка принята"]
-        )
-    # Отправка письма
-    message = {'data': 'success', 'status': 200}
-    for item in address_list:
-        try:
-            await send_to_current_user(
-                data["login"], data["password"], item[0], item[1],
-                item[2], data["files"]
-            )
-        except Exception:
-            message = {'data': 'email sending error', 'status': 400}
-            break
-    return message
+    login = data["login"]
+    password = data["password"]
+    try:
+        message = await send_to_current_user(
+                from_=login,
+                password=password,
+                to=login,
+                subject="Новая заявка",
+                content=content,
+                files=data.get("files", {}))
+    except smtplib.SMTPAuthenticationError:
+        return {'data': 'Auth failed', 'status': 403}
+    if message:
+        return message
+    await send_to_current_user(
+            from_=login,
+            password=password,
+            to=data.get("email", ""),
+            subject="Заявка на перевод",
+            content="Ваша заявка принята")
+    return {'data': 'success', 'status': 200}
