@@ -4,11 +4,11 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from aiohttp.web_request import FileField
 
-from base import get_contacts as get_data
+from base import get_credentials
 
 
 async def prepare_data(data: dict):
-    data_dict = await get_data()
+    data_dict = await get_credentials()
     total_size = 0
     files = {}
     form_dict = {}
@@ -22,8 +22,8 @@ async def prepare_data(data: dict):
     if total_size / 1024 ** 2 > 50:
         return None
     form_dict["files"] = files
-    form_dict.update(login=data_dict.get('email'))
-    form_dict.update(password=data_dict.get('email_password'))
+    form_dict.update(login=data_dict.get('login'))
+    form_dict.update(password=data_dict.get('password'))
     return form_dict
 
 
@@ -44,8 +44,11 @@ async def send_to_current_user(
     if files:
         for filename, value in files.items():
             attachment = MIMEApplication(value)
-            attachment.add_header('Content-Disposition', 'attachment',
-                                    filename=("utf-8", "", f"{filename}"))
+            attachment.add_header(
+                'Content-Disposition',
+                'attachment',
+                filename=("utf-8", "", f"{filename}")
+            )
             msg.attach(attachment)
 
     # send mail
@@ -68,8 +71,8 @@ async def sending(data: dict):
     Перевод на: {data.get('translate_l', '')}
     Комментарий: {data.get('comment', '')}
     """
-    login = data["login"]
-    password = data["password"]
+    login = data['login']
+    password = data['password']
     try:
         message = await send_to_current_user(
                 from_=login,
@@ -85,7 +88,7 @@ async def sending(data: dict):
     await send_to_current_user(
             from_=login,
             password=password,
-            to=data.get("email", ""),
-            subject="Заявка на перевод",
-            content="Ваша заявка принята")
+            to=data.get('email', ''),
+            subject='Заявка на перевод',
+            content='Ваша заявка принята')
     return {'data': 'success', 'status': 200}
