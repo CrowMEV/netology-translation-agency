@@ -35,7 +35,8 @@ services:
     build: ./frontend
     restart: always
     ports:
-      - '80:80'
+      - 80:80
+      - 443:443
     volumes:
       - ./logs:/var/log/nginx
       - static-data:/usr/share/nginx/html/static/change-contacts
