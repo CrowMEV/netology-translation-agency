@@ -12,6 +12,9 @@ services:
     restart: always
     env_file:
       - db.env
+    volumes:
+      - ./certbot/conf/:/app/ssl/:ro
+    command: ./entrypoint.sh
     depends_on:
       - db
 
@@ -23,6 +26,7 @@ services:
       - admin.env
     volumes:
       - static-data:/app/templates/static
+      - ./certbot/conf/:/app/ssl/:ro
     command: ./entrypoint.sh
     depends_on:
       - db
@@ -35,7 +39,16 @@ services:
     volumes:
       - ./logs:/var/log/nginx
       - static-data:/usr/share/nginx/html/static/change-contacts
+      - ./certbot/www:/var/www/certbot/:ro
+      - ./certbot/conf/:/etc/nginx/ssl/:ro
     depends_on:
       - backend
+
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ./certbot/www/:/var/www/certbot/:rw
+      - ./certbot/conf/:/etc/letsencrypt/:rw
+
 volumes:
   static-data:
