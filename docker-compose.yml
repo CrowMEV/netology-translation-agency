@@ -33,6 +33,7 @@ services:
     ports:
       - '80:80'
     volumes:
+      - ./logs:/var/log/nginx
       - static-data:/usr/share/nginx/html/static/change-contacts
     depends_on:
       - backend
