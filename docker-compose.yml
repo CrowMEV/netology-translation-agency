@@ -39,6 +39,7 @@ services:
       - 443:443
     volumes:
       - ./logs:/var/log/nginx
+      - ./frontend/sites-config:/etc/nginx/conf.d
       - static-data:/usr/share/nginx/html/static/change-contacts
       - ./certbot/www:/var/www/certbot/:ro
       - ./certbot/conf/:/etc/nginx/ssl/:ro
