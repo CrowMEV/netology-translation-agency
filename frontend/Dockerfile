@@ -1,7 +1,7 @@
 FROM node:current-alpine as builder
 WORKDIR /app
 COPY package.json /app/package.json
-RUN npm install --only=prod
+RUN npm install --omit=dev
 COPY . .
 RUN npm run build
 FROM nginx:stable-alpine

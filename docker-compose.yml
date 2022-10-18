@@ -12,6 +12,9 @@ services:
     restart: always
     env_file:
       - db.env
+    volumes:
+      - ./certbot/conf/:/app/ssl/:ro
+    command: ./entrypoint.sh
     depends_on:
       - db
 
@@ -23,6 +26,7 @@ services:
       - admin.env
     volumes:
       - static-data:/app/templates/static
+      - ./certbot/conf/:/app/ssl/:ro
     command: ./entrypoint.sh
     depends_on:
       - db
@@ -31,12 +35,24 @@ services:
     build: ./frontend
     restart: always
     ports:
-      - '80:80'
+      - 80:80
+      - 443:443
     volumes:
       - ./logs:/var/log/nginx
       - ./frontend/sites-config:/etc/nginx/conf.d
       - static-data:/usr/share/nginx/html/static/change-contacts
+      - ./certbot/www:/var/www/certbot/:ro
+      - ./certbot/conf/:/etc/nginx/ssl/:ro
+    command: '/bin/sh -c ''while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g "daemon off;"'''
     depends_on:
       - backend
+
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ./certbot/www/:/var/www/certbot/:rw
+      - ./certbot/conf/:/etc/letsencrypt/:rw 
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'" 
+
 volumes:
   static-data:
