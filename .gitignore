@@ -4,7 +4,7 @@ __pycache__/
 *$py.class
 .idea
 .vscode
-transaction/
+translation/
 *.env
 
 # C extensions
@@ -160,3 +160,4 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 
 
+store_data/

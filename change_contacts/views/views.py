@@ -1,8 +1,9 @@
 import os
+from hashlib import sha256
 
 from flask import request, render_template, redirect, url_for, session, flash
 
-from .base import get_data, save_data
+from store import read_json, save_json, read_credentials
 from .auth import login_required
 
 
@@ -13,8 +14,9 @@ def login():
 def check_login():
     user_login = request.form.get('login')
     password = request.form.get('password')
-    if (user_login != os.getenv('ADMIN_LOGIN') or
-            password != os.getenv('ADMIN_PASSWORD')):
+    form_pass = sha256(f'{user_login}:{password}'.encode()).hexdigest()
+    hash_pass = read_credentials()
+    if form_pass != hash_pass:
         flash("Неверный логин или пароль", 'login_message')
         return redirect(url_for('login'))
     session['isAuth'] = True
@@ -23,13 +25,13 @@ def check_login():
 
 
 @login_required
-def get_from_base():
-    contacts = get_data()
+def get_json_data():
+    contacts = read_json()
     return render_template("contact.html", contacts=contacts)
 
 
 @login_required
 def save_to_base():
     request_data = request.form
-    save_data(request_data)
+    save_json(request_data)
     return redirect(url_for('get_base'))

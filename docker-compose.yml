@@ -1,23 +1,6 @@
 version: '3.3'
 
 services:
-  db:
-    build: ./mongodb
-    restart: unless-stopped
-    env_file:
-      - db.env
-
-  backend:
-    build: ./backend
-    restart: always
-    env_file:
-      - db.env
-    volumes:
-      - ./certbot/conf/:/app/ssl/:ro
-    command: ./entrypoint.sh
-    depends_on:
-      - db
-
   change_contacts:
     build: ./change_contacts
     restart: always
@@ -25,11 +8,24 @@ services:
       - db.env
       - admin.env
     volumes:
+      - ./store_data:/app/store_data
       - static-data:/app/templates/static
       - ./certbot/conf/:/app/ssl/:ro
     command: ./entrypoint.sh
+
+
+  backend:
+    build: ./backend
+    restart: always
+    env_file:
+      - db.env
+    volumes:
+      - ./store_data:/app/store_data
+      - ./certbot/conf/:/app/ssl/:ro
+    command: ./entrypoint.sh
     depends_on:
-      - db
+      - change_contacts
+
 
   frontend:
     build: ./frontend

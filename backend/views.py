@@ -1,11 +1,11 @@
 from aiohttp import web
 
-from base import get_contacts as get_data
+from get_data import read_contacts
 from mail import sending, prepare_data
 
 
 async def get_contacts(request) -> web.json_response:
-    data = await get_data()
+    data = await read_contacts()
     return web.json_response(data, status=200)
 
 
