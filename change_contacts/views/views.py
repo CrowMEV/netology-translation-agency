@@ -2,8 +2,9 @@ from hashlib import sha256
 
 from flask import request, render_template, redirect, url_for, session, flash
 
-from .base import get_data, save_data, get_login_and_password
+# from .base import get_data, save_data, get_login_and_password
 from .auth import login_required
+from .store import read_json
 
 
 def login():
@@ -25,7 +26,7 @@ def check_login():
 
 @login_required
 def get_from_base():
-    contacts = get_data()
+    contacts = read_json()
     return render_template("contact.html", contacts=contacts)
 
 
