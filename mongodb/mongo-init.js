@@ -15,6 +15,8 @@ db.site_data.insert(
         telegram: _getEnv("TELEGRAM"),
         phone_1: _getEnv("PHONE_1"),
         phone_2: _getEnv("PHONE_2"),
-        email_password: _getEnv("PASSWORD")
+        email_password: _getEnv("PASSWORD"),
+        admin_login: _getEnv("ADMIN_LOGIN"),
+        admin_password: _getEnv("ADMIN_PASSWORD")
     }
 )
