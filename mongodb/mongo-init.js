@@ -11,12 +11,11 @@ db.site_data.insert(
         city: _getEnv('CITY'),
         address: _getEnv('ADDRESS'),
         email: _getEnv("EMAIL"),
+        admin_password: _getEnv("ADMIN_PASSWORD"),
         whatsapp: _getEnv("WHATSAPP"),
         telegram: _getEnv("TELEGRAM"),
         phone_1: _getEnv("PHONE_1"),
         phone_2: _getEnv("PHONE_2"),
-        email_password: _getEnv("PASSWORD"),
-        admin_login: _getEnv("ADMIN_LOGIN"),
-        admin_password: _getEnv("ADMIN_PASSWORD")
+        admin: _getEnv("ADMIN"),
     }
 )
