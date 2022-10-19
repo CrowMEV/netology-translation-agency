@@ -1,5 +1,6 @@
+from hashlib import sha256
+
 from flask import request, render_template, redirect, url_for, session, flash
-from werkzeug.security import check_password_hash
 
 from .base import get_data, save_data, get_login_and_password
 from .auth import login_required
@@ -12,10 +13,9 @@ def login():
 def check_login():
     user_login = request.form.get('login')
     password = request.form.get('password')
-    data = get_login_and_password()
-
-    if not check_password_hash(data.get('password'), password) or \
-            user_login != data.get('login'):
+    form_pass = sha256(f'{user_login}:{password}'.encode()).hexdigest()
+    hash_pass = get_login_and_password()
+    if form_pass != hash_pass:
         flash("Неверный логин или пароль", 'login_message')
         return redirect(url_for('login'))
     session['isAuth'] = True
@@ -32,5 +32,7 @@ def get_from_base():
 @login_required
 def save_to_base():
     request_data = request.form
+    passw = request_data['email_password']
+    request_data['email_password'] = sha256(passw.encode()).hexdigest()
     save_data(request_data)
     return redirect(url_for('get_base'))
