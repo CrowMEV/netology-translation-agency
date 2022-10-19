@@ -13,6 +13,7 @@ services:
     env_file:
       - db.env
     volumes:
+      -./backend/key:/app/key
       - ./certbot/conf/:/app/ssl/:ro
     command: ./entrypoint.sh
     depends_on:
