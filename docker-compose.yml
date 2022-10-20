@@ -5,7 +5,7 @@ services:
     build: ./change_contacts
     restart: always
     env_file:
-      - db.env
+      - contacts.env
       - admin.env
     volumes:
       - ./store_data:/app/store_data
@@ -17,8 +17,6 @@ services:
   backend:
     build: ./backend
     restart: always
-    env_file:
-      - db.env
     volumes:
       - ./store_data:/app/store_data
       - ./certbot/conf/:/app/ssl/:ro
