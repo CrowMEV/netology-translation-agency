@@ -2,12 +2,8 @@
 @import '../../BaseStyles/media.scss';
 
 .aboutCompany {
-  padding-top: 73px;
+  padding-top: 63px;
   color: $color-text; 
-
-  @media(min-width: 768px) and (max-width:1439.98px) {
-    padding-top: 40px;
-  }
 
   @media(min-width: 200px) and (max-width:767.98px)  {
     padding-top: 23px;

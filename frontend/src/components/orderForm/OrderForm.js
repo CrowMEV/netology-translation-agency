@@ -94,7 +94,7 @@ function OrderForm() {
                   {...register("name", {
                     maxLength: 30,
                     minLength: {
-                      value: 4,
+                      value: 2,
                       message: "*некорректное имя",
                     },
                     required: true,
@@ -123,7 +123,7 @@ function OrderForm() {
                       message: "*некорректный формат телефона",
                     },
                     maxLength: {
-                      value: 15,
+                      value: 20,
                       message: "*некорректный формат телефона",
                     },
                     required: true,
