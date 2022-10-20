@@ -1,6 +1,6 @@
 from aiohttp import web
 
-from get_data import read_contacts
+from io_data import read_contacts
 from mail import sending, prepare_data
 
 

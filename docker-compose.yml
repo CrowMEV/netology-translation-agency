@@ -5,25 +5,14 @@ services:
     build: ./change_contacts
     restart: always
     env_file:
-      - contacts.env
       - admin.env
     volumes:
       - ./store_data:/app/store_data
       - static-data:/app/templates/static
       - ./certbot/conf/:/app/ssl/:ro
     command: ./entrypoint.sh
-
-
-  backend:
-    build: ./backend
-    restart: always
-    volumes:
-      - ./store_data:/app/store_data
-      - ./certbot/conf/:/app/ssl/:ro
-    command: ./entrypoint.sh
     depends_on:
-      - change_contacts
-
+      - backend
 
   frontend:
     build: ./frontend
@@ -40,6 +29,16 @@ services:
     command: '/bin/sh -c ''while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g "daemon off;"'''
     depends_on:
       - backend
+
+  backend:
+    build: ./backend
+    restart: always
+    env_file:
+      - contacts.env
+    volumes:
+      - ./store_data:/app/store_data
+      - ./certbot/conf/:/app/ssl/:ro
+    command: ./entrypoint.sh
 
   certbot:
     image: certbot/certbot

@@ -4,7 +4,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from aiohttp.web_request import FileField
 
-from get_data import get_credentials
+from io_data import get_credentials
 
 
 async def prepare_data(data: dict):
