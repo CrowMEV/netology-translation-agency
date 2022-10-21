@@ -7,5 +7,5 @@ RUN npm run build
 FROM nginx:stable-alpine
 COPY ./nginx-conf/nginx.conf /etc/nginx/
 COPY --from=builder /app/build /usr/share/nginx/html
-EXPOSE 80
+RUN mkdir /usr/share/nginx/cache
 CMD ["nginx", "-g", "daemon off;"]
