@@ -34,8 +34,7 @@ function Contacts() {
         <div className="contacts__wrap">
           <div className="contacts__map">
             <div style={{ position: "relative", overflow: "hidden" }}>
-              <a
-                href="https://yandex.ru/maps/197/barnaul/?utm_medium=mapframe&utm_source=maps"
+              <span
                 style={{
                   color: "#eee",
                   fontSize: "12px",
@@ -44,9 +43,8 @@ function Contacts() {
                 }}
               >
                 {contacts.city}
-              </a>
-              <a
-                href="https://yandex.ru/maps/197/barnaul/house/depovskaya_ulitsa_7/bEoYcQBhTEQGQFtpfX91eXVhYA==/?ll=83.771511%2C53.348925&utm_medium=mapframe&utm_source=maps&z=17.28"
+              </span>
+              <span
                 style={{
                   color: "#eee",
                   fontSize: "12px",
@@ -55,10 +53,10 @@ function Contacts() {
                 }}
               >
                 {contacts.address}
-              </a>
+              </span>
               <iframe
                 title={"карта"}
-                src="https://yandex.ru/map-widget/v1/-/CCUNbNbz2C"
+                src={`https://yandex.ru/map-widget/v1/-/${contacts.map_uri}`}
                 width="100%"
                 height="320"
                 frameBorder="1"
@@ -74,14 +72,13 @@ function Contacts() {
                 src={Home}
                 alt="адрес"
               />
-              <a
+              <span
                 className="contacts__links_item_link"
-                href="https://yandex.ru/maps/197/barnaul/house/depovskaya_ulitsa_7/bEoYcQBhTEQGQFtpfX91eXVhYA==/?ll=83.771511%2C53.348925&utm_medium=mapframe&utm_source=maps&z=17.28"
               >
                 {contacts.city}
                 <br />
                 {contacts.address}
-              </a>
+              </span>
             </div>
             <div className="contacts__links_item">
               <img
