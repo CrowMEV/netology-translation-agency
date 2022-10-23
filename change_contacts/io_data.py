@@ -17,7 +17,7 @@ def read_json() -> dict:
 def save_json(form_data: dict) -> None:
     data = read_json()
     form = {key: value for key, value in form_data.items() if value}
-    email_uri = form.get('email_uti')
+    email_uri = form.get('email_uri')
     if email_uri:
         form['email_uri'] = split_url(email_uri)
     data.update(form)
