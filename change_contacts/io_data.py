@@ -17,9 +17,9 @@ def read_json() -> dict:
 def save_json(form_data: dict) -> None:
     data = read_json()
     form = {key: value for key, value in form_data.items() if value}
-    email_uri = form.get('email_uri')
-    if email_uri:
-        form['email_uri'] = split_url(email_uri)
+    map_uri = form.get('map_uri')
+    if map_uri:
+        form['map_uri'] = split_url(map_uri)
     data.update(form)
     with open(CONTACTS, 'w') as file:
         json.dump(data, file, ensure_ascii=False, indent=2)
