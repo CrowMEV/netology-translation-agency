@@ -222,6 +222,7 @@ function OrderForm() {
                         onChange: (ev) => validateSize(ev.target),
                       })}
                     />
+                    <div className="textInfo">Для выбора нескольких файлов в окне зажмите ctrl или shift</div>
                     {errors?.file && (
                       <p className="orderForm__error">
                         {errors?.file?.message || "*файл не выбран"}
