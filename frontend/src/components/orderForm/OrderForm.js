@@ -1,11 +1,10 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { sendOrder } from "../../api";
 import { langs, langsInflected } from "./langs";
 import Modal from "../modal/Modal";
 import { ERROR_MESSAGE } from "./constants";
 import "./OrderForm.scss";
-import { getFileArr } from "./utils";
 
 function OrderForm() {
   const [modalActive, setModalActive] = useState(false);
@@ -19,27 +18,42 @@ function OrderForm() {
     register,
     handleSubmit,
     reset,
-    watch,
     formState: { errors },
   } = useForm({
     mode: "onBlur",
   });
 
-  const watchFile = watch("file");
-  useMemo(() => watchFile ? setFilesArr(getFileArr(watchFile)) : null, [watchFile]);
-
-  const validateSize = (input) => {
+  const validateSize = (files) => {
     let filesSize = 0; // in MiB
     const kbInMb = 1024 * 1024;
     
-    for(let i = 0; i < filesArr?.length; i++) {
-      filesSize += filesArr[i].size / kbInMb;
+    for(let i = 0; i < files?.length; i++) {
+      filesSize += files[i].size / kbInMb;
     }
 
-    if (filesSize > 50) {
-      setErrorFileSize(true);
-    }
+    setErrorFileSize(filesSize > 5);
   }
+
+  useEffect(() => {
+    validateSize(filesArr);
+  }, [filesArr]);
+
+  const getFileArr = (filelist) => {
+    const files = [];
+
+    if (filelist) {
+      for (let i = 0; i < filelist.length; i++) {
+        files.push(filelist.item(i));
+      }
+    }
+
+    return files;
+  };
+
+  const handleFileChanged = (e) => {
+    const files = getFileArr(e.target.files);
+    setFilesArr(files);
+  };
 
   const handleDeleteFile = (name) => {
     const newFilesArr= filesArr.filter(el => el.name !== name);
@@ -219,7 +233,7 @@ function OrderForm() {
                           message: "*недопустимый формат файла",
                         },
                         required: false,
-                        onChange: (ev) => validateSize(ev.target),
+                        onChange: handleFileChanged,
                       })}
                     />
                     <div className="textInfo">Для выбора нескольких файлов в окне зажмите ctrl или shift</div>
@@ -230,8 +244,7 @@ function OrderForm() {
                     )}
                     {errorFileSize && (
                       <p className="orderForm__error">
-                        {errors?.file?.message ||
-                          "*размер файла(ов) превышает 50мб"}
+                          *размер файла(ов) превышает 50мб
                       </p>
                     )}
                   </div>
