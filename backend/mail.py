@@ -83,6 +83,8 @@ async def sending(data: dict):
                 files=data.get("files", {}))
     except smtplib.SMTPAuthenticationError:
         return {'data': 'Auth failed', 'status': 403}
+    except smtplib.SMTPRecipientsRefused:
+        return {'data': 'Bad Request', 'status': 400}
     if message:
         return message
     try:
