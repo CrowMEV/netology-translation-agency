@@ -83,14 +83,15 @@ async def sending(data: dict):
                 files=data.get("files", {}))
     except smtplib.SMTPAuthenticationError:
         return {'data': 'Auth failed', 'status': 403}
-    except smtplib.SMTPRecipientsRefused:
-        return {'data': 'Bad Request', 'status': 400}
     if message:
         return message
-    await send_to_current_user(
-            from_=login,
-            password=password,
-            to=data.get('email', ''),
-            subject='Заявка на перевод',
-            content='Ваша заявка принята')
+    try:
+        await send_to_current_user(
+                from_=login,
+                password=password,
+                to=data.get('email', ''),
+                subject='Заявка на перевод',
+                content='Ваша заявка принята')
+    except smtplib.SMTPRecipientsRefused:
+        return {'data': 'Bad Request', 'status': 400}
     return {'data': 'success', 'status': 200}
