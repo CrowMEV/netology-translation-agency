@@ -147,7 +147,7 @@ function OrderForm() {
                   })}
                   className="orderForm__input_style"
                   type="tel"
-                  placeholder="123-456-7890"
+                  placeholder="+7(ХХХ)ХХХ-ХХ-ХХ"
                 />
                 {errors?.telephone && (
                   <p className="orderForm__error">
