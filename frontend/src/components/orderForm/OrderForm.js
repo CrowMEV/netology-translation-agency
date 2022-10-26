@@ -228,8 +228,7 @@ function OrderForm() {
                       multiple
                       {...register("file", {
                         accept: {
-                          value:
-                            ".jpg, .jpeg, .png, .zip, .doc, .docx, .pdf, .djvu",
+                          value: ".jpg, .jpeg, .png, .zip, .doc, .docx, .pdf, .djvu",
                           message: "*недопустимый формат файла",
                         },
                         required: false,
