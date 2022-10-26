@@ -61,6 +61,9 @@ function OrderForm() {
   }
 
   const onSubmit = async (data) => {
+    setErrorSubmit(false);
+    setSuccess(false);
+
     if (errorFileSize) {
       return;
     }
@@ -129,7 +132,7 @@ function OrderForm() {
                 <input
                   {...register("telephone", {
                     pattern: {
-                      value: /^[0-9+][0-9()-]{4,14}\d$/,
+                      value: /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/,
                       message: "*некорректный формат телефона",
                     },
                     minLength: {
@@ -311,7 +314,7 @@ function OrderForm() {
                 )}
                 {errorSubmit && (
                   <p className="orderForm__sucsess__sendError">
-                    <i className="material-icons">done</i>Не удалось отправить
+                    <i className="material-icons">close</i>Не удалось отправить
                     заказ. Свяжитесь с менеджером 
                   </p>
                 )}
