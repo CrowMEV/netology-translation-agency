@@ -228,12 +228,9 @@ function OrderForm() {
                     <input
                       id="file"
                       type="file"
+                      accept=".jpg, .jpeg, .png, .zip, .doc, .docx, .pdf, .djvu"
                       multiple
                       {...register("file", {
-                        accept: {
-                          value: ".jpg, .jpeg, .png, .zip, .doc, .docx, .pdf, .djvu",
-                          message: "*недопустимый формат файла",
-                        },
                         required: false,
                         onChange: handleFileChanged,
                       })}
