@@ -223,7 +223,7 @@ function OrderForm() {
                   <div className="orderForm__input_double">
                     <label htmlFor="file" className="orderForm__file_upload">
                       <i className="material-icons">file_upload</i> Выберите
-                      файл
+                      файл(ы), до 50мб
                     </label>
                     <input
                       id="file"
