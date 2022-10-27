@@ -300,21 +300,21 @@ function OrderForm() {
               </div>
 
               <div className="orderForm__button">
-                <button type="submit">
-                  {loading ? "Отправка..." : "Заказать перевод"}
-                </button>
-                {success && (
+              {success && (
                   <p className="orderForm__sucsess">
                     <i className="material-icons">done</i>Заказ успешно
                     отправлен
                   </p>
                 )}
                 {errorSubmit && (
-                  <p className="orderForm__sucsess__sendError">
+                  <p className="orderForm__sendError">
                     <i className="material-icons">close</i>Не удалось отправить
                     заказ. Свяжитесь с менеджером 
                   </p>
                 )}
+                <button type="submit">
+                  {loading ? "Отправка..." : "Заказать перевод"}
+                </button>
               </div>
             </form>
           </div>
