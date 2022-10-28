@@ -95,5 +95,5 @@ async def sending(data: dict):
                 subject='Заявка на перевод',
                 content='Ваша заявка принята')
     except smtplib.SMTPRecipientsRefused:
-        return {'data': 'Bad Request', 'status': 400}
+        pass:
     return {'data': 'success', 'status': 200}
