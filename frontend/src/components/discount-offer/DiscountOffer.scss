@@ -17,7 +17,7 @@
     padding: 30px 30px 30px 30px;
   }
 
-  p {
+  &__textBasic {
     @media(min-width:320px) and (max-width:767.98px) {
       display: none;
     }
