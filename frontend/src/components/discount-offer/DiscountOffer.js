@@ -5,7 +5,7 @@ function DiscountOffer() {
         <div className="discountOffer__description">
           <h2>Скидка до 10%</h2>
           <p>
-            Скидки при больших объёмах и не срочных заказах.
+            Скидки при больших объёмах и несрочных заказах.
             <br />
             <div className="discountOffer__textBasic">Рассчитаем стоимость и сроки перевода после ознакомления с
             материалами.</div>
