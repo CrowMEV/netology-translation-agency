@@ -13,7 +13,7 @@ def create_data() -> None:
         'telegram': os.getenv("TELEGRAM", ''),
         'phone_1': os.getenv("PHONE_1", ''),
         'phone_2': os.getenv("PHONE_2", ''),
-        'map_uri': os.getenv('MAP_URI', '')
+        'map_uri': os.getenv('MAP_URI', '').split('/')[-1]
     }
     if not os.path.isfile(contacts):
         with open(contacts, 'w') as file:

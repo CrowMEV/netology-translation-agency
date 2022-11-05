@@ -5,7 +5,7 @@ __pycache__/
 .idea
 .vscode
 translation/
-*.env
+.env
 
 # C extensions
 *.so
